@@ -34,4 +34,4 @@ map('n', '<A-j>', ':m .+1<CR>==', opts)
 map('n', '<A-k>', ':m .-2<CR>==', opts)
 
 -- Git Blame
-map('n', '<leader>gb', ':GitBlameToggle<CR>', opts)
+map('n', 'gb', ':GitBlameToggle<CR>', opts)
