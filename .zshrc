@@ -107,17 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='lsd'
-
-alias ll='ls -l'
-alias la='ls -la'
-alias lt='ls --tree'
-
-alias cat='bat'
-
-#source ~/.zshrc.pre-oh-my-zsh
-#
-
 function openNvim {
     if [ $# -eq 0 ]; then
         nvim ./
@@ -126,6 +115,14 @@ function openNvim {
     fi
 }
 alias v=openNvim
+alias ls='lsd'
+
+alias ll='ls -l'
+alias la='ls -la'
+alias lt='ls --tree'
+
+alias cat='bat'
+alias icat='kitty +kitten icat'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -24,6 +24,7 @@ return require 'packer'.startup(function()
   --> themes
   use("EdenEast/nightfox.nvim") --> nightfox colorsceme for neovim 
   use("sainnhe/gruvbox-material")
+  use("maxmx03/FluoroMachine.nvim")
 
   use("windwp/nvim-autopairs")
 
@@ -52,6 +53,7 @@ return require 'packer'.startup(function()
   use("hrsh7th/nvim-cmp") --> Autocompletion plugin
   use("hrsh7th/cmp-nvim-lsp") --> LSP source for nvim-cmp
   use("L3MON4D3/LuaSnip") --> Snippets plugin
+  use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-compe'
 
   --> Git

@@ -1,115 +1,150 @@
+---@diagnostic disable: undefined-global
+local lspconfig = require("lspconfig")
 local cmp = require('cmp')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local lspkind = require('lspkind')
 local luasnip = require('luasnip')
-local lspconfig = require("lspconfig")
-local null_ls = require('null-ls')
+local lspkind = require('lspkind')
+local compare = require('cmp.config.compare')
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>E', vim.diagnostic.setloclist, opts)
+vim.keymap.set("n", "gl", vim.diagnostic.setloclist, opts)
+
+vim.o.completeopt = 'menuone,noselect'
 
 local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    -- Mappings
-    local opts = { noremap = true, silent = true }
-
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    buf_set_keymap("n", "gl", '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
-
-    -- Disable Autoformat
-    --client.resolved_capabilities.document_formatting = false
-    --client.resolved_capabilities.document_range_formatting = false
-
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-
-local servers = { 'tsserver', 'dockerls', 'emmet_ls', 'html', 'jsonls', 'sumneko_lua', 'eslint', 'tailwindcss' }
+local servers = { 'tsserver', 'dockerls', 'emmet_ls', 'html', 'jsonls', 'sumneko_lua', 'eslint' }
 
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        --root_dir = function() return vim.loop.cwd() end
-        flags = {
-            debounce_text_changes = 150,
-        }
-    }
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = { documentFormatting = true, codeAction = true }
+  }
 end
 
-
--- null ls
-null_ls.setup({
-    sources = {
-        -- prettierd is installed globally via npm
-        --null_ls.builtins.formatting.prettierd
-    },
-    on_attach = function(client, bufnr)
-        -- Autoformat
-        --if client.resolved_capabilities.document_formatting then
-        --vim.cmd [[augroup Format]]
-        --vim.cmd [[autocmd! * <buffer>]]
-        --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-        --vim.cmd [[augroup END]]
-        --end
-        -- call local on_attach
-        return on_attach(client, bufnr)
-    end
-})
-
--- better autocompletion experience
-vim.o.completeopt = 'menuone,noselect'
+local source_mapping = {
+  buffer = "[Buffer]",
+  nvim_lsp = "[LSP]",
+  nvim_lua = "[Lua]",
+  cmp_tabnine = "[TN]",
+  path = "[Path]",
+}
 
 cmp.setup {
-    -- Format the autocomplete menu
-    formatting = {
-        format = lspkind.cmp_format()
-    },
-    mapping = {
-        -- Use Tab and shift-Tab to navigate autocomplete menu
-        ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end,
-        ['<S-Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end,
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-        },
-    },
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
+  formatting = {
+    format = function(entry, vim_item)
+      -- if you have lspkind installed, you can use it like
+      -- in the following line:
+      vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = "symbol" })
+      vim_item.menu = source_mapping[entry.source.name]
+      if entry.source.name == "cmp_tabnine" then
+        local detail = (entry.completion_item.data or {}).detail
+        vim_item.kind = ""
+        if detail and detail:find('.*%%.*') then
+          vim_item.kind = vim_item.kind .. ' ' .. detail
         end
+
+        if (entry.completion_item.data or {}).multiline then
+          vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
+        end
+      end
+      local maxwidth = 80
+      vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+      return vim_item
+    end,
+  },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
+  sources = {
+    { name = 'cmp_tabnine' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'luasnip' },
+    { name = "buffer" },
+    { name = "path" },
+  },
+  mapping = {
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true
+    })
+  },
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      require('cmp_tabnine.compare'),
+      compare.offset,
+      compare.exact,
+      compare.score,
+      compare.recently_used,
+      compare.kind,
+      compare.sort_text,
+      compare.length,
+      compare.order,
     },
-    sources = {
-        { name = 'cmp_tabnine' },
-        --{ name = 'nvim_lsp' },
-        --{ name = 'luasnip' },
-    },
+  },
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+  experimental = {
+    ghost_text = true,
+  },
 }
+
+-- Tabnine prefetching
+local prefetch = vim.api.nvim_create_augroup("prefetch", { clear = true })
+
+vim.api.nvim_create_autocmd('BufRead', {
+  group = prefetch,
+  pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
+  callback = function()
+    require('cmp_tabnine'):prefetch(vim.fn.expand('%:p'))
+  end
+})
