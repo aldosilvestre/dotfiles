@@ -6,7 +6,6 @@ if not success then
 end
 
 comment.setup {
-  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
   ---Add a space b/w comment and the line
   padding = true,
   ---Whether the cursor should stay at its position
@@ -16,16 +15,16 @@ comment.setup {
   ---LHS of toggle mappings in NORMAL mode
   toggler = {
     ---Line-comment toggle keymap
-    line = 'gcc',
+    line = '<leader>cc',
     ---Block-comment toggle keymap
-    block = 'gbc',
+    block = '<leader>bc',
   },
   ---LHS of operator-pending mappings in NORMAL and VISUAL mode
   opleader = {
     ---Line-comment keymap
-    line = 'gc',
+    line = 'cc',
     ---Block-comment keymap
-    block = 'gb',
+    block = 'bc',
   },
   ---LHS of extra mappings
   extra = {
@@ -39,13 +38,13 @@ comment.setup {
   ---Enable keybindings
   ---NOTE: If given `false` then the plugin won't create any mappings
   mappings = {
-    ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+    ---Operator-pending mapping; `cc` `bc` `cc[count]{motion}` `b[count]{motion}`
     basic = true,
     ---Extra mapping; `gco`, `gcO`, `gcA`
-    extra = true,
+    extra = false,
   },
   ---Function to call before (un)comment
-  pre_hook = nil,
+  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
   ---Function to call after (un)comment
   post_hook = nil,
 }
