@@ -50,7 +50,7 @@ function M.hl.mode(base)
       vim.tbl_deep_extend(
         "force",
         lualine_opts and type(lualine_opts.a) == "table" and lualine_opts.a
-          or { fg = C.bg_1, bg = M.modes[vim.fn.mode()][3] },
+        or { fg = C.bg_1, bg = M.modes[vim.fn.mode()][3] },
         base or {}
       )
     )
@@ -69,7 +69,7 @@ function M.provider.lsp_progress()
         Lsp.message or "",
         Lsp.percentage or 0
       )
-    or ""
+      or ""
 end
 
 function M.provider.treesitter_status()

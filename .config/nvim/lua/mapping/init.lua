@@ -7,11 +7,11 @@ map('n', '<leader>q', ':q<CR>', opts)
 map('n', '<leader>w', ':w<CR>', opts)
 
 -- Packer
-map('n', "<leader>pc", "<cmd>PackerCompile<cr>", opts)
-map('n', "<leader>pi", "<cmd>PackerInstall<cr>", opts)
-map('n', "<leader>ps", "<cmd>PackerSync<cr>", opts)
-map('n', "<leader>pS", "<cmd>PackerStatus<cr>", opts)
-map('n', "<leader>pu", "<cmd>PackerUpdate<cr>", opts)
+map('n', "<leader>pc", "<CMD>PackerCompile<CR>", opts)
+map('n', "<leader>pi", "<CMD>PackerInstall<CR>", opts)
+map('n', "<leader>ps", "<CMD>PackerSync<CR>", opts)
+map('n', "<leader>pS", "<CMD>PackerStatus<CR>", opts)
+map('n', "<leader>pu", "<CMD>PackerUpdate<CR>", opts)
 
 map('n', '<leader>nt', ':Neotree right<CR>', opts)
 map('n', '<leader>nf', ':Neotree float<CR>', opts)
@@ -50,15 +50,31 @@ map('n', ']d', '<CMD>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<leader>E', '<CMD>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Lua
-map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
-map("n", "<leader>xw", "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", opts)
-map("n", "<leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<cr>", opts)
-map("n", "<leader>gl", "<cmd>TroubleToggle loclist<cr>", opts)
-map("n", "<leader>xf", "<cmd>TroubleToggle quickfix<cr>", opts)
-map("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+map("n", "<leader>xx", "<CMD>TroubleToggle<CR>", opts)
+map("n", "<leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", opts)
+map("n", "<leader>gl", "<CMD>TroubleToggle document_diagnostics<CR>", opts)
+map("n", "<leader>xl", "<CMD>TroubleToggle loclist<CR>", opts)
+map("n", "<leader>xf", "<CMD>TroubleToggle quickfix<CR>", opts)
+map("n", "gr", "<CMD>Trouble lsp_references<CR>", opts)
+map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", opts)
 
 -- color picker
-map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
-map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+map("n", "<C-c>", "<CMD>PickColor<CR>", opts)
+map("i", "<C-c>", "<CMD>PickColorInsert<CR>", opts)
 
-
+-- barbar
+-- Goto buffer in position...
+map('n', '<A-1>', '<CMD>BufferGoto 1<CR>', opts)
+map('n', '<A-2>', '<CMD>BufferGoto 2<CR>', opts)
+map('n', '<A-3>', '<CMD>BufferGoto 3<CR>', opts)
+map('n', '<A-4>', '<CMD>BufferGoto 4<CR>', opts)
+map('n', '<A-5>', '<CMD>BufferGoto 5<CR>', opts)
+map('n', '<A-6>', '<CMD>BufferGoto 6<CR>', opts)
+map('n', '<A-7>', '<CMD>BufferGoto 7<CR>', opts)
+map('n', '<A-8>', '<CMD>BufferGoto 8<CR>', opts)
+map('n', '<A-9>', '<CMD>BufferGoto 9<CR>', opts)
+map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+-- Pin/unpin buffer
+map('n', '<A-p>', '<CMD>BufferPin<CR>', opts)
+-- Close buffer
+map('n', '<A-c>', '<CMD>BufferClose<CR>', opts)

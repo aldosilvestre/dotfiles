@@ -87,6 +87,6 @@ local disable_plugins = {
   "ftplugin",
 }
 
-for k, _ in pairs(globals) do
-  vim.g[k] = 0
-end
+-- for _, provider in pairs(disable_plugins) do
+--   vim.g["loaded_" .. provider .. "_provider"] = 0
+-- end

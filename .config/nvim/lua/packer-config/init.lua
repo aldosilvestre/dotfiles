@@ -1,4 +1,4 @@
----@diagnostic disable
+---@diagnostic disable: undefined-global
 return require 'packer'.startup(function()
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
@@ -19,7 +19,7 @@ return require 'packer'.startup(function()
   use 'christoomey/vim-tmux-navigator' --> tmux
 
   --> bufferline
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use {'romgrk/barbar.nvim', requires ='kyazdani42/nvim-web-devicons'}
 
   --> notify
   use("rcarriga/nvim-notify")
@@ -44,46 +44,42 @@ return require 'packer'.startup(function()
   use "fladson/vim-kitty"
 
   --> comment
-  use 'scrooloose/nerdcommenter'
+  -- use 'scrooloose/nerdcommenter'
+  use('numToStr/Comment.nvim')
 
   --> lsp
-  --use("neovim/nvim-lspconfig") --> Collection of configurations for built-in LSP client
   use("tami5/lspsaga.nvim") --> icons for LSP diagnostics
   use {
     "williamboman/mason.nvim", --> LSP installers
     "williamboman/mason-lspconfig.nvim", --> attach LSP servers
     "neovim/nvim-lspconfig" --> Collection of configurations for built-in LSP client
   }
-  use "WhoIsSethDaniel/mason-tool-installer.nvim"
+  use("WhoIsSethDaniel/mason-tool-installer.nvim")
 
   --> Completitions
   use("jose-elias-alvarez/null-ls.nvim") --> inject lsp diagnistocs, formattings, code actions, and more ...
   use("onsails/lspkind-nvim") --> vscode-like pictograms for neovim lsp completion items
   use("hrsh7th/nvim-cmp") --> Autocompletion plugin
   use("hrsh7th/cmp-nvim-lsp") --> LSP source for nvim-cmp
-  use 'hrsh7th/nvim-compe'
-  use {
-    "folke/lsp-trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-      }
-    end
-  }
-  use { 'saadparwaiz1/cmp_luasnip' }
+  use('hrsh7th/cmp-buffer')
+  use('hrsh7th/cmp-path')
+  use('hrsh7th/cmp-cmdline')
+  use("hrsh7th/nvim-compe")
+  use("folke/lsp-trouble.nvim") --> show diagnostics code and quickfix
+  use("saadparwaiz1/cmp_luasnip")
   use { 'L3MON4D3/LuaSnip', requires = { 'rafamadriz/friendly-snippets' }, after = 'cmp_luasnip' } --> Snippets plugin
 
   --> Git
-  use 'lewis6991/gitsigns.nvim'
-  use 'rhysd/git-messenger.vim'
-  use 'whiteinge/diffconflicts'
-  use 'f-person/git-blame.nvim'
+  use('lewis6991/gitsigns.nvim')
+  use('rhysd/git-messenger.vim')
+  use('whiteinge/diffconflicts')
+  use('f-person/git-blame.nvim')
 
   --> tabnine
   --use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
 
   --> Multiple cursors
-  use 'terryma/vim-multiple-cursors'
+  use('terryma/vim-multiple-cursors')
 
   --> Color picker css
   use({ "ziontee113/color-picker.nvim",
@@ -103,12 +99,9 @@ return require 'packer'.startup(function()
   }
 
   --> Cinnamon
-  use {
-    'declancm/cinnamon.nvim',
-    config = function() require('cinnamon').setup() end
-  }
+  use('declancm/cinnamon.nvim')
 
   --> utilities
-  use { 'AndrewRadev/splitjoin.vim' } --> switching between a single-line statement and a multi-line one
+  use('AndrewRadev/splitjoin.vim') --> switching between a single-line statement and a multi-line one
   use { 'folke/which-key.nvim', event = "BufWinEnter" } --> displays a popup with possible key bindings of the command
 end)
