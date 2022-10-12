@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

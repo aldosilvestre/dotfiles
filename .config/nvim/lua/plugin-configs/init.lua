@@ -6,3 +6,5 @@ for _, plugin_config_path in ipairs(plugin_config_files) do
         require('plugin-configs.' .. plugin)
     end
 end
+
+

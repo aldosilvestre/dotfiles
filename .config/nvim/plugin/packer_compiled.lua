@@ -74,25 +74,38 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   ["FluoroMachine.nvim"] = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/FluoroMachine.nvim",
     url = "https://github.com/maxmx03/FluoroMachine.nvim"
   },
   LuaSnip = {
+    load_after = {},
     loaded = true,
-    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    needs_bufread = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/opt/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["cinnamon.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rcinnamon\frequire\0" },
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/cinnamon.nvim",
+    url = "https://github.com/declancm/cinnamon.nvim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  ["cmp-tabnine"] = {
-    loaded = true,
-    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/cmp-tabnine",
-    url = "https://github.com/tzachar/cmp-tabnine"
   },
   cmp_luasnip = {
     loaded = true,
@@ -109,6 +122,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/diffconflicts",
     url = "https://github.com/whiteinge/diffconflicts"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["galaxyline.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
+    url = "https://github.com/glepnir/galaxyline.nvim"
   },
   ["git-blame.nvim"] = {
     loaded = true,
@@ -130,10 +153,21 @@ _G.packer_plugins = {
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lsp-trouble.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim",
+    url = "https://github.com/folke/lsp-trouble.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -145,15 +179,30 @@ _G.packer_plugins = {
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/tami5/lspsaga.nvim"
   },
-  ["lualine.nvim"] = {
+  ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason-tool-installer.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/mason-tool-installer.nvim",
+    url = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   ["neo-tree.nvim"] = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  neotest = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
   },
   nerdcommenter = {
     loaded = true,
@@ -194,11 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/nvim-compe",
     url = "https://github.com/hrsh7th/nvim-compe"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -260,10 +304,20 @@ _G.packer_plugins = {
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["splitjoin.vim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
+    url = "https://github.com/AndrewRadev/splitjoin.vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-kitty"] = {
     loaded = true,
@@ -279,14 +333,41 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aldo/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["which-key.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/aldo/.local/share/nvim/site/pack/packer/opt/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: cinnamon.nvim
+time([[Config for cinnamon.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rcinnamon\frequire\0", "config", "cinnamon.nvim")
+time([[Config for cinnamon.nvim]], false)
 -- Config for: color-picker.nvim
 time([[Config for color-picker.nvim]], true)
 try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17color-picker\frequire\0", "config", "color-picker.nvim")
 time([[Config for color-picker.nvim]], false)
+-- Config for: lsp-trouble.nvim
+time([[Config for lsp-trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
+time([[Config for lsp-trouble.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd cmp_luasnip ]]
+vim.cmd [[ packadd LuaSnip ]]
+time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -1,5 +1,9 @@
-require("notify").setup({
-  background_colour = "#000000"
+local status_ok, notify = pcall(require, "notify")
+if not status_ok then return end
+
+notify.setup({
+  background_colour = "#000000",
+  stages = "fade"
 })
 
 vim.cmd([[
@@ -33,3 +37,6 @@ vim.cmd([[
     autocmd ColorScheme * lua require('notify.config.highlights').setup()
   augroup END
 ]])
+
+vim.notify = notify
+
