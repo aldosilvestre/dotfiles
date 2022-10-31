@@ -87,6 +87,9 @@ local disable_plugins = {
   "ftplugin",
 }
 
--- for _, provider in pairs(disable_plugins) do
---   vim.g["loaded_" .. provider .. "_provider"] = 0
--- end
+for _, provider in pairs(disable_plugins) do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
+end
+
+-- Autocmd commands
+vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]] --> remove spaces from the end of line
