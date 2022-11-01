@@ -19,7 +19,7 @@ return require 'packer'.startup(function()
   use 'christoomey/vim-tmux-navigator' --> tmux
 
   --> bufferline
-  use {'romgrk/barbar.nvim', requires ='kyazdani42/nvim-web-devicons'}
+  use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
 
   --> notify
   use("rcarriga/nvim-notify")
@@ -40,11 +40,20 @@ return require 'packer'.startup(function()
   use("nvim-treesitter/playground")
   use("JoosepAlviste/nvim-ts-context-commentstring")
 
+  --> EasyMotion hop
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
   --> Kitty term
   use "fladson/vim-kitty"
 
   --> comment
-  -- use 'scrooloose/nerdcommenter'
   use('numToStr/Comment.nvim')
 
   --> lsp

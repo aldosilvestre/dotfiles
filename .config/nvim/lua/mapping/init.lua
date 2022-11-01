@@ -1,10 +1,10 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ' '
+vim.g.mapleader = ' ' --> leader blankspace
 
-map('n', '<leader>q', ':q<CR>', opts)
-map('n', '<leader>w', ':w<CR>', opts)
+map('n', '<leader>q', ':q<CR>', opts) --> fast quit
+map('n', '<leader>w', ':w<CR>', opts) --> fast save
 
 -- Packer
 map('n', "<leader>pc", "<CMD>PackerCompile<CR>", opts)
@@ -33,8 +33,7 @@ map('n', '<leader>>', '10<C-w>>', opts)
 map('n', '<leader><', '10<C-w><', opts)
 
 -- Quick actions
--- set ; final line
-map('n', '<leader>;', '$a;<Esc>', opts)
+map('n', '<leader>;', '$a;<Esc>', opts) --> set ; final line
 
 -- Move line
 map('n', '<A-j>', ':m .+1<CR>==', opts)
@@ -74,7 +73,16 @@ map('n', '<A-7>', '<CMD>BufferGoto 7<CR>', opts)
 map('n', '<A-8>', '<CMD>BufferGoto 8<CR>', opts)
 map('n', '<A-9>', '<CMD>BufferGoto 9<CR>', opts)
 map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+
 -- Pin/unpin buffer
 map('n', '<A-p>', '<CMD>BufferPin<CR>', opts)
+
 -- Close buffer
 map('n', '<A-c>', '<CMD>BufferClose<CR>', opts)
+
+-- SplitJoin
+map('n', 'gs', '<CMD>SplitjoinSplit<CR>', opts)
+map('n', 'gj', '<CMD>SplitjoinJoin<CR>', opts)
+
+-- Hop
+map('n', '<leader>s', '<CMD>HopPattern<CR>', opts)

@@ -43,11 +43,13 @@ local source_mapping = {
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  local bufopts = {
+    noremap = true,
+    silent = true,
+    buffer = bufnr,
+  }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, bufopts)
-  --vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
@@ -56,7 +58,7 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 mason.setup()
 mason_lspconfig.setup()
