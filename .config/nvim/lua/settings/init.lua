@@ -5,7 +5,7 @@ local options = {
   completeopt    = "menu,menuone,noselect", --- Better autocompletion
   cursorline     = true,                    --- Highlight of current line
   emoji          = false,                   --- Fix emoji display
-  expandtab      = true,                    --- Use spaces instead of tabs
+  expandtab      = false,                    --- Use spaces instead of tabs
   foldlevelstart = 99,                      --- Expand all folds by default
   foldtext       = "CustomFold()",          --- Emit custom function for foldtext
   ignorecase     = true,                    --- Needed for smartcase
@@ -18,8 +18,8 @@ local options = {
   showtabline    = 2,                       --- Always show tabs
   signcolumn     = "yes",                   --- Add extra sign column next to line number
   smartcase      = true,                    --- Uses case in search
-  smartindent    = true,                    --- Makes indenting smart
-  smarttab       = true,                    --- Makes tabbing smarter will realize you have 2 vs 4
+  -- smartindent    = true,                    --- Makes indenting smart
+  -- smarttab       = true,                    --- Makes tabbing smarter will realize you have 2 vs 4
   softtabstop    = 2,                       --- Insert 2 spaces for a tab
   splitright     = true,                    --- Vertical splits will automatically be to the right
   swapfile       = false,                   --- Swap not needed
@@ -51,7 +51,8 @@ end
 -- Settings globals
 local globals = {
   indentLine_char = '|',
-  mapleader = ' '
+  mapleader = ' ',
+	LargeFile = '100mb'
 }
 
 for k, v in pairs(globals) do
