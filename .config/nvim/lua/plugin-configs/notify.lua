@@ -3,7 +3,8 @@ if not status_ok then return end
 
 notify.setup({
   background_colour = "#000000",
-  stages = "fade"
+  stages = "slide",
+  top_down = false
 })
 
 vim.cmd([[
