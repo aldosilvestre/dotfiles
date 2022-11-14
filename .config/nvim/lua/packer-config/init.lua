@@ -113,4 +113,5 @@ return require 'packer'.startup(function()
   --> utilities
   use('AndrewRadev/splitjoin.vim') --> switching between a single-line statement and a multi-line one
   use { 'folke/which-key.nvim', event = "BufWinEnter" } --> displays a popup with possible key bindings of the command
+  use{'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'} --> Fold look
 end)
