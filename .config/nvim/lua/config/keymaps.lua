@@ -6,13 +6,6 @@ vim.g.mapleader = ' ' --> leader blankspace
 map('n', '<leader>q', ':q<CR>', opts) --> fast quit
 map('n', '<leader>w', ':w<CR>', opts) --> fast save
 
--- Packer
-map('n', "<leader>pc", "<CMD>PackerCompile<CR>", opts)
-map('n', "<leader>pi", "<CMD>PackerInstall<CR>", opts)
-map('n', "<leader>ps", "<CMD>PackerSync<CR>", opts)
-map('n', "<leader>pS", "<CMD>PackerStatus<CR>", opts)
-map('n', "<leader>pu", "<CMD>PackerUpdate<CR>", opts)
-
 map('n', '<leader>nt', ':Neotree right<CR>', opts)
 map('n', '<leader>nf', ':Neotree float<CR>', opts)
 

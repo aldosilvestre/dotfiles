@@ -1,4 +1,13 @@
-require("nvim-treesitter.configs").setup {
+return {
+  "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-refactor",
+    "nvim-treesitter/playground"
+  },
+  build = ":TSUpdate",
+  config = function()
+    require("nvim-treesitter.configs").setup {
   -- A list of parser names, or "all"
   ensure_installed = { "javascript", "lua", "css", "html", "dockerfile", "json", "typescript" },
 
@@ -53,4 +62,6 @@ require("nvim-treesitter.configs").setup {
     enable = true,
     enable_autocmd = false,
   }
+}
+  end
 }

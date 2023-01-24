@@ -1,7 +1,3 @@
-local gl = require('galaxyline')
-local condition = require('galaxyline.condition')
-
--- Functions {{{2
 local function u(code)
   if type(code) == 'string' then
     code = tonumber('0x' .. code)
@@ -46,20 +42,11 @@ local lineLengthWarning = 80
 local lineLengthError = 120
 local leftbracket = "" -- Curve.
 local rightbracket = "" -- Curve.
--- local leftbracket = u 'e0b2' -- Angle filled.
--- local rightbracket = u 'e0b0' -- Angle filled.
--- local leftbracket = u 'e0b3' -- Angle.
--- local rightbracket = u 'e0b1' -- Angle.
--- }}}2
-
-gl.short_line_list = { 'NeoTree', 'vista', 'dbui', 'packer', 'tagbar' }
-local gls = gl.section
 
 local bgcolor = function()
   return '#011627'
 end
 
--- Colours, maps and icons {{{2
 local colors = {
   bg       = bgcolor();
   modetext = '#000000',
@@ -180,9 +167,17 @@ local function setLineWidthColours()
   highlight('LinePosHighlightEnd', linebg, colors.statsbg)
 end
 
--- }}}2
 
--- }}}1
+
+return {
+  "glepnir/galaxyline.nvim",
+  config = function()
+    local gl = require('galaxyline')
+    local condition = require('galaxyline.condition')
+
+    gl.short_line_list = { 'NeoTree', 'vista', 'dbui', 'packer', 'tagbar' }
+    local gls = gl.section
+
 
 -- Left {{{1
 gls.left = {}
@@ -718,4 +713,6 @@ table.insert(gls.short_line_right, {
     highlight = { colors.shortrighttext, colors.bg }
   }
 })
--- }}}1
+
+  end
+}
