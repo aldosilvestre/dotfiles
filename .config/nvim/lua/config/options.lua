@@ -58,38 +58,5 @@ for k, v in pairs(globals) do
   vim.g[k] = v
 end
 
-local disable_plugins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
-}
-
-for _, provider in pairs(disable_plugins) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
-end
-
 -- Autocmd commands
 vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]] --> remove spaces from the end of line

@@ -1,5 +1,8 @@
 return {
   'romgrk/barbar.nvim',
+  dependencies = {
+    'kyazdani42/nvim-web-devicons'
+  },
   config = function()
     require('bufferline').setup({
       animation = true,
@@ -7,8 +10,8 @@ return {
       tabpages = true,
       closable = true,
       clickable = true,
-      exclude_ft = { 'javascript' },
-      exclude_name = { 'package.json' },
+      -- exclude_ft = { 'javascript' },
+      -- exclude_name = { 'package.json' },
       icons = true,
       icon_custom_colors = false,
       icon_separator_active = '▎',

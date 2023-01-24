@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "eab2c83a0207369900e92783f56990808082eac2" },
-  "LuaSnip": { "branch": "master", "commit": "448e6bc421c899fd7330e0f710f85867a332a177" },
+  "LuaSnip": { "branch": "master", "commit": "4eead79ef0f93a3786ca5b6265294ea94849586d" },
   "barbar.nvim": { "branch": "master", "commit": "e9da670e3fd58598bd0d2cf7e32e1af24cb2fcca" },
   "cinnamon.nvim": { "branch": "master", "commit": "c406ffda3a0302f32c23b24ab756ea20467d6578" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
@@ -23,7 +23,7 @@
   "lspsaga.nvim": { "branch": "main", "commit": "5faeec9f2508d2d49a66c0ac0d191096b4e3fa81" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "faeeb5e02eba0aecdf273a50baa164300af33e77" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "27f61f75a71bb3c2504a17e02b571f79cae43676" },
-  "mason.nvim": { "branch": "main", "commit": "22c8a1e67adb51179b26f0e37e87af24baf3fb89" },
+  "mason.nvim": { "branch": "main", "commit": "52a469a57d4795eacd71f55bc735c6e68075c7e5" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "8238865e1d9c61f1a260c290653f2c419503e0a9" },
   "nui.nvim": { "branch": "main", "commit": "b99e6cb13dc51768abc1c4c8585045a0c0459ef1" },
   "null-ls.nvim": { "branch": "main", "commit": "18497120fa0db0a3b9e53870ac8f342be4bffb57" },
