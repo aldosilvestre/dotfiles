@@ -50,10 +50,6 @@ map("n", "<leader>xf", "<CMD>TroubleToggle quickfix<CR>", opts)
 map("n", "gr", "<CMD>Trouble lsp_references<CR>", opts)
 map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", opts)
 
--- color picker
-map("n", "<C-c>", "<CMD>PickColor<CR>", opts)
-map("i", "<C-c>", "<CMD>PickColorInsert<CR>", opts)
-
 -- barbar
 -- Goto buffer in position...
 map('n', '<A-1>', '<CMD>BufferGoto 1<CR>', opts)

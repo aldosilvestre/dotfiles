@@ -14,5 +14,5 @@ return {
     end
   },
   'norcalli/nvim-colorizer.lua', --> css colors
-  'folke/which-key.nvim'
+  'folke/which-key.nvim', --> key maps
 }
