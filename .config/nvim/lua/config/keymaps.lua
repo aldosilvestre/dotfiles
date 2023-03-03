@@ -75,3 +75,7 @@ map('n', 'gj', '<CMD>SplitjoinJoin<CR>', opts)
 
 -- Hop
 map('n', '<leader>s', '<CMD>HopPattern<CR>', opts)
+
+-- Noice
+map("n", "<leader>nl", "<CMD>Noice last<CR>", opts)
+map("n", "<leader>nh", "<CMD>Noice history<CR>", opts)

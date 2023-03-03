@@ -1,8 +1,5 @@
 return {
   'gelguy/wilder.nvim',
-  dependencies = {
-    'kyazdani42/nvim-web-devicons'
-  },
   config = function()
     local wilder = require('wilder')
     wilder.setup({ modes = { ':', '/', '?' } })

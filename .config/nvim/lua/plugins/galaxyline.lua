@@ -48,54 +48,44 @@ local bgcolor = function()
 end
 
 local colors = {
-  bg       = bgcolor();
-  modetext = '#000000',
-
-  giticon = '#FF8800',
-  gitbg   = '#5C2C2E',
-  gittext = '#C5C5C5',
-
-  gpsicon = '#000000',
-  gpsbg   = '#5C00A3',
-  gpstext = '#C5C5C5',
-
-  diagerror = '#F44747',
-  diagwarn  = '#FF8800',
-  diaghint  = '#4FC1FF',
-  diaginfo  = '#FFCC66',
-
-  lspicon = '#68AF00',
-  lspbg   = '#304B2E',
-  lsptext = '#C5C5C5',
-
-  typeicon = '#FF8800',
-  typebg   = '#5C2C2E',
-  typetext = '#C5C5C5',
-
-  statsicon = '#9CDCFE',
-  statsbg   = '#5080A0',
-  statstext = '#000000',
-
+  bg              = bgcolor(),
+  modetext        = '#000000',
+  giticon         = '#FF8800',
+  gitbg           = '#5C2C2E',
+  gittext         = '#C5C5C5',
+  gpsicon         = '#000000',
+  gpsbg           = '#5C00A3',
+  gpstext         = '#C5C5C5',
+  diagerror       = '#F44747',
+  diagwarn        = '#FF8800',
+  diaghint        = '#4FC1FF',
+  diaginfo        = '#FFCC66',
+  lspicon         = '#68AF00',
+  lspbg           = '#304B2E',
+  lsptext         = '#C5C5C5',
+  typeicon        = '#FF8800',
+  typebg          = '#5C2C2E',
+  typetext        = '#C5C5C5',
+  statsicon       = '#9CDCFE',
+  statsbg         = '#5080A0',
+  statstext       = '#000000',
   lineokfg        = '#000000',
   lineokbg        = '#5080A0',
   linelongerrorfg = '#FF0000',
   linelongwarnfg  = '#FFFF00',
   linelongbg      = '#5080A0',
-
-  shortbg   = '#DCDCAA',
-  shorttext = '#000000',
-
-  shortrightbg   = '#3F3F3F',
-  shortrighttext = '#7C4C4E',
-
-  red     = '#D16969',
-  yellow  = '#DCDCAA',
-  magenta = '#D16D9E',
-  green   = '#608B4E',
-  orange  = '#FF8800',
-  purple  = '#C586C0',
-  blue    = '#569CD6',
-  cyan    = '#4EC9B0'
+  shortbg         = '#DCDCAA',
+  shorttext       = '#000000',
+  shortrightbg    = '#3F3F3F',
+  shortrighttext  = '#7C4C4E',
+  red             = '#D16969',
+  yellow          = '#DCDCAA',
+  magenta         = '#D16D9E',
+  green           = '#608B4E',
+  orange          = '#FF8800',
+  purple          = '#C586C0',
+  blue            = '#569CD6',
+  cyan            = '#4EC9B0'
 }
 
 local mode_map = {
@@ -173,12 +163,26 @@ return {
     local gl = require('galaxyline')
     local condition = require('galaxyline.condition')
 
-    gl.short_line_list = { 'NeoTree', 'vista', 'dbui', 'packer', 'tagbar' }
+    gl.short_line_list = { 'NeoTree', 'vista', 'dbui', 'packer', 'tagbar', '*' }
     local gls = gl.section
 
 
     -- Left {{{1
     gls.left = {}
+
+    table.insert(gls.left, {
+      MacroRecording = {
+        provider = function()
+          if vim.fn.reg_recording() == '' then
+            return ""
+          else
+            return "壘"
+          end
+        end,
+        condition = condition.hide_in_width,
+        highlight = {colors.red, colors.bg},
+      }
+    })
 
     -- Edit mode {{{2
     table.insert(gls.left, {
@@ -711,6 +715,5 @@ end]]
         highlight = { colors.shortrighttext, colors.bg }
       }
     })
-
   end
 }
