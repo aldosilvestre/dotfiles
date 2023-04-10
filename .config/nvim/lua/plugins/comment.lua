@@ -3,30 +3,49 @@ return {
   dependencies = {
     'JoosepAlviste/nvim-ts-context-commentstring'
   },
-  keys = { { "<leader>cc" }, { "<leader>bc" }, { "cc", mode = "v" }, { "bc", mode = "v" } },
+  keys = { { "cc" }, { "cb" }, {"cO"}, {"co"}, {"cA"},{ "cc", mode = "v" }, { "cb", mode = "v" } },
   config = function()
     require('Comment').setup {
+      ---Add a space b/w comment and the line
       padding = true,
+      ---Whether the cursor should stay at its position
       sticky = true,
+      ---Lines to be ignored while (un)comment
       ignore = nil,
+      ---LHS of toggle mappings in NORMAL mode
       toggler = {
-        line = '<leader>cc',
-        block = '<leader>bc',
-      },
-      opleader = {
+        ---Line-comment toggle keymap
         line = 'cc',
-        block = 'bc',
+        ---Block-comment toggle keymap
+        block = 'cb',
       },
+      ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+      opleader = {
+        ---Line-comment keymap
+        line = 'cc',
+        ---Block-comment keymap
+        block = 'cb',
+      },
+      ---LHS of extra mappings
       extra = {
-        above = 'gcO',
-        below = 'gco',
-        eol = 'gcA',
+        ---Add comment on the line above
+        above = 'cO',
+        ---Add comment on the line below
+        below = 'co',
+        ---Add comment at the end of line
+        eol = 'cA',
       },
+      ---Enable keybindings
+      ---NOTE: If given `false` then the plugin won't create any mappings
       mappings = {
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
         basic = true,
+        ---Extra mapping; `co`, `cO`, `cA`
         extra = false,
       },
+      ---Function to call before (un)comment
       pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      ---Function to call after (un)comment
       post_hook = nil,
     }
   end
