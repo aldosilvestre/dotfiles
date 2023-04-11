@@ -1,15 +1,15 @@
 local on_attach = function(_, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   local bufopts = {
     noremap = true,
     silent = true,
     buffer = bufnr,
   }
+
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-  -- vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>ca', '<CMD>CodeActionMenu<CR>', bufopts)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
 
@@ -30,7 +30,8 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     "hrsh7th/nvim-compe",
-    { 'L3MON4D3/LuaSnip', dependencies = { 'rafamadriz/friendly-snippets' } }
+    { 'L3MON4D3/LuaSnip', dependencies = { 'rafamadriz/friendly-snippets' } },
+
   },
   event = "VeryLazy",
   config = function()
@@ -43,8 +44,12 @@ return {
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+    }
 
-    mason.setup{}
+    mason.setup {}
     mason_lspconfig.setup()
     mason_lspconfig.setup_handlers({
       function(server)
@@ -60,7 +65,6 @@ return {
       buffer = "Buffer",
       nvim_lsp = "Lsp",
       nvim_lua = "Lua",
-      cmp_tabnine = "TN",
       path = "Path",
     }
     cmp.setup {

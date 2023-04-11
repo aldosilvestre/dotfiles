@@ -51,7 +51,7 @@ end
 -- Settings globals
 local globals = {
   indentLine_char = '|',
-  mapleader = ' '
+  mapleader = ' ' --> leader blankspace
 }
 
 for k, v in pairs(globals) do

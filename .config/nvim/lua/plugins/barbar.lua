@@ -26,5 +26,4 @@ return {
       no_name_title = nil,
     })
   end
-
 }

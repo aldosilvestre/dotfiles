@@ -1,14 +1,13 @@
 return {
   'lewis6991/impatient.nvim',
-  {'norcalli/nvim-colorizer.lua', config = true}, --> css colors
-  {'nvim-tree/nvim-web-devicons', config = true}, --> devicons
-  -- "kyazdani42/nvim-web-devicons",
+  { 'norcalli/nvim-colorizer.lua', config = true }, --> css colors
+  'kyazdani42/nvim-web-devicons',
   'glepnir/galaxyline.nvim',
-  'christoomey/vim-tmux-navigator', --> tmux
-  'terryma/vim-multiple-cursors', --> multiple cursor
-  { 'phaazon/hop.nvim', opts = { keys = 'etovxqpdygfblzhckisuran' }}, --> EasyMotion hop
-  { 'windwp/nvim-ts-autotag', config = true },
-  { 'windwp/nvim-autopairs', config = true }, --> autopairs
+  'christoomey/vim-tmux-navigator',                                   --> tmux
+  'terryma/vim-multiple-cursors',                                     --> multiple cursor
+  { 'phaazon/hop.nvim',            opts = { keys = 'etovxqpdygfblzhckisuran' } }, --> EasyMotion hop
+  { 'windwp/nvim-ts-autotag',      config = true },
+  { 'windwp/nvim-autopairs',       config = true },                   --> autopairs
   'onsails/lspkind.nvim',
-  'folke/which-key.nvim', --> key maps
+  'folke/which-key.nvim',                                             --> key maps
 }
