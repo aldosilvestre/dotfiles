@@ -40,13 +40,13 @@ return {
       -- This option only works in Neovim 0.9
       title = true,
       -- Border type can be single, double, rounded, solid, shadow.
-      border = "single",
+      border = "rounded",
       winblend = 0,
       expand = "",
       collapse = "",
       code_action = " ",
       code_action_prompt = {
-        enable = false
+        enable = true
       },
       incoming = " ",
       outgoing = " ",

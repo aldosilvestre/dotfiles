@@ -1,6 +1,5 @@
 return {
   'lewis6991/impatient.nvim',
-  { 'norcalli/nvim-colorizer.lua', config = true }, --> css colors
   'kyazdani42/nvim-web-devicons',
   'glepnir/galaxyline.nvim',
   'christoomey/vim-tmux-navigator',                                   --> tmux

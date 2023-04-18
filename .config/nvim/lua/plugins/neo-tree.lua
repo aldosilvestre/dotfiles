@@ -22,7 +22,7 @@ local config = {
   log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
   log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
   open_files_in_last_window = true, -- false = open files in top left window
-  popup_border_style = "NC", -- "double", "none", "rounded", "shadow", "single" or "solid"
+  popup_border_style = "rounded", -- "double", "none", "rounded", "shadow", "single" or "solid"
   resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
   sort_case_insensitive = false, -- used when sorting files and directories in the tree
   sort_function = nil, -- uses a custom function for sorting files and directories in the tree
@@ -32,7 +32,7 @@ local config = {
     winbar = false, -- toggle to show selector on winbar
     statusline = false, -- toggle to show selector on statusline
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
-    tab_labels = { -- falls back to source_name if nil
+    sources = { -- falls back to source_name if nil
       filesystem = "  Files ",
       buffers = "  Buffers ",
       git_status = "  Git ",
@@ -152,6 +152,7 @@ local config = {
     position = "left", -- left, right, top, bottom, float, current
     width = 40, -- applies to left and right positions
     height = 15, -- applies to top and bottom positions
+		border = "rounded",
     popup = { -- settings that apply to float position only
       size = {
         height = "80%",
@@ -289,6 +290,7 @@ local config = {
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
+	branch = "v2.x",
   dependencies = {
     'MunifTanjim/nui.nvim', --> Dependency from neo tree
     's1n7ax/nvim-window-picker' --> Window picker
