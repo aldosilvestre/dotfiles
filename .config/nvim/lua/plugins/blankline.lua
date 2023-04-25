@@ -5,7 +5,7 @@ return {
     vim.opt.listchars:append("space: ")
 
     require('indent_blankline').setup {
-      char = "▏",
+      char = " ",
       space_char_blankline = " ",
       show_first_indent_level = false,
       show_current_context = true,

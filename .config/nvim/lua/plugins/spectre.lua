@@ -1,6 +1,7 @@
 return {
   "nvim-pack/nvim-spectre",
   keys = { { "F", ":Spectre<cr>" } },
+  lazy = true,
   config = function()
     require("spectre").setup {
       color_devicons     = true,

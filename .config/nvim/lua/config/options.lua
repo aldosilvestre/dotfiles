@@ -5,7 +5,7 @@ local options = {
   completeopt    = "menu,menuone,noselect", --- Better autocompletion
   cursorline     = true, --- Highlight of current line
   emoji          = true, --- Fix emoji display
-  expandtab      = false, --- Use spaces instead of tabs
+  expandtab      = true, --- Use spaces instead of tabs
   foldlevelstart = 99, --- Expand all folds by default
   foldtext       = "CustomFold()", --- Emit custom function for foldtext
   ignorecase     = true, --- Needed for smartcase
@@ -50,7 +50,6 @@ end
 
 -- Settings globals
 local globals = {
-  indentLine_char = '|',
   mapleader = ' ' --> leader blankspace
 }
 

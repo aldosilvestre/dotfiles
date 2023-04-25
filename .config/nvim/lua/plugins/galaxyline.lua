@@ -122,10 +122,10 @@ local mode_map = {
 
 -- See: https://www.nerdfonts.com/cheat-sheet
 local icons = {
-  vim = u 'e62b',
-  dos = u 'e70f',
-  unix = u 'f17c',
-  mac = u 'f179',
+  vim = ' ',
+  dos = ' ',
+  unix= ' ',
+  mac = ' ',
 }
 -- }}}2
 
@@ -176,7 +176,7 @@ return {
           if vim.fn.reg_recording() == '' then
             return ""
           else
-            return "壘"
+            return '壘'
           end
         end,
         condition = condition.hide_in_width,
@@ -314,7 +314,7 @@ return {
           if gl.lspclient ~= nil then
             name = gl.lspclient()
           end
-          return '' .. name
+          return ' ' .. name
         end,
         highlight = { colors.lspbg, colors.lspicon }
       }
