@@ -13,7 +13,7 @@ map('n', '<leader>nt', '<CMD>Neotree right<CR>', addDescription(opts, "Open Neot
 map('n', '<leader>nf', '<CMD>Neotree float<CR>', addDescription(opts, "Open Neotree float"))
 
 -- Telescope
-map('n', '<leader>ff', '<CMD>Telescope find_files<CR>', addDescription(opts, "Find Files"))
+map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>', addDescription(opts, "Find Files"))
 map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, "Find with grep"))
 map('n', '<leader>fb', '<CMD>Telescope buffers<CR>', addDescription(opts, "Show buffers"))
 map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Find help"))

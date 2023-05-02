@@ -1,3 +1,8 @@
+function addDescription(table, desc)
+  table['desc'] = desc
+  return table
+end
+
 local on_attach = function(_, bufnr)
   local bufopts = {
     noremap = true,
@@ -7,7 +12,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, addDescription(bufopts, "show Hover"))
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>ca', '<CMD>CodeActionMenu<CR>', bufopts)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
