@@ -1,30 +1,3 @@
-local config = {
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
-  diagnostic_header_icon = "   ",
-  code_action_icon = " ",
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  definition_preview_icon = "  ",
-  rename_prompt_prefix = "➤",
-}
-
-for type, icon in pairs {
-  Error = config.error_sign,
-  Warn = config.warn_sign,
-  Hint = config.hint_sign,
-  Info = config.infor_sign,
-} do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, {
-    text = icon,
-    texthl = hl,
-    numhl = "",
-  })
-end
-
 return {
   'glepnir/lspsaga.nvim',
   event = "LspAttach",

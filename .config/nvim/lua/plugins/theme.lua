@@ -9,7 +9,7 @@ return {
         compile_file_suffix = "_compiled", -- Compiled file suffix
         transparent = true,                -- Disable setting background
         terminal_colors = true,            -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-        dim_inactive = false,              -- Non focused panes set to alternative background
+        dim_inactive = true,               -- Non focused panes set to alternative background
         module_default = true,             -- Default enable value for modules
         colorblind = {
           enable = false,                  -- Enable colorblind support
@@ -25,7 +25,7 @@ return {
           conditionals = "italic, bold",
           constants = "bold",
           functions = "italic",
-          keywords = "italic",
+          keywords = "italic, bold",
           numbers = "NONE",
           operators = "NONE",
           strings = "NONE",
@@ -43,7 +43,7 @@ return {
           Normal = { bg = "none" },
           NormalNC = { bg = "none" },
           Telescope = { bg = "none" }, -- Non-current windows
-          Pmenu = { bg = "none" }, -- Non-current windows
+          Pmenu = { bg = "none" },     -- Non-current windows
         }
       },
     }

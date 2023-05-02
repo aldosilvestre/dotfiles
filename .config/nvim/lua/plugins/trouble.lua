@@ -2,6 +2,7 @@ vim.g.prueba = 'ho'
 
 return {
   "folke/lsp-trouble.nvim",
+  event = "VeryLazy",
   config = function()
     require('trouble').setup {
       position = "bottom",          -- position of the list can be: bottom, top, left, right
@@ -27,7 +28,7 @@ return {
         jump_close = { "o" },        -- jump to the diagnostic and close the list
         toggle_mode = "m",           -- toggle between "workspace" and "document" diagnostics mode
         toggle_preview = "P",        -- toggle auto_preview
-        hover = "K",                 -- opens a small popup with the full multiline message
+        -- hover = "K",                 -- opens a small popup with the full multiline message
         preview = "p",               -- preview the diagnostic location
         close_folds = { "zM", "zm" }, -- close all folds
         open_folds = { "zR", "zr" }, -- open all folds
@@ -43,11 +44,11 @@ return {
       auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
       signs = {
         -- icons / text used for a diagnostic
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "﫠"
+        error = " ",
+        warning = " ",
+        hint = " ",
+        information = " ",
+        other = "﫠 "
       },
       use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
     }

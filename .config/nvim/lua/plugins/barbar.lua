@@ -1,5 +1,6 @@
 return {
   'romgrk/barbar.nvim',
+  event = 'BufEnter',
   config = function()
     require('bufferline').setup({
       animation = true,
@@ -11,10 +12,6 @@ return {
       -- exclude_name = { 'package.json' },
       icons = { filetype = { enabled = true } },
       icon_custom_colors = false,
-      --icon_separator_left = '▎',
-      --icon_separator_inactive_left = '▎',
-      --icon_close_tab = '',
-      -- icon_close_tab_modified = '●',
       icon_pinned_button = '車',
       insert_at_end = false,
       insert_at_start = false,
