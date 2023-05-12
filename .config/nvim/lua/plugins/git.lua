@@ -3,5 +3,6 @@ return {
   'rhysd/git-messenger.vim',
   'whiteinge/diffconflicts',
   'f-person/git-blame.nvim',
-  event = "VeryLazy"
+  event = "VeryLazy",
+  config = true
 }

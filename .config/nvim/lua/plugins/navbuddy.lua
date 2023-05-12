@@ -11,5 +11,6 @@ return {
         preference = nil     -- list of lsp server names in order of preference
       }
   },
-  config = true
+  config = true,
+  lazy = false
 }

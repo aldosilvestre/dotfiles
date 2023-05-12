@@ -1,7 +1,4 @@
-local function addDescription(table, desc)
-  table['desc'] = desc
-  return table
-end
+local addDescription = require 'config.globals'.addDescription
 
 local source_mapping = {
   luasnip = "Snippet",

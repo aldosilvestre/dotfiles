@@ -1,30 +1,3 @@
-local function u(code)
-  if type(code) == 'string' then
-    code = tonumber('0x' .. code)
-  end
-  local c = string.char
-  if code <= 0x7f then
-    return c(code)
-  end
-  local t = {}
-
-  if code <= 0x07ff then
-    t[1] = c(bit.bor(0xc0, bit.rshift(code, 6)))
-    t[2] = c(bit.bor(0x80, bit.band(code, 0x3f)))
-  elseif code <= 0xffff then
-    t[1] = c(bit.bor(0xe0, bit.rshift(code, 12)))
-    t[2] = c(bit.bor(0x80, bit.band(bit.rshift(code, 6), 0x3f)))
-    t[3] = c(bit.bor(0x80, bit.band(code, 0x3f)))
-  else
-    t[1] = c(bit.bor(0xf0, bit.rshift(code, 18)))
-    t[2] = c(bit.bor(0x80, bit.band(bit.rshift(code, 12), 0x3f)))
-    t[3] = c(bit.bor(0x80, bit.band(bit.rshift(code, 6), 0x3f)))
-    t[4] = c(bit.bor(0x80, bit.band(code, 0x3f)))
-  end
-
-  return table.concat(t)
-end
-
 local function highlight(group, fg, bg, gui)
   local cmd = string.format('highlight %s guifg=%s guibg=%s', group, fg, bg)
 
@@ -124,7 +97,7 @@ local mode_map = {
 local icons = {
   vim = ' ',
   dos = ' ',
-  unix= ' ',
+  unix = ' ',
   mac = ' ',
 }
 -- }}}2
@@ -180,7 +153,7 @@ return {
           end
         end,
         condition = condition.hide_in_width,
-        highlight = {colors.red, colors.bg},
+        highlight = { colors.red, colors.bg },
       }
     })
 
@@ -337,6 +310,37 @@ return {
         highlight = { colors.lspicon, colors.lspbg }
       }
     })
+
+    -- Codeium
+    table.insert(gls.left, {
+      CodeiumIcon = {
+        provider = function()
+          local name = ""
+          if gl.lspclient ~= nil then
+            name = gl.lspclient()
+          end
+          return ' ' .. name
+        end,
+        highlight = { colors.lspicon, colors.lspbg }
+      }
+    })
+
+    table.insert(gls.left, {
+      codeium_status = {
+        provider = function()
+          return vim.api.nvim_call_function('codeium#GetStatusString', {})
+        end,
+        highlight = { colors.textbg, colors.lspbg }
+      }
+    })
+
+    table.insert(gls.left, {
+      CodeiumSpace = {
+        provider = function() return ' ' end,
+        highlight = { colors.lspicon, colors.lspbg }
+      }
+    })
+
     -- }}}3
 
     -- Diagnostics {{{3

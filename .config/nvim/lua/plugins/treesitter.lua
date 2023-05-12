@@ -3,7 +3,10 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-refactor",
-    "nvim-treesitter/playground"
+    "nvim-treesitter/playground",
+    "RRethy/nvim-treesitter-textsubjects",
+    { "m-demare/hlargs.nvim", config = true },
+    { "stevearc/dressing.nvim", config = true }
   },
   build = ":TSUpdate",
   config = function()
