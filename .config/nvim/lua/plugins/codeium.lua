@@ -12,12 +12,14 @@ return {
     keymap('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
 
     vim.g.codeium_filetypes = {
+      default = false,
       bash = false,
       lua = false,
       markdown = false,
       typescript = true,
       python = true,
-      golang = true
+      golang = true,
+      json = false
     }
   end
 }
