@@ -10,7 +10,7 @@ local source_mapping = {
 
 return {
   'VonHeikemen/lsp-zero.nvim',
-  branch = 'v2.x',
+  current = 'v2.x',
   dependencies = {
     {
       'williamboman/mason.nvim',

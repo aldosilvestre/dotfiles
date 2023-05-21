@@ -2,7 +2,8 @@ local keymap = vim.keymap.set
 
 return {
   'Exafunction/codeium.vim',
-  lazy = false,
+  cmd = "RunCodeium",
+  ft = { "javascript", "typescript", "python", "go"},
   config = function()
     vim.g.codeium_disable_bindings = 1
     -- Change '<C-g>' here to any keycode you like.

@@ -319,7 +319,7 @@ return {
           if gl.lspclient ~= nil then
             name = gl.lspclient()
           end
-          return ' ' .. name
+          return '  ' .. name
         end,
         highlight = { colors.lspicon, colors.lspbg }
       }
@@ -328,7 +328,11 @@ return {
     table.insert(gls.left, {
       codeium_status = {
         provider = function()
-          return vim.api.nvim_call_function('codeium#GetStatusString', {})
+          local success, status_string = pcall(vim.api.nvim_call_function, 'codeium#GetStatusString', {})
+          if not success then
+            status_string = "No activated"
+          end
+          return status_string
         end,
         highlight = { colors.textbg, colors.lspbg }
       }
@@ -393,7 +397,7 @@ return {
     table.insert(gls.left, {
       GpsIcon = {
         provider = function()
-          return ' '
+          return '  '
         end,
         highlight = { colors.gpstext, colors.gpsicon }
       }
