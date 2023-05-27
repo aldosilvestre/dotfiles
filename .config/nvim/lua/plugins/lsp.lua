@@ -10,7 +10,7 @@ local source_mapping = {
 
 return {
   'VonHeikemen/lsp-zero.nvim',
-  current = 'v2.x',
+  branch = 'v2.x',
   dependencies = {
     {
       'williamboman/mason.nvim',
@@ -53,10 +53,10 @@ return {
 
     lsp.setup()
     lsp.set_sign_icons({
-      error = " ",
-      warn = " ",
-      hint = " ",
-      info = " "
+      error = " ",
+      warn = " ",
+      hint = " ",
+      info = " "
     })
     lsp.on_attach(function(_, bufnr)
       local bufopts = {

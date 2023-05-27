@@ -21,18 +21,10 @@ $HOME/.screenlayout/monitor.sh
 
 #autorandr horizontal
 
-$HOME/.config/polybar/launch.sh &
-
 #change your keyboard if you need it
 #setxkbmap -layout be
 
-keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
-
-if [ $keybLayout = "be" ]; then
-  run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc-azerty &
-else
-  run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
-fi
+run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 
 #Some ways to set your wallpaper besides variety or nitrogen
 #feh --bg-scale ~/.config/bspwm/wall.png &
@@ -45,21 +37,22 @@ feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
 dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 xsetroot -cursor_name left_ptr &
 
+$HOME/.config/polybar/launch.sh &
+
 # conky -c $HOME/.config/bspwm/system-overview &
-conky -c $HOME/.config/conky/AP-Weather-White.conkyrc &
-nitrogen --restore &
+# conky -c $HOME/.config/conky/AP-Weather-White.conkyrc &
 # run variety &
 run nm-applet &
-run pamac-tray &
+# run pamac-tray &
 run xfce4-power-manager &
+nitrogen --restore &
 numlockx on &
 blueberry-tray &
 picom --config $HOME/.config/bspwm/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-run volumeicon &
 run indicator-sound-switcher &
-#nitrogen --restore &
+#run volumeicon &
 #run caffeine &
 #run vivaldi-stable &
 #run firefox &

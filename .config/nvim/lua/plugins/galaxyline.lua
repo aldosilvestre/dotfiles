@@ -17,7 +17,7 @@ local leftbracket = "" -- Curve.
 local rightbracket = "" -- Curve.
 
 local bgcolor = function()
-  return '#011627'
+  return '#190920'
 end
 
 local colors = {
@@ -315,11 +315,7 @@ return {
     table.insert(gls.left, {
       CodeiumIcon = {
         provider = function()
-          local name = ""
-          if gl.lspclient ~= nil then
-            name = gl.lspclient()
-          end
-          return '  ' .. name
+          return '  '
         end,
         highlight = { colors.lspicon, colors.lspbg }
       }
@@ -359,7 +355,7 @@ return {
     table.insert(gls.left, {
       DiagnosticWarn = {
         provider = 'DiagnosticWarn',
-        icon = '  ',
+        icon = '  ',
         highlight = { colors.diagwarn, colors.lspbg }
       }
     })

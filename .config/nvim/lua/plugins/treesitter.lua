@@ -6,13 +6,12 @@ return {
     "nvim-treesitter/playground",
     "RRethy/nvim-treesitter-textsubjects",
     { "m-demare/hlargs.nvim", config = true },
-    { "stevearc/dressing.nvim", config = true }
   },
   build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup {
       -- A list of parser names, or "all"
-      ensure_installed = { "javascript", "lua", "css", "html", "dockerfile", "json", "typescript", "markdown", "markdown_inline" },
+      ensure_installed = { "javascript", "lua", "css", "html", "dockerfile", "json", "typescript", "markdown", "markdown_inline", "http" },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = true,

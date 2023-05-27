@@ -39,9 +39,9 @@ super + t
 # super + F7
     # virtualbox
 
-# dclphin
+# nemo
 # super + F8
-    # nautilus
+    # nemo
 
 # Evolution
 # super + F9
@@ -112,9 +112,9 @@ super + Escape
 # super + KP_Enter
 	# kitty
 
-# nautilus
+# nemo
 super + n
-  flatpak run org.gnome.NautilusDevel
+  nemo
 
 #################################################################
 # SUPER + SHIFT KEYS
@@ -122,7 +122,7 @@ super + n
 
 # File-Manager
 super + shift + Return
-  flatpak run org.gnome.NautilusDevel
+  nemo
 
 # Keyboard dependent
 # File-Manager
@@ -168,7 +168,7 @@ ctrl + alt + Prior
 
 # File-Manager
 # ctrl + alt + b
-     # nautilus
+     # nemo
 
 # Catfish
 # ctrl + alt + c
