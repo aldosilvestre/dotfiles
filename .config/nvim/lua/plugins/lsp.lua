@@ -1,4 +1,4 @@
-local addDescription = require 'config.globals'.addDescription
+local addDescription = require 'config.utils'.addDescription
 
 local source_mapping = {
   luasnip = "Snippet",
@@ -20,7 +20,8 @@ return {
         }
       },
       build = function()
-        pcall(vim.cmd, 'MasonUpdate')
+        -- pcall(vim.cmd, 'MasonUpdate')
+        vim.cmd('MasonUpdate') --> remove spaces from the end of line
       end,
     },
     {
@@ -28,6 +29,7 @@ return {
       dependencies = { 'rafamadriz/friendly-snippets', 'dsznajder/vscode-es7-javascript-react-snippets' }
     },
     'williamboman/mason-lspconfig.nvim',
+    'folke/neodev.nvim',
     'neovim/nvim-lspconfig',
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/nvim-cmp',     --> Autocompletion plugin
@@ -41,6 +43,7 @@ return {
     'hrsh7th/nvim-compe',
   },
   config = function()
+    require("neodev").setup({})
     local lsp = require('lsp-zero').preset({
       manage_nvim_cmp = {
         set_sources = 'recommended'
@@ -96,15 +99,16 @@ return {
           end
         })
       },
-      mapping = {
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true
-        }),
+      mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        -- ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ['<Tab>'] = cmp_action.luasnip_supertab(),
         ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-      },
+
+      }),
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),

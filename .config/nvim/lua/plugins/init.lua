@@ -6,6 +6,7 @@ return {
   'terryma/vim-multiple-cursors',   --> multiple cursor
   'onsails/lspkind.nvim',
   'SmiteshP/nvim-navic',
+  -- 'adelarsq/vim-devicons-emoji', --> Emojis
   {
     'phaazon/hop.nvim',
     opts = { keys = 'etovxqpdygfblzhckisuran' },
@@ -18,4 +19,9 @@ return {
   { 'windwp/nvim-ts-autotag',       config = true },
   { 'windwp/nvim-autopairs',        config = true },                                    --> autopairs
   { 'iamcco/markdown-preview.nvim', build = 'cd app && npm install', ft = 'markdown' }, --> Markdown preview
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = true
+  }
 }

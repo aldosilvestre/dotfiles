@@ -1,11 +1,4 @@
-local M = {}
-
-M.addDescription = function(table, desc)
-  table['desc'] = desc
-  return table
-end
-
-M.print = function(...)
+print_lua = function(...)
   local args = {...}
 
   local mapped = {}
@@ -16,5 +9,3 @@ M.print = function(...)
 
   return table.unpack(args)
 end
-
-return M

@@ -3,7 +3,7 @@ return {
   ft = "http",
   config = function()
     local keymap = vim.keymap.set
-    local addDescription = require('config.globals').addDescription
+    local addDescription = require('config.utils').addDescription
     local rest = require("rest-nvim")
     rest.setup()
     local buff = tonumber(vim.fn.expand "<abuf>", 10)

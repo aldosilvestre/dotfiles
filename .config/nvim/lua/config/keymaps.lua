@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-local addDescription = require('config.globals').addDescription
+local addDescription = require('config.utils').addDescription
 
 map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit")) --> fast quit
 map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
