@@ -5,7 +5,6 @@ return {
   'christoomey/vim-tmux-navigator', --> tmux
   'terryma/vim-multiple-cursors',   --> multiple cursor
   'onsails/lspkind.nvim',
-  'SmiteshP/nvim-navic',
   -- 'adelarsq/vim-devicons-emoji', --> Emojis
   {
     'phaazon/hop.nvim',

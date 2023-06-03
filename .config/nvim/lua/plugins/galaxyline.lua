@@ -11,17 +11,13 @@ end
 -- }}}2
 
 -- Settings {{{2
-local lineLengthWarning = 80
-local lineLengthError = 120
-local leftbracket = "" -- Curve.
-local rightbracket = "" -- Curve.
-
-local bgcolor = function()
-  return '#190920'
-end
+local lineLengthWarning = 50
+local lineLengthError = 50
+local leftbracket = ""
+local rightbracket = ""
 
 local colors = {
-  bg              = bgcolor(),
+  bg              = '#200933',
   modetext        = '#000000',
   giticon         = '#FF8800',
   gitbg           = '#5C2C2E',
@@ -51,14 +47,14 @@ local colors = {
   shorttext       = '#000000',
   shortrightbg    = '#3F3F3F',
   shortrighttext  = '#7C4C4E',
-  red             = '#D16969',
-  yellow          = '#DCDCAA',
-  magenta         = '#D16D9E',
-  green           = '#608B4E',
-  orange          = '#FF8800',
-  purple          = '#C586C0',
+  red             = '#fe4450',
+  yellow          = '#FFCC00',
+  magenta         = '#FC199A',
+  green           = '#72f1b8',
+  orange          = '#ff8b39',
+  purple          = '#AF6DF9',
   blue            = '#569CD6',
-  cyan            = '#4EC9B0'
+  cyan            = '#61E2FF'
 }
 
 local mode_map = {
@@ -177,7 +173,7 @@ return {
       ViModeIconAndText = {
         provider = function()
           highlight('GalaxyViMode', colors.modetext, mode_map[vim.fn.mode()][1])
-          return icons['vim'] .. " " .. mode_map[vim.fn.mode()][2]
+          return icons['vim'] .. " " .. mode_map[vim.fn.mode()][2] .. " "
         end,
         highlight = 'GalaxyViMode'
       }
@@ -407,13 +403,29 @@ return {
     })
 
     table.insert(gls.left, {
-      GpsLocation = {
+      GpsFile = {
         provider = function()
-          return vim.fn.expand '%:t' .. ' '
+          return vim.fn.expand('%:p'):gsub(vim.fn.getcwd() .. '/', '') .. " "
         end,
-        highlight = { colors.gpstext, colors.gpsbg }
+        -- separator_highlight = { colors.typeicon, colors.gpsbg },
+        -- separator = "   ",
+        highlight = { colors.gpstext, colors.gpsbg },
+        color_mode = true
       }
     })
+
+    -- table.insert(gls.left, {
+    --   GpsSymbol = {
+    --     provider = function()
+    --       return require('nvim-navic').get_location()
+    --     end,
+    --     condition = function()
+    --       return require('nvim-navic').is_available() and #require('nvim-navic').get_location() > 0
+    --     end,
+    --     highlight = { colors.gpstext, colors.gpsbg },
+    --     color_mode = true
+    --   }
+    -- })
 
     table.insert(gls.left, {
       GpsEnd = {
@@ -421,19 +433,6 @@ return {
         highlight = { colors.gpsbg, colors.bg }
       }
     })
-    -- table.insert(gls.left, {
-    --     nvimGPS = {
-    --       provider = function()
-    --         return gps.get_location()
-    --       end,
-    --       condition = function()
-    --         return gps.is_available() and #gps.get_location() > 0
-    --       end,
-    --       highlight = {colors.gpstext, colors.bg}
-    --     }
-    -- })
-
-
 
     -- }}}3
 
@@ -538,6 +537,8 @@ end]]
     table.insert(gls.right, {
       TypeSectionEnd = {
         provider = function() return rightbracket end,
+        separator = " ",
+        separator_highlight = { colors.typebg, colors.typebg },
         highlight = { colors.typebg, colors.bg }
       }
     })
@@ -646,12 +647,7 @@ end]]
     table.insert(gls.right, {
       Tabstop = {
         provider = function()
-          if vim.bo.expandtab
-          then
-            return vim.bo.shiftwidth
-          else
-            return vim.bo.shiftwidth
-          end
+          return vim.bo.shiftwidth .. " "
         end,
         condition = condition.hide_in_width,
         highlight = { colors.statstext, colors.statsbg }
@@ -716,7 +712,7 @@ end]]
       BufferIcon = {
         provider = 'BufferIcon',
         separator_highlight = { colors.shorttext, colors.bg },
-        highlight = { colors.shortrighttext, colors.bg }
+        highlight = { colors.textbg, colors.bg }
       }
     })
   end

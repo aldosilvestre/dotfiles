@@ -29,7 +29,6 @@ return {
       dependencies = { 'rafamadriz/friendly-snippets', 'dsznajder/vscode-es7-javascript-react-snippets' }
     },
     'williamboman/mason-lspconfig.nvim',
-    'folke/neodev.nvim',
     'neovim/nvim-lspconfig',
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/nvim-cmp',     --> Autocompletion plugin
@@ -43,7 +42,6 @@ return {
     'hrsh7th/nvim-compe',
   },
   config = function()
-    require("neodev").setup({})
     local lsp = require('lsp-zero').preset({
       manage_nvim_cmp = {
         set_sources = 'recommended'
@@ -61,7 +59,7 @@ return {
       hint = " ",
       info = " "
     })
-    lsp.on_attach(function(_, bufnr)
+    lsp.on_attach(function(client, bufnr)
       local bufopts = {
         noremap = true,
         silent = true,
@@ -78,6 +76,7 @@ return {
       keymap('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, addDescription(bufopts, "formatting"))
 
       keymap('n', 'gi', '<CMD>Trouble lsp_implementations<CR>', bufopts)
+
     end)
 
     cmp.setup({

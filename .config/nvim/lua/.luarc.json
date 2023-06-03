@@ -1,7 +1,8 @@
 {
     "diagnostics.globals": [
         "vim",
-        "print_lua"
+        "print_lua",
+        "lfs"
     ],
     "workspace.library": [
         "/home/aldo/.local/share/nvim/lazy/neodev.nvim/types/stable",
@@ -78,6 +79,8 @@
         "/home/aldo/.local/share/nvim/lazy/cmp-buffer/lua",
         "/home/aldo/.local/share/nvim/lazy/lspkind.nvim/lua",
         "/home/aldo/Documentos/git/dotfiles/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/lfs/library",
+        "${3rd}/luassert/library"
     ]
 }

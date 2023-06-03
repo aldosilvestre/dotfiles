@@ -1,6 +1,7 @@
 return {
   'glepnir/lspsaga.nvim',
-  event = "LspAttach",
+  lazy = false,
+  -- event = "LspAttach",
   opts = {
     lightbulb = {
       enable = false,
@@ -24,6 +25,16 @@ return {
       incoming = " ",
       outgoing = " ",
       hover = ' ',
+    },
+    symbol_in_winbar = {
+      enable = true,
+      separator = " ",
+      ignore_patterns = {},
+      hide_keyword = true,
+      show_file = true,
+      folder_level = 2,
+      respect_root = false,
+      color_mode = true,
     },
   }
 }
