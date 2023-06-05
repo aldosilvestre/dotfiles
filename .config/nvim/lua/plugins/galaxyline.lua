@@ -1,12 +1,4 @@
-local function highlight(group, fg, bg, gui)
-  local cmd = string.format('highlight %s guifg=%s guibg=%s', group, fg, bg)
-
-  if gui ~= nil then
-    cmd = cmd .. ' gui=' .. gui
-  end
-
-  vim.cmd(cmd)
-end
+local highlight = require("config.utils").highlight
 
 -- }}}2
 

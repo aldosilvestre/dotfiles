@@ -1,5 +1,4 @@
 return {
-  "kylechui/nvim-surround",
+  "tpope/vim-surround",
   event = "VeryLazy",
-  config = true
 }

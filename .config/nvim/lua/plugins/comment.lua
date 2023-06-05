@@ -26,15 +26,6 @@ return {
         ---Block-comment keymap
         block = '<leader>?',
       },
-      ---LHS of extra mappings
-      extra = {
-        ---Add comment on the line above
-        above = 'cO',
-        ---Add comment on the line below
-        below = 'co',
-        ---Add comment at the end of line
-        eol = 'cA',
-      },
       ---Enable keybindings
       ---NOTE: If given `false` then the plugin won't create any mappings
       mappings = {

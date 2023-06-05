@@ -11,7 +11,8 @@ return {
   config = function()
     require("nvim-treesitter.configs").setup {
       -- A list of parser names, or "all"
-      ensure_installed = { "javascript", "lua", "css", "html", "dockerfile", "json", "typescript", "markdown", "markdown_inline", "http" },
+      ensure_installed = { "javascript", "lua", "css", "html", "dockerfile", "json", "typescript", "markdown",
+        "markdown_inline", "http" },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = true,
@@ -63,6 +64,15 @@ return {
       context_commentstring = {
         enable = true,
         enable_autocmd = false,
+      },
+      textsubjects = {
+        enable = true,
+        prev_selection = ',', -- (Optional) keymap to select the previous selection
+        keymaps = {
+          ['.'] = 'textsubjects-smart',
+          [';'] = 'textsubjects-container-outer',
+          ['i;'] = 'textsubjects-container-inner',
+        },
       }
     }
   end

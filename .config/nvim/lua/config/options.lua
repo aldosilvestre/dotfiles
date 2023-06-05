@@ -43,6 +43,7 @@ local options = {
   fileencoding   = "utf-8",                 --- The encoding written to file
   incsearch      = true,                    --- Start searching before pressing enter
   showmode       = false,                   --- Don't show things like -- INSERT -- anymore
+  guicursor = "i:ver25,n-v-c:hor20"
 }
 
 for k, v in pairs(options) do

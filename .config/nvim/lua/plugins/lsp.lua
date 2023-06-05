@@ -59,7 +59,7 @@ return {
       hint = " ",
       info = " "
     })
-    lsp.on_attach(function(client, bufnr)
+    lsp.on_attach(function(_, bufnr)
       local bufopts = {
         noremap = true,
         silent = true,
