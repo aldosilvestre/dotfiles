@@ -3,7 +3,7 @@ local keymap = vim.keymap.set
 return {
   'Exafunction/codeium.vim',
   cmd = "RunCodeium",
-  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "go"},
+  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "go", "vue" },
   config = function()
     vim.g.codeium_disable_bindings = 1
     keymap('i', '<C-Space>', function() return vim.fn['codeium#Accept']() end, { expr = true })
@@ -19,6 +19,7 @@ return {
       typescript = true,
       javascript = true,
       javascriptreact = true,
+      vue = true,
       python = true,
       golang = true,
       json = false

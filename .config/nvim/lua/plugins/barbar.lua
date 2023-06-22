@@ -1,18 +1,17 @@
 return {
   'romgrk/barbar.nvim',
+  init = function() vim.g.barbar_auto_setup = false end,
   event = 'BufEnter',
   config = function()
-    require('bufferline').setup({
+    require('barbar').setup({
       animation = true,
       auto_hide = false,
       tabpages = true,
       closable = true,
       clickable = true,
-      -- exclude_ft = { 'javascript' },
-      -- exclude_name = { 'package.json' },
-      icons = { filetype = { enabled = true } },
+      icons = { button = ' ', filetype = { enabled = true }, inactive = { button = ' ' } },
       icon_custom_colors = false,
-      icon_pinned_button = '車',
+      icon_pinned_button = ' ',
       insert_at_end = false,
       insert_at_start = false,
       maximum_padding = 1,

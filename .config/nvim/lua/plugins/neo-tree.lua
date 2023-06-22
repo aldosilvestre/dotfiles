@@ -13,39 +13,40 @@ local config = {
   enable_refresh_on_write = true, -- Refresh the tree when a file is written. Only used if `use_libuv_file_watcher` is false.
   git_status_async = true,
   git_status_async_options = {
-    batch_size = 1000, -- how many lines of git status results to process at a time
-    batch_delay = 10, -- delay in ms between batches. Spreads out the workload to let other processes run.
-    max_lines = 10000, -- How many lines of git status results to process. Anything after this will be dropped.
+    batch_size = 1000,               -- how many lines of git status results to process at a time
+    batch_delay = 10,                -- delay in ms between batches. Spreads out the workload to let other processes run.
+    max_lines = 10000,               -- How many lines of git status results to process. Anything after this will be dropped.
   },
-  hide_root_node = false, -- Hide the root node.
+  hide_root_node = false,            -- Hide the root node.
   retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow.
-  log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
-  log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
-  open_files_in_last_window = true, -- false = open files in top left window
-  popup_border_style = "rounded", -- "double", "none", "rounded", "shadow", "single" or "solid"
-  resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
-  sort_case_insensitive = false, -- used when sorting files and directories in the tree
-  sort_function = nil, -- uses a custom function for sorting files and directories in the tree
-  use_popups_for_input = true, -- If false, inputs will use vim.ui.input() instead of custom floats.
+  log_level = "info",                -- "trace", "debug", "info", "warn", "error", "fatal"
+  log_to_file = false,               -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
+  open_files_in_last_window = true,  -- false = open files in top left window
+  popup_border_style = "rounded",    -- "double", "none", "rounded", "shadow", "single" or "solid"
+  resize_timer_interval = 500,       -- in ms, needed for containers to redraw right aligned and faded content
+  sort_case_insensitive = false,     -- used when sorting files and directories in the tree
+  sort_function = nil,               -- uses a custom function for sorting files and directories in the tree
+  use_popups_for_input = true,       -- If false, inputs will use vim.ui.input() instead of custom floats.
   use_default_mappings = true,
   source_selector = {
-    winbar = false, -- toggle to show selector on winbar
-    statusline = false, -- toggle to show selector on statusline
+    winbar = false,                        -- toggle to show selector on winbar
+    statusline = false,                    -- toggle to show selector on statusline
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
-    sources = { -- falls back to source_name if nil
+    sources = {
+                                           -- falls back to source_name if nil
       filesystem = "  Files ",
       buffers = "  Buffers ",
       git_status = "  Git ",
       diagnostics = " 裂Diagnostics ",
     },
-    content_layout = "start", -- only with `tabs_layout` = "equal", "focus"
-    tabs_layout = "equal", -- start, end, center, equal, focus
+    content_layout = "start",   -- only with `tabs_layout` = "equal", "focus"
+    tabs_layout = "equal",      -- start, end, center, equal, focus
     truncation_character = "…", -- character to use when truncating the tab label
-    tabs_min_width = nil, -- nil | int: if int padding is added based on `content_layout`
-    tabs_max_width = nil, -- this will truncate text even if `text_trunc_to_fit = false`
-    padding = 0, -- can be int or table
+    tabs_min_width = nil,       -- nil | int: if int padding is added based on `content_layout`
+    tabs_max_width = nil,       -- this will truncate text even if `text_trunc_to_fit = false`
+    padding = 0,                -- can be int or table
     separator = { left = "▏", right = "▕" },
-    separator_active = nil, -- set separators around the active tab. nil falls back to `source_selector.separator`
+    separator_active = nil,     -- set separators around the active tab. nil falls back to `source_selector.separator`
     show_separator_on_edge = false,
     highlight_tab = "NeoTreeTabInactive",
     highlight_tab_active = "NeoTreeTabActive",
@@ -110,8 +111,8 @@ local config = {
         width = "100%",
         right_padding = 0,
         content = {
-          { "name", zindex = 10 },
-          { "clipboard", zindex = 10 },
+          { "name",        zindex = 10 },
+          { "clipboard",   zindex = 10 },
           { "diagnostics", errors_only = true, zindex = 20, align = "right" },
         },
       },
@@ -128,17 +129,17 @@ local config = {
             "name",
             zindex = 10
           },
-          { "clipboard", zindex = 10 },
-          { "bufnr", zindex = 10 },
-          { "modified", zindex = 20, align = "right" },
+          { "clipboard",   zindex = 10 },
+          { "bufnr",       zindex = 10 },
+          { "modified",    zindex = 20, align = "right" },
           { "diagnostics", zindex = 20, align = "right" },
-          { "git_status", zindex = 20, align = "right" },
+          { "git_status",  zindex = 20, align = "right" },
         },
       },
     },
     message = {
       { "indent", with_markers = true },
-      { "name", highlight = "NeoTreeMessage" },
+      { "name",   highlight = "NeoTreeMessage" },
     },
     terminal = {
       { "indent" },
@@ -148,12 +149,14 @@ local config = {
     }
   },
   nesting_rules = {},
-  window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+  window = {
+                       -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
     position = "left", -- left, right, top, bottom, float, current
-    width = 40, -- applies to left and right positions
-    height = 15, -- applies to top and bottom positions
-		border = "rounded",
-    popup = { -- settings that apply to float position only
+    width = 40,        -- applies to left and right positions
+    height = 15,       -- applies to top and bottom positions
+    border = "rounded",
+    popup = {
+                       -- settings that apply to float position only
       size = {
         height = "80%",
         width = "50%",
@@ -212,15 +215,15 @@ local config = {
       }
     },
     async_directory_scan = "auto", -- "auto"   means refreshes are async, but it's synchronous when called from the Neotree commands.
-    bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+    bind_to_cwd = true,            -- true creates a 2-way binding between vim's cwd and neo-tree's root
     cwd_target = {
-      sidebar = "tab", -- sidebar is when position = left or right
-      current = "window" -- current is when position = current
+      sidebar = "tab",             -- sidebar is when position = left or right
+      current = "window"           -- current is when position = current
     },
     filtered_items = {
-      visible = false, -- when true, they will just be displayed differently than normal items
+      visible = false,                       -- when true, they will just be displayed differently than normal items
       force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
-      show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
+      show_hidden_count = true,              -- when true, the number of hidden items in each folder will be shown as the last entry
       hide_dotfiles = true,
       hide_gitignored = true,
       hide_hidden = true, -- only works on Windows for hidden files/directories
@@ -237,17 +240,17 @@ local config = {
         --"thumbs.db"
       },
     },
-    find_by_full_path_words = false, -- `false` means it only searches the tail of a path.
-    group_empty_dirs = true, -- when true, empty folders will be grouped together
-    search_limit = 50, -- max number of search results when using filters
-    follow_current_file = true, -- This will find and focus the file in the active buffer every time
+    find_by_full_path_words = false,        -- `false` means it only searches the tail of a path.
+    group_empty_dirs = true,                -- when true, empty folders will be grouped together
+    search_limit = 50,                      -- max number of search results when using filters
+    follow_current_file = true,             -- This will find and focus the file in the active buffer every time
     hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
-    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+    use_libuv_file_watcher = false,         -- This will use the OS level file watchers to detect changes
   },
   buffers = {
     bind_to_cwd = true,
     follow_current_file = true, -- This will find and focus the file in the active buffer every time
-    group_empty_dirs = true, -- when true, empty directories will be grouped together
+    group_empty_dirs = true,    -- when true, empty directories will be grouped together
     window = {
       mappings = {
         ["<bs>"] = "navigate_up",
@@ -273,7 +276,7 @@ local config = {
     renderers = {
       custom = {
         { "indent" },
-        { "icon", default = "C" },
+        { "icon",  default = "C" },
         { "custom" },
         { "name" }
       }
@@ -290,10 +293,10 @@ local config = {
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
-	branch = "v2.x",
+  branch = "v2.x",
   dependencies = {
-    'MunifTanjim/nui.nvim', --> Dependency from neo tree
-    's1n7ax/nvim-window-picker' --> Window picker
+    'MunifTanjim/nui.nvim',                                                             --> Dependency from neo tree
+    { 's1n7ax/nvim-window-picker', version = '2.*', event = 'VeryLazy', config = true } --> Window picker
   },
   config = function()
     require("neo-tree").setup(config)

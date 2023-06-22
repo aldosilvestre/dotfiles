@@ -11,6 +11,7 @@ local source_mapping = {
 return {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
+  event = "VeryLazy",
   dependencies = {
     {
       'williamboman/mason.nvim',
@@ -20,12 +21,13 @@ return {
         }
       },
       build = function()
-        -- pcall(vim.cmd, 'MasonUpdate')
-        vim.cmd('MasonUpdate') --> remove spaces from the end of line
+        pcall(vim.cmd, 'MasonUpdate')
+        -- vim.cmd('MasonUpdate') --> remove spaces from the end of line
       end,
     },
     {
       'L3MON4D3/LuaSnip',
+      event = 'VeryLazy',
       dependencies = { 'rafamadriz/friendly-snippets', 'dsznajder/vscode-es7-javascript-react-snippets' }
     },
     'williamboman/mason-lspconfig.nvim',
@@ -40,6 +42,7 @@ return {
     'hrsh7th/cmp-git',
     'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/nvim-compe',
+    "lukas-reineke/lsp-format.nvim"
   },
   config = function()
     local lsp = require('lsp-zero').preset({
@@ -59,7 +62,7 @@ return {
       hint = " ",
       info = " "
     })
-    lsp.on_attach(function(_, bufnr)
+    lsp.on_attach(function(client, bufnr)
       local bufopts = {
         noremap = true,
         silent = true,
@@ -73,10 +76,13 @@ return {
       keymap('n', 'K', '<CMD>Lspsaga hover_doc<CR>', addDescription(bufopts, "show Hover"))
       keymap('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
       keymap('n', '<leader>ca', '<CMD>CodeActionMenu<CR>', bufopts)
-      keymap('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, addDescription(bufopts, "formatting"))
-
+      keymap('n', '<leader>f', function() vim.lsp.buf.format({ async = false, timeout_ms = 10000 }) end,
+        addDescription(bufopts, "formatting"))
       keymap('n', 'gi', '<CMD>Trouble lsp_implementations<CR>', bufopts)
 
+      if client.supports_method('textDocument/formatting') then
+        require('lsp-format').on_attach(client)
+      end
     end)
 
     cmp.setup({
@@ -92,7 +98,8 @@ return {
           maxwidth = 50,
           ellipsis_char = '...',
           before = function(entry, vim_item)
-            vim_item.kind = " " .. (lspkind.symbolic(vim_item.kind, { mode = "symbol" }) or "") .. " "
+            vim_item.kind = (lspkind.symbolic(vim_item.kind, { mode = "symbol" }) or "")
+            vim_item.abbr = " " .. vim_item.abbr .. " "
             vim_item.menu = "(" .. (source_mapping[entry.source.name] or " ") .. ")"
             return vim_item
           end

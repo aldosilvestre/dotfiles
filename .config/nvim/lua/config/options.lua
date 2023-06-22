@@ -1,9 +1,8 @@
----@diagnostic disable: undefined-global
 local options = {
   clipboard      = "unnamed,unnamedplus",   --- Copy-paste between vim and everything else
   cmdheight      = 1,                       --- Give more space for displaying messages
   completeopt    = "menu,menuone,noselect", --- Better autocompletion
-  cursorline     = false,                    --- Highlight of current line
+  cursorline     = false,                   --- Highlight of current line
   emoji          = true,                    --- Fix emoji display
   expandtab      = true,                    --- Use spaces instead of tabs
   foldlevelstart = 99,                      --- Expand all folds by default
@@ -34,16 +33,16 @@ local options = {
   writebackup    = false,                   --- Not needed
 
   -- Neovim defaults
-  autoindent     = true,                    --- Good auto indent
-  backspace      = "indent,eol,start",      --- Making sure backspace works
-  backup         = false,                   --- Recommended by coc
-  conceallevel   = 0,                       --- Show `` in markdown files
-  encoding       = "utf-8",                 --- The encoding displayed
-  errorbells     = false,                   --- Disables sound effect for errors
-  fileencoding   = "utf-8",                 --- The encoding written to file
-  incsearch      = true,                    --- Start searching before pressing enter
-  showmode       = false,                   --- Don't show things like -- INSERT -- anymore
-  guicursor = "i:ver25,n-v-c:hor20"
+  autoindent     = true,                 --- Good auto             indent
+  backspace      = "indent,eol,start",   --- Making sure backspace works
+  backup         = false,                --- Recommended by coc
+  conceallevel   = 0,                    --- Show `` in markdown files
+  encoding       = "utf-8",              --- The encoding displayed
+  errorbells     = false,                --- Disables sound effect for errors
+  fileencoding   = "utf-8",              --- The encoding written to file
+  incsearch      = true,                 --- Start searching before pressing enter
+  showmode       = false,                --- Don't show things like -- INSERT -- anymore
+  guicursor      = "i:ver25,n-v-c:hor20" --- Gui cursor
 }
 
 for k, v in pairs(options) do
