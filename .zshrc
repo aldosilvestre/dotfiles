@@ -82,7 +82,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo  git zsh-history-substring-search zsh-autosuggestions emoji fast-syntax-highlighting)
+plugins=(git sudo zsh-history-substring-search zsh-autosuggestions emoji fast-syntax-highlighting docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,3 +145,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

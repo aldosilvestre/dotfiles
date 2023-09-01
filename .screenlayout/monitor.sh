@@ -8,7 +8,9 @@ monitor_external=$(xrandr | grep -w connected | awk '{print $1}' | grep -w 'DP')
 cant_monitores_externos=$( xrandr | awk '/ connected/{print $1}' | grep -w 'DP' | wc -l )
 pos_integrated=$(( (${cant_monitores_externos} / 2) * 1920 ))
 
-xrandr --output $monitor_integrated --pos ${pos_integrated}x0 --mode 1920x1200 --rotate normal
+res_integrate_monitor=1920x1200
+
+xrandr --output $monitor_integrated --pos ${pos_integrated}x0 --mode ${res_integrate_monitor} --rotate normal
 
 index=1
 for monitor in $monitor_external

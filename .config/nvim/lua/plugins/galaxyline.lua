@@ -137,7 +137,7 @@ return {
           if vim.fn.reg_recording() == '' then
             return ""
           else
-            return '壘'
+            return ' '
           end
         end,
         condition = condition.hide_in_width,

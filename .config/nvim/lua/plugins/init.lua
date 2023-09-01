@@ -5,7 +5,7 @@ return {
   "christoomey/vim-tmux-navigator",                                                                                     --> tmux
   "onsails/lspkind.nvim",                                                                                               --> icons
   -- 'adelarsq/vim-devicons-emoji', --> Emojis
-  { "terryma/vim-multiple-cursors", event = 'VeryLazy' },                                                               --> multiple cursor
+  { "mg979/vim-visual-multi",       event = 'VeryLazy' },                                                               --> multiple cursor
   { "phaazon/hop.nvim",             opts = { keys = "fjdksla;ghrueiwoqptybnvmc" }, event = "VeryLazy", config = true }, --> EasyMotion hop
   { "windwp/nvim-ts-autotag",       config = true },                                                                    --> auto tag close
   { "windwp/nvim-autopairs",        config = true },                                                                    --> autopairs

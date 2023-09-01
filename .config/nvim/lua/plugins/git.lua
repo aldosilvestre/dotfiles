@@ -1,11 +1,9 @@
 local highlight = require("config.utils").highlight
 local colbg = "#1c082d"
 
-vim.g.gitblame_enabled = 0
 
 return {
-  { "f-person/git-blame.nvim", event = "VeryLazy" },
-  { "kdheepak/lazygit.nvim",   event = "VeryLazy" },
+  { "kdheepak/lazygit.nvim", event = "VeryLazy" }, --> Manager Git
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",

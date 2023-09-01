@@ -3,14 +3,15 @@ local opts = { noremap = true, silent = true }
 
 local addDescription = require('config.utils').addDescription
 
-map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit")) --> fast quit
+map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit"))  --> fast quit
 map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
 
 map('n', '<leader>nt', '<CMD>Neotree right<CR>', addDescription(opts, "Open Neotree"))
 map('n', '<leader>nf', '<CMD>Neotree float<CR>', addDescription(opts, "Open Neotree float"))
 
 -- Telescope
-map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>', addDescription(opts, "Find Files"))
+map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
+  addDescription(opts, "Find Files"))
 map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, "Find with grep"))
 map('n', '<leader>fb', '<CMD>Telescope buffers<CR>', addDescription(opts, "Show buffers"))
 map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Find help"))
@@ -29,10 +30,11 @@ map('n', '<A-j>', '<CMD>m .+1<CR>==', addDescription(opts, "Move line down"))
 map('n', '<A-k>', '<CMD>m .-2<CR>==', addDescription(opts, "Move line up"))
 
 -- Git Blame
-map('n', 'gb', '<CMD>GitBlameToggle<CR>', addDescription(opts, "Git brame toggle"))
+-- map('n', 'gb', '<CMD>GitBlameToggle<CR>', addDescription(opts, "Git brame toggle"))
 
 -- Diagnostics
-map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float({border = "rounded"})<CR>', addDescription(opts, "Open diagnostic float"))
+map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float({border = "rounded"})<CR>',
+  addDescription(opts, "Open diagnostic float"))
 map('n', '<leader>E', '<CMD>lua vim.diagnostic.setloclist()<CR>', addDescription(opts, "Diagnostics location"))
 
 -- Lua
@@ -72,3 +74,10 @@ map("n", "<leader>nh", "<CMD>Noice history<CR>", addDescription(opts, "Noice his
 -- NavBuddy
 map("n", "<leader>nb", "<CMD>Navbuddy<CR>", addDescription(opts, "NavBuddy explorer"))
 
+-- SnipRun
+map("n", "<leader><leader>x", "<CMD>%'<,'>SnipRun<CR>", addDescription(opts, "Run SnipRun"))
+
+-- Harpoon
+map("n", "<leader>hm", "<CMD>Telescope harpoon marks<CR>", addDescription(opts, "Show Harpoon marks"))
+vim.keymap.set("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end,
+  addDescription(opts, "Toggle mark harpoon"))

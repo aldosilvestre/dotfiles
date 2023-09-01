@@ -1,83 +1,40 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = "VeryLazy",
   opts = {
-    signs                        = {
-      add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-      change       = { hl = 'GitSignsChange', text = '│', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-      delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+    signs = {
+      add          = { hl = 'GitSignsAdd', text = '+', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+      change       = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      delete       = { hl = 'GitSignsDelete', text = '-', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
       topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-      changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      changedelete = { hl = 'GitSignsChange', text = '~_', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
     },
-    signcolumn                   = true,    -- Toggle with `:Gitsigns toggle_signs`
-    numhl                        = false,   -- Toggle with `:Gitsigns toggle_numhl`
-    linehl                       = false,   -- Toggle with `:Gitsigns toggle_linehl`
-    word_diff                    = false,   -- Toggle with `:Gitsigns toggle_word_diff`
-    watch_gitdir                 = {
-      interval = 1000,
-      follow_files = true
+    current_line_blame_opts = {
+      delay = 0
     },
-    attach_to_untracked          = true,
-    current_line_blame           = false,   -- Toggle with `:Gitsigns toggle_current_line_blame`
-    current_line_blame_opts      = {
-      virt_text = true,
-      virt_text_pos = 'eol',   -- 'eol' | 'overlay' | 'right_align'
-      delay = 1000,
-      ignore_whitespace = false,
+    preview_config = {
+      border = 'rounded'
     },
-    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-    sign_priority                = 6,
-    update_debounce              = 100,
-    status_formatter             = nil,     -- Use default
-    max_file_length              = 40000,   -- Disable if file is longer than this (in lines)
-    preview_config               = {
-      -- Options passed to nvim_open_win
-      border = 'single',
-      style = 'minimal',
-      relative = 'cursor',
-      row = 0,
-      col = 1
-    },
-    yadm                         = {
-      enable = false
-    },
-    on_attach                    = function(bufnr)
-      local gs = package.loaded.gitsigns
+    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d %H:%M> - <summary>',
+    max_file_length = 10000,
+    on_attach = function(bufnr)
+      local addDescription = require('config.utils').addDescription
+      local gs = require("gitsigns")
+      local map = vim.keymap.set
+      local opts = { silent = true, noremap = true, buffer = bufnr }
 
-      local function map(mode, l, r, opts)
-        opts = opts or {}
-        opts.buffer = bufnr
-        vim.keymap.set(mode, l, r, opts)
-      end
+      map('n', 'gb', gs.toggle_current_line_blame, addDescription(opts, "Toggle git blame"))
+      map('n', '<leader>gs', gs.stage_buffer, addDescription(opts, "Add to stage"))
+      map('n', '<leader>gw', gs.undo_stage_hunk, addDescription(opts, "Undo stage hunk"))
+      map('n', '<leader>grb', gs.reset_buffer, addDescription(opts, "Reset buffer"))
+      map('n', 'gp', gs.preview_hunk, addDescription(opts, "Preview hunk"))
+      map('n', 'ghb', function() gs.blame_line { full = true } end,
+        addDescription(opts, "Show git blame line complete"))
+      map('n', 'gtd', gs.toggle_deleted, addDescription(opts, "Show delete lines"))
 
-      -- Navigation
-      map('n', ']c', function()
-        if vim.wo.diff then return ']c' end
-        vim.schedule(function() gs.next_hunk() end)
-        return '<Ignore>'
-      end, { expr = true })
-
-      map('n', '[c', function()
-        if vim.wo.diff then return '[c' end
-        vim.schedule(function() gs.prev_hunk() end)
-        return '<Ignore>'
-      end, { expr = true })
-
-      -- Actions
-      map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-      map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-      map('n', '<leader>hS', gs.stage_buffer)
-      map('n', '<leader>hu', gs.undo_stage_hunk)
-      map('n', '<leader>hR', gs.reset_buffer)
-      map('n', '<leader>hp', gs.preview_hunk)
-      map('n', '<leader>hb', function() gs.blame_line { full = true } end)
-      map('n', '<leader>tb', gs.toggle_current_line_blame)
-      map('n', '<leader>hd', gs.diffthis)
-      map('n', '<leader>hdm', function() gs.diffthis('~') end)
-      map('n', '<leader>td', gs.toggle_deleted)
-
-      -- Text object
-      map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+      vim.cmd.highlight 'diffAdded ctermfg=2 guifg=#02f104'
+      vim.cmd.highlight "diffChanged ctermfg=3 guifg=#ff8b39"
+      vim.cmd.highlight "diffRemoved ctermfg=1 guifg=#fe4450"
+      vim.cmd.highlight 'GitSignsCurrentLineBlame gui=italic' --> make blame in italic font
     end
   },
   config = true

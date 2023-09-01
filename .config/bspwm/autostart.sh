@@ -28,13 +28,13 @@ run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 
 #Some ways to set your wallpaper besides variety or nitrogen
 #feh --bg-scale ~/.config/bspwm/wall.png &
-feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
+# feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
 # feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 #wallpaper for other Arch based systems
 #feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 #feh --randomize --bg-fill ~/Dropbox/Apps/Desktoppr/*
 
-dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+# dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 xsetroot -cursor_name left_ptr &
 
 $HOME/.config/polybar/launch.sh &
@@ -43,16 +43,19 @@ $HOME/.config/polybar/launch.sh &
 # conky -c $HOME/.config/conky/AP-Weather-White.conkyrc &
 # run variety &
 run nm-applet &
-# run pamac-tray &
+run pamac-tray &
 run xfce4-power-manager &
+run blueman-applet &
+
 nitrogen --restore &
 numlockx on &
-blueberry-tray &
+# blueberry-tray &
 picom --config $HOME/.config/bspwm/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
+
 run indicator-sound-switcher &
-#run volumeicon &
+# run volumeicon &
 #run caffeine &
 #run vivaldi-stable &
 #run firefox &

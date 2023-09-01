@@ -26,11 +26,11 @@ return {
           cmd = "<cmd>lua require('spectre.actions').select_entry()<CR>",
           desc = "goto current file"
         },
-        -- ['send_to_qf'] = {
-        --   map = "<leader>r",
-        --   cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
-        --   desc = "send all item to quickfix"
-        -- },
+        ['send_to_qf'] = {
+          map = "<leader>r",
+          cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
+          desc = "send all item to quickfix"
+        },
         ['replace_cmd'] = {
           map = "<leader>c",
           cmd = "<cmd>lua require('spectre.actions').replace_cmd()<CR>",
