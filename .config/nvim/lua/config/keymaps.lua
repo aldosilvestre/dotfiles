@@ -29,8 +29,8 @@ map('n', '<leader>;', '$a;<Esc>', addDescription(opts, "fast add ; end line")) -
 map('n', '<A-j>', '<CMD>m .+1<CR>==', addDescription(opts, "Move line down"))
 map('n', '<A-k>', '<CMD>m .-2<CR>==', addDescription(opts, "Move line up"))
 
--- Git Blame
--- map('n', 'gb', '<CMD>GitBlameToggle<CR>', addDescription(opts, "Git brame toggle"))
+-- No highlight
+map('n', '<ESC><ESC>', '<CMD>noh<CR>', addDescription(opts, "Remove highlight"))
 
 -- Diagnostics
 map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float({border = "rounded"})<CR>',
@@ -81,3 +81,6 @@ map("n", "<leader><leader>x", "<CMD>%'<,'>SnipRun<CR>", addDescription(opts, "Ru
 map("n", "<leader>hm", "<CMD>Telescope harpoon marks<CR>", addDescription(opts, "Show Harpoon marks"))
 vim.keymap.set("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end,
   addDescription(opts, "Toggle mark harpoon"))
+
+-- Project
+map("n", "<leader>p", "<CMD>Telescope projects<CR>", addDescription(opts, "Show projects"))

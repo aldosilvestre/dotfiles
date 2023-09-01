@@ -59,7 +59,7 @@ return {
     lsp.set_sign_icons({
       error = " ",
       warn = " ",
-      hint = " ",
+      hint = " ",
       info = " "
     })
     lsp.on_attach(function(client, bufnr)
@@ -72,13 +72,13 @@ return {
 
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-      keymap('n', 'gD', vim.lsp.buf.declaration, bufopts)
-      keymap('n', 'K', '<CMD>Lspsaga hover_doc<CR>', addDescription(bufopts, "show Hover"))
-      keymap('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-      keymap('n', '<leader>ca', '<CMD>CodeActionMenu<CR>', bufopts)
+      keymap('n', 'gD', vim.lsp.buf.declaration, addDescription(bufopts, "Go to declaration"))
+      keymap('n', 'K', '<CMD>Lspsaga hover_doc<CR>', addDescription(bufopts, "Show Hover"))
+      keymap('n', '<leader>D', vim.lsp.buf.type_definition, addDescription(bufopts, "Show Type description"))
+      keymap('n', '<leader>ca', '<CMD>CodeActionMenu<CR>', addDescription(bufopts, "Show code action menu"))
       keymap('n', '<leader>f', function() vim.lsp.buf.format({ async = false, timeout_ms = 10000 }) end,
-        addDescription(bufopts, "formatting"))
-      keymap('n', 'gi', '<CMD>Trouble lsp_implementations<CR>', bufopts)
+        addDescription(bufopts, "Format code"))
+      keymap('n', 'gi', '<CMD>Trouble lsp_implementations<CR>', addDescription(bufopts, "Touble LSP implementations"))
 
       if client.supports_method('textDocument/formatting') then
         require('lsp-format').on_attach(client)
@@ -112,8 +112,7 @@ return {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ['<Tab>'] = cmp_action.luasnip_supertab(),
-        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-
+        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab()
       }),
       window = {
         completion = cmp.config.window.bordered(),

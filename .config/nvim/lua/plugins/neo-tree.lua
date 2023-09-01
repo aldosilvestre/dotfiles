@@ -33,20 +33,20 @@ local config = {
     statusline = false,                    -- toggle to show selector on statusline
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
     sources = {
-                                           -- falls back to source_name if nil
+      -- falls back to source_name if nil
       filesystem = "  Files ",
       buffers = "  Buffers ",
       git_status = "  Git ",
       diagnostics = " 裂Diagnostics ",
     },
-    content_layout = "start",   -- only with `tabs_layout` = "equal", "focus"
-    tabs_layout = "equal",      -- start, end, center, equal, focus
+    content_layout = "start", -- only with `tabs_layout` = "equal", "focus"
+    tabs_layout = "equal", -- start, end, center, equal, focus
     truncation_character = "…", -- character to use when truncating the tab label
-    tabs_min_width = nil,       -- nil | int: if int padding is added based on `content_layout`
-    tabs_max_width = nil,       -- this will truncate text even if `text_trunc_to_fit = false`
-    padding = 0,                -- can be int or table
+    tabs_min_width = nil, -- nil | int: if int padding is added based on `content_layout`
+    tabs_max_width = nil, -- this will truncate text even if `text_trunc_to_fit = false`
+    padding = 0, -- can be int or table
     separator = { left = "▏", right = "▕" },
-    separator_active = nil,     -- set separators around the active tab. nil falls back to `source_selector.separator`
+    separator_active = nil, -- set separators around the active tab. nil falls back to `source_selector.separator`
     show_separator_on_edge = false,
     highlight_tab = "NeoTreeTabInactive",
     highlight_tab_active = "NeoTreeTabActive",
@@ -88,7 +88,7 @@ local config = {
     },
     git_status = {
       symbols = {
-        added     = "✚", -- NOTE: you can set any of these to an empty string to not show them
+        added     = "✚",
         deleted   = "✖",
         modified  = "",
         renamed   = "",
@@ -150,13 +150,13 @@ local config = {
   },
   nesting_rules = {},
   window = {
-                       -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+    -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
     position = "left", -- left, right, top, bottom, float, current
     width = 40,        -- applies to left and right positions
     height = 15,       -- applies to top and bottom positions
     border = "rounded",
     popup = {
-                       -- settings that apply to float position only
+      -- settings that apply to float position only
       size = {
         height = "80%",
         width = "50%",

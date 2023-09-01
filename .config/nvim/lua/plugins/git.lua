@@ -1,7 +1,6 @@
 local highlight = require("config.utils").highlight
 local colbg = "#1c082d"
 
-
 return {
   { "kdheepak/lazygit.nvim", event = "VeryLazy" }, --> Manager Git
   {

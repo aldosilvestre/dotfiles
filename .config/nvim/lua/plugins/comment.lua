@@ -3,7 +3,8 @@ return {
   dependencies = {
     'JoosepAlviste/nvim-ts-context-commentstring'
   },
-  keys = { { "<leader>/" }, { "<leader>?" }, { "<leader>/", mode = "v" }, { "<leader>?", mode = "v" } },
+  keys = { { "<leader>/", desc = "Toggle line comment" }, { "<leader>?", desc = "Toggle block comment" },
+    { "<leader>/", mode = "v" }, { "<leader>?", mode = "v" } },
   config = function()
     require('Comment').setup {
       ---Add a space b/w comment and the line
@@ -27,7 +28,6 @@ return {
         block = '<leader>?',
       },
       ---Enable keybindings
-      ---NOTE: If given `false` then the plugin won't create any mappings
       mappings = {
         ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
         basic = true,
