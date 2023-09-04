@@ -335,7 +335,7 @@ return {
     table.insert(gls.left, {
       DiagnosticError = {
         provider = 'DiagnosticError',
-        icon = '  ',
+        icon = '  ',
         separator_highlight = { colors.gitbg, colors.bg },
         highlight = { colors.diagerror, colors.lspbg }
       }
@@ -350,7 +350,7 @@ return {
     table.insert(gls.left, {
       DiagnosticHint = {
         provider = 'DiagnosticHint',
-        icon = '  ',
+        icon = '  ',
         highlight = { colors.diaghint, colors.lspbg }
       }
     })

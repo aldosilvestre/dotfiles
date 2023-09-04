@@ -1,7 +1,7 @@
 return {
   'glepnir/lspsaga.nvim',
-  lazy = false,
-  -- event = "LspAttach",
+  -- lazy = false,
+  event = "LspAttach",
   opts = {
     lightbulb = {
       enable = false,
