@@ -1,6 +1,7 @@
 return {
   "nvim-pack/nvim-spectre",
-  keys = { { "<leader><leader>s", "<CMD>lua require('spectre').open_visual({select_word=true})<CR>" } },
+  keys = {
+    { "<leader><leader>s", "<CMD>lua require('spectre').open_visual({select_word=true})<CR>", desc = "Open Spectre" } },
   lazy = true,
   config = function()
     require("spectre").setup {

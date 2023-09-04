@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 local addDescription = require('config.utils').addDescription
@@ -79,7 +79,7 @@ map("n", "<leader><leader>x", "<CMD>%'<,'>SnipRun<CR>", addDescription(opts, "Ru
 
 -- Harpoon
 map("n", "<leader>hm", "<CMD>Telescope harpoon marks<CR>", addDescription(opts, "Show Harpoon marks"))
-vim.keymap.set("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end,
+map("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end,
   addDescription(opts, "Toggle mark harpoon"))
 
 -- Project

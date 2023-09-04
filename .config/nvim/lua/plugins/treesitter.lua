@@ -5,6 +5,7 @@ return {
     "nvim-treesitter/nvim-treesitter-refactor",
     "nvim-treesitter/playground",
     "RRethy/nvim-treesitter-textsubjects",
+    "HiPhish/nvim-ts-rainbow2",
     { "m-demare/hlargs.nvim", config = true },
   },
   build = ":TSUpdate",
