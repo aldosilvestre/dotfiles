@@ -11,7 +11,6 @@ local source_mapping = {
 return {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
-  event = "VeryLazy",
   dependencies = {
     {
       'williamboman/mason.nvim',
@@ -21,7 +20,7 @@ return {
         }
       },
       build = function()
-        pcall(vim.cmd, 'MasonUpdate')
+        vim.cmd.MasonUpdate()
         -- vim.cmd('MasonUpdate') --> remove spaces from the end of line
       end,
     },
@@ -40,9 +39,10 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-git',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
+    -- 'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/nvim-compe',
-    "lukas-reineke/lsp-format.nvim"
+    { "folke/neodev.nvim", opts = {} },
+    -- "lukas-reineke/lsp-format.nvim"
   },
   config = function()
     local lsp = require('lsp-zero').preset({
@@ -62,7 +62,7 @@ return {
       hint = " ",
       info = " "
     })
-    lsp.on_attach(function(client, bufnr)
+    lsp.on_attach(function(_, bufnr)
       local bufopts = {
         noremap = true,
         silent = true,
@@ -80,9 +80,9 @@ return {
         addDescription(bufopts, "Format code"))
       keymap('n', 'gi', '<CMD>Trouble lsp_implementations<CR>', addDescription(bufopts, "Touble LSP implementations"))
 
-      if client.supports_method('textDocument/formatting') then
-        require('lsp-format').on_attach(client)
-      end
+      -- if client.supports_method('textDocument/formatting') then
+        -- require('lsp-format').on_attach(client)
+      -- end
     end)
 
     cmp.setup({

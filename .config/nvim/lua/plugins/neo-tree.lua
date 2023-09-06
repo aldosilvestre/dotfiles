@@ -294,6 +294,7 @@ local config = {
 return {
   'nvim-neo-tree/neo-tree.nvim',
   branch = "v2.x",
+  event = "VimEnter",
   dependencies = {
     'MunifTanjim/nui.nvim',                                                             --> Dependency from neo tree
     { 's1n7ax/nvim-window-picker', version = '2.*', event = 'VeryLazy', config = true } --> Window picker

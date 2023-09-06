@@ -3,6 +3,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-refactor",
+    "nvim-ts-context-commentstring",
     "nvim-treesitter/playground",
     "RRethy/nvim-treesitter-textsubjects",
     "HiPhish/nvim-ts-rainbow2",
@@ -13,7 +14,7 @@ return {
     require("nvim-treesitter.configs").setup {
       -- A list of parser names, or "all"
       ensure_installed = { "javascript", "lua", "css", "html", "dockerfile", "json", "typescript", "markdown", "go",
-        "gomod", "markdown_inline", "http", "sql", "yaml", "vue" },
+        "gomod", "markdown_inline", "http", "sql", "yaml", "vue", "tsx" },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = true,
