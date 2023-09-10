@@ -1,17 +1,15 @@
 local config = {
   sources = {
     "filesystem",
-    "buffers",
-    "git_status",
+    -- "git_status",
   },
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-  close_floats_on_escape_key = true,
   default_source = "filesystem",
-  enable_diagnostics = true,
-  enable_git_status = true,
+  enable_diagnostics = false,
+  enable_git_status = false,
   enable_modified_markers = true, -- Show markers for files with unsaved changes.
   enable_refresh_on_write = true, -- Refresh the tree when a file is written. Only used if `use_libuv_file_watcher` is false.
-  git_status_async = true,
+  git_status_async = false,
   git_status_async_options = {
     batch_size = 1000,               -- how many lines of git status results to process at a time
     batch_delay = 10,                -- delay in ms between batches. Spreads out the workload to let other processes run.
@@ -33,10 +31,9 @@ local config = {
     statusline = false,                    -- toggle to show selector on statusline
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
     sources = {
-      -- falls back to source_name if nil
       filesystem = "  Files ",
       buffers = "  Buffers ",
-      git_status = "  Git ",
+      -- git_status = "  Git ",
       diagnostics = " 裂Diagnostics ",
     },
     content_layout = "start", -- only with `tabs_layout` = "equal", "focus"
@@ -86,7 +83,7 @@ local config = {
       use_git_status_colors = true,
       highlight = "NeoTreeFileName",
     },
-    git_status = {
+--[[     git_status = {
       symbols = {
         added     = "✚",
         deleted   = "✖",
@@ -99,7 +96,7 @@ local config = {
         conflict  = "",
       },
       align = "right",
-    },
+    }, ]]
   },
   renderers = {
     directory = {
@@ -229,35 +226,25 @@ local config = {
       hide_hidden = true, -- only works on Windows for hidden files/directories
       hide_by_name = {
         ".DS_Store",
-        "thumbs.db"
-        --"node_modules",
+        "thumbs.db",
+        "node_modules",
       },
       hide_by_pattern = { -- uses glob style patterns
-        --"*.meta"
+        "*.meta"
       },
       never_show = { -- remains hidden even if visible is toggled to true
-        --".DS_Store",
-        --"thumbs.db"
+        ".DS_Store",
+        "thumbs.db"
       },
     },
-    find_by_full_path_words = false,        -- `false` means it only searches the tail of a path.
-    group_empty_dirs = true,                -- when true, empty folders will be grouped together
-    search_limit = 50,                      -- max number of search results when using filters
-    follow_current_file = true,             -- This will find and focus the file in the active buffer every time
+    find_by_full_path_words = false, -- `false` means it only searches the tail of a path.
+    group_empty_dirs = true,         -- when true, empty folders will be grouped together
+    search_limit = 50,               -- max number of search results when using filters
+    follow_current_file = {
+      enabled = true
+    },                                      -- This will find and focus the file in the active buffer every time
     hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
     use_libuv_file_watcher = false,         -- This will use the OS level file watchers to detect changes
-  },
-  buffers = {
-    bind_to_cwd = true,
-    follow_current_file = true, -- This will find and focus the file in the active buffer every time
-    group_empty_dirs = true,    -- when true, empty directories will be grouped together
-    window = {
-      mappings = {
-        ["<bs>"] = "navigate_up",
-        ["."] = "set_root",
-        ["bd"] = "buffer_delete",
-      },
-    },
   },
   git_status = {
     window = {
@@ -271,33 +258,15 @@ local config = {
         ["gg"] = "git_commit_and_push",
       },
     },
-  },
-  example = {
-    renderers = {
-      custom = {
-        { "indent" },
-        { "icon",  default = "C" },
-        { "custom" },
-        { "name" }
-      }
-    },
-    window = {
-      mappings = {
-        ["<cr>"] = "toggle_node",
-        ["e"] = "example_command",
-        ["d"] = "show_debug_info",
-      },
-    },
-  },
+  }
 }
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  branch = "v2.x",
+  branch = "v3.x",
   event = "VimEnter",
   dependencies = {
-    'MunifTanjim/nui.nvim',                                                             --> Dependency from neo tree
-    { 's1n7ax/nvim-window-picker', version = '2.*', event = 'VeryLazy', config = true } --> Window picker
+    'MunifTanjim/nui.nvim', --> Dependency from neo tree
   },
   config = function()
     require("neo-tree").setup(config)
