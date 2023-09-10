@@ -9,13 +9,13 @@ return {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true,
-        ["config.lsp.signature.enabled"] = false
+        ["config.lsp.signature.enabled"] = false,
       },
       hover = {
-        enabled = false
+        enabled = true
       },
       signature = {
-        enabled = false
+        enabled = true
       }
     },
     presets = {

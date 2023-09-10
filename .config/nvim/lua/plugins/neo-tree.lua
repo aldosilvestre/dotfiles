@@ -1,7 +1,6 @@
 local config = {
   sources = {
     "filesystem",
-    -- "git_status",
   },
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   default_source = "filesystem",
@@ -10,11 +9,6 @@ local config = {
   enable_modified_markers = true, -- Show markers for files with unsaved changes.
   enable_refresh_on_write = true, -- Refresh the tree when a file is written. Only used if `use_libuv_file_watcher` is false.
   git_status_async = false,
-  git_status_async_options = {
-    batch_size = 1000,               -- how many lines of git status results to process at a time
-    batch_delay = 10,                -- delay in ms between batches. Spreads out the workload to let other processes run.
-    max_lines = 10000,               -- How many lines of git status results to process. Anything after this will be dropped.
-  },
   hide_root_node = false,            -- Hide the root node.
   retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow.
   log_level = "info",                -- "trace", "debug", "info", "warn", "error", "fatal"
@@ -32,9 +26,6 @@ local config = {
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
     sources = {
       filesystem = "  Files ",
-      buffers = "  Buffers ",
-      -- git_status = "  Git ",
-      diagnostics = " 裂Diagnostics ",
     },
     content_layout = "start", -- only with `tabs_layout` = "equal", "focus"
     tabs_layout = "equal", -- start, end, center, equal, focus
@@ -83,20 +74,6 @@ local config = {
       use_git_status_colors = true,
       highlight = "NeoTreeFileName",
     },
---[[     git_status = {
-      symbols = {
-        added     = "✚",
-        deleted   = "✖",
-        modified  = "",
-        renamed   = "",
-        untracked = "",
-        ignored   = "",
-        unstaged  = "",
-        staged    = "",
-        conflict  = "",
-      },
-      align = "right",
-    }, ]]
   },
   renderers = {
     directory = {
@@ -130,7 +107,6 @@ local config = {
           { "bufnr",       zindex = 10 },
           { "modified",    zindex = 20, align = "right" },
           { "diagnostics", zindex = 20, align = "right" },
-          { "git_status",  zindex = 20, align = "right" },
         },
       },
     },
@@ -147,13 +123,9 @@ local config = {
   },
   nesting_rules = {},
   window = {
-    -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
     position = "left", -- left, right, top, bottom, float, current
-    width = 40,        -- applies to left and right positions
-    height = 15,       -- applies to top and bottom positions
     border = "rounded",
     popup = {
-      -- settings that apply to float position only
       size = {
         height = "80%",
         width = "50%",
@@ -245,19 +217,6 @@ local config = {
     },                                      -- This will find and focus the file in the active buffer every time
     hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
     use_libuv_file_watcher = false,         -- This will use the OS level file watchers to detect changes
-  },
-  git_status = {
-    window = {
-      mappings = {
-        ["A"] = "git_add_all",
-        ["gu"] = "git_unstage_file",
-        ["ga"] = "git_add_file",
-        ["gr"] = "git_revert_file",
-        ["gc"] = "git_commit",
-        ["gp"] = "git_push",
-        ["gg"] = "git_commit_and_push",
-      },
-    },
   }
 }
 
