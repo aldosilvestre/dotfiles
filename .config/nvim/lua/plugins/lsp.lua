@@ -29,7 +29,6 @@ return {
         }
       end
     })
-
     vim.cmd.highlight "LspInlayHint cterm=bold gui=bold,italic guifg=#495495"
   end
 }
