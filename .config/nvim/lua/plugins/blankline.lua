@@ -1,29 +1,25 @@
 return {
-  "lukas-reineke/indent-blankline.nvim", --> indent guides for neovim
-  event = "VeryLazy",
+  'lukas-reineke/indent-blankline.nvim',
+  branch = 'v3',
+  event = 'BufReadPre',
   config = function()
-    vim.opt.list = true
-    vim.opt.listchars:append("space: ")
-
-    require("indent_blankline").setup {
-      char = " ",
-      space_char_blankline = " ",
-      show_first_indent_level = false,
-      show_current_context = true,
-      show_current_context_start = true,
-      filetype_exclude = {
-        "help",
-        "git",
-        "markdown",
-        "text",
-        "terminal",
-        "lspinfo",
-        "packaer"
+    require "ibl".setup({
+      indent = {
+        char = "▏",
+        tab_char = nil,
+        highlight = "IndentBlanklineChar",
+        smart_indent_cap = true,
+        priority = 1024,
       },
-      buftype_exclude = {
-        "terminal",
-        "nofile"
+      whitespace = {
+        highlight = "Whitespace",
+        remove_blankline_trail = false,
       },
-    }
+      scope = {
+        enabled = true,
+        highlight = "IndentBlanklineContextChar",
+        char = "▎"
+      }
+    })
   end
 }
