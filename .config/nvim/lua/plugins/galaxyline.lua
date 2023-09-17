@@ -46,7 +46,8 @@ local colors = {
   orange          = '#ff8b39',
   purple          = '#AF6DF9',
   blue            = '#569CD6',
-  cyan            = '#61E2FF'
+  cyan            = '#61E2FF',
+  white           = '#FFFFFF'
 }
 
 local mode_map = {
@@ -93,6 +94,7 @@ local icons = {
 -- Rag status function {{{2
 local function setLineWidthColours()
   local colbg = colors.statsbg
+  local colfg = colors.white
   local linebg = colors.statsbg
 
   if (vim.fn.col('.') > lineLengthError)
@@ -112,9 +114,9 @@ local function setLineWidthColours()
   end
 
   highlight('LinePosHighlightStart', colbg, colors.statsbg)
-  highlight('LinePosHighlightColNum', colors.statstext, colbg)
+  highlight('LinePosHighlightColNum', colors.white, colbg)
   highlight('LinePosHighlightMid', linebg, colbg)
-  highlight('LineLenHighlightLenNum', colors.statstext, linebg)
+  highlight('LineLenHighlightLenNum', colfg, linebg)
   highlight('LinePosHighlightEnd', linebg, colors.statsbg)
 end
 
