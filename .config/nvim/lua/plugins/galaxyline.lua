@@ -9,7 +9,7 @@ local leftbracket = ""
 local rightbracket = ""
 
 local colors = {
-  bg              = '#200933',
+  bg              = 'transparent',
   modetext        = '#000000',
   giticon         = '#FF8800',
   gitbg           = '#5C2C2E',
@@ -124,7 +124,7 @@ return {
     local gl = require('galaxyline')
     local condition = require('galaxyline.condition')
 
-    gl.short_line_list = { 'NeoTree', 'vista', 'dbui', 'packer', 'tagbar', '*' }
+    gl.short_line_list = { 'neo-tree', 'vista', 'dbui', 'packer', 'tagbar', '*' }
     local gls = gl.section
 
 
