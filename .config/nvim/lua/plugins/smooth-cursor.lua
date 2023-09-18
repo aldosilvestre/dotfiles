@@ -3,5 +3,11 @@ return {
   opts = {
     cursor = ' '
   },
-  config = true
+  config = function ()
+
+    require('smoothcursor').setup({
+    cursor = ' '
+  })
+    vim.cmd.highlight "SmoothCursor guifg=#ff8b39"
+  end
 }
