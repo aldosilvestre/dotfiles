@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.settings = {
   ['lua_ls'] = {
     Lua = {
       runtime = {
@@ -54,4 +56,29 @@ return {
       rangeVariableTypes = true,
     },
   },
+  ['volar'] = {
+    codeLens = {
+      references = true,
+      pugTools = true,
+      scriptSetupTools = true,
+    }
+  }
 }
+
+M.commands = {
+  ['tsserver'] = {
+    OrganizeImports = {
+      function()
+        local params = {
+          command = "_typescript.organizeImports",
+          arguments = { vim.api.nvim_buf_get_name(0) },
+          title = ""
+        }
+        vim.lsp.buf.execute_command(params)
+      end,
+      description = "Organize Imports"
+    }
+  }
+}
+
+return M

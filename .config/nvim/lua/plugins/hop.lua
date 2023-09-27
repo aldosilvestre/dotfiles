@@ -1,6 +1,8 @@
 return {
   "phaazon/hop.nvim",
-  event = "VeryLazy",
+  lazy = true,
   opts = { keys = "fjdksla;ghrueiwoqptybnvmc" },
-  config = true
+  keys = {
+     { "<c-s>", mode = { "n", "o", "x" }, "<CMD>HopPattern<CR>", desc = "Hop" }
+  }
 }

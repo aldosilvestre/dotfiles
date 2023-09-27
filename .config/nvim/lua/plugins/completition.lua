@@ -2,7 +2,7 @@ local resources = require 'config.lsp.resources'
 
 return {
   'hrsh7th/nvim-cmp', --> Autocompletion plugin
-  event = "VeryLazy",
+  event = "LspAttach",
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', --> LSP source for nvim-cmp
     'hrsh7th/nvim-compe',
@@ -12,7 +12,7 @@ return {
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-compe',
     'hrsh7th/cmp-git',
-    { "folke/neodev.nvim", opts = {} },
+    "folke/neodev.nvim",
     'saadparwaiz1/cmp_luasnip',
     {
       'L3MON4D3/LuaSnip',
@@ -30,6 +30,7 @@ return {
     vim.fn.sign_define('DiagnosticSignHint', { text = resources.signs['hint'], texthl = 'DiagnosticSignHint' })
     vim.fn.sign_define('DiagnosticSignInfo', { text = resources.signs['info'], texthl = 'DiagnosticSignInfo' })
 
+    require"neodev".setup({})
     cmp.setup({
       sources = resources.cmp_sources,
       snippet = {
@@ -62,16 +63,14 @@ return {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping(function(fallback)
-          local col = vim.fn.col('.') - 1
-
           if cmp.visible() then
             cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
+          elseif luasnip.expandable() then
+            luasnip.expand({})
+          elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
-          elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-            fallback()
           else
-            cmp.complete()
+            fallback()
           end
         end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)

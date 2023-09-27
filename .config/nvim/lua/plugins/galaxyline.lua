@@ -11,10 +11,14 @@ local rightbracket = ""
 local colors = {
   bg              = 'transparent',
   modetext        = '#000000',
+  codeiumicon     = '#72f1b8',
+  codeiumiconbg   = '#80199a',
+  codeiumbg       = '#75509a',
   giticon         = '#FF8800',
   gitbg           = '#5C2C2E',
   gittext         = '#C5C5C5',
-  gpsicon         = '#000000',
+  gpsicon         = '#C5C5C5',
+  gpsiconbg       = '#000000',
   gpsbg           = '#5C00A3',
   gpstext         = '#C5C5C5',
   diagerror       = '#F44747',
@@ -301,38 +305,6 @@ return {
       }
     })
 
-    -- Codeium
-    table.insert(gls.left, {
-      CodeiumIcon = {
-        provider = function()
-          return '  '
-        end,
-        highlight = { colors.lspicon, colors.lspbg }
-      }
-    })
-
-    table.insert(gls.left, {
-      codeium_status = {
-        provider = function()
-          local success, status_string = pcall(vim.api.nvim_call_function, 'codeium#GetStatusString', {})
-          if not success then
-            status_string = "No activated"
-          end
-          return status_string
-        end,
-        highlight = { colors.textbg, colors.lspbg }
-      }
-    })
-
-    table.insert(gls.left, {
-      CodeiumSpace = {
-        provider = function() return ' ' end,
-        highlight = { colors.lspicon, colors.lspbg }
-      }
-    })
-
-    -- }}}3
-
     -- Diagnostics {{{3
     table.insert(gls.left, {
       DiagnosticError = {
@@ -369,6 +341,55 @@ return {
         highlight = { colors.lspbg, colors.bg }
       }
     })
+
+
+    -- Codeium
+    table.insert(gls.left, {
+      CodeiumIconStart = {
+        provider = function() return leftbracket end,
+        highlight = { colors.codeiumiconbg, colors.bg }
+      }
+    })
+
+    table.insert(gls.left, {
+      CodeiumIcon = {
+        provider = function()
+          return ' '
+        end,
+        highlight = { colors.codeiumicon, colors.codeiumiconbg }
+      }
+    })
+    table.insert(gls.left, {
+      CodeiumIconEnd = {
+        provider = function() return rightbracket end,
+        highlight = { colors.codeiumiconbg, colors.codeiumbg }
+      }
+    })
+    table.insert(gls.left, {
+      codeium_status = {
+        provider = function()
+          local success, status_string = pcall(vim.api.nvim_call_function, 'codeium#GetStatusString', {})
+          if not success then
+            status_string = "No activated"
+          end
+          return status_string
+        end,
+        highlight = { colors.textbg, colors.codeiumbg }
+      }
+    })
+    table.insert(gls.left, {
+      CodeiumStatusSpace = {
+        provider = function() return ' ' end,
+        highlight = { colors.codeiumbg, colors.codeiumbg }
+      }
+    })
+    table.insert(gls.left, {
+      CodeiumStatusEnd = {
+        provider = function() return rightbracket end,
+        highlight = { colors.codeiumbg, colors.bg }
+      }
+    })
+
     -- }}}3
 
     -- GPS {{{3
@@ -385,7 +406,7 @@ return {
         provider = function()
           return '  '
         end,
-        highlight = { colors.gpstext, colors.gpsicon }
+        highlight = { colors.gpsiconbg, colors.gpsicon }
       }
     })
 
@@ -401,25 +422,10 @@ return {
         provider = function()
           return vim.fn.expand('%:p'):gsub(vim.fn.getcwd() .. '/', '') .. " "
         end,
-        -- separator_highlight = { colors.typeicon, colors.gpsbg },
-        -- separator = "   ",
         highlight = { colors.gpstext, colors.gpsbg },
         color_mode = true
       }
     })
-
-    -- table.insert(gls.left, {
-    --   GpsSymbol = {
-    --     provider = function()
-    --       return require('nvim-navic').get_location()
-    --     end,
-    --     condition = function()
-    --       return require('nvim-navic').is_available() and #require('nvim-navic').get_location() > 0
-    --     end,
-    --     highlight = { colors.gpstext, colors.gpsbg },
-    --     color_mode = true
-    --   }
-    -- })
 
     table.insert(gls.left, {
       GpsEnd = {

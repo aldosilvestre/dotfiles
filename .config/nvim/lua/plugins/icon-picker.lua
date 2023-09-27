@@ -1,12 +1,11 @@
 return {
-	"ziontee113/icon-picker.nvim",
-	dependencies = {
-		"stevearc/dressing.nvim"
-	},
-	keys = {
-		{ "<Leader><Leader>i", "<cmd>IconPickerNormal nerd_font<cr>", mode = "n", desc = "IconPicker NerdFont Insert" },
-		{ "<Leader><Leader>y", "<cmd>IconPickerYank nerd_font<cr>",   mode = "n", desc = "IconPicker NerdFont Yank" },
-		{ "<C-o>",             "<cmd>IconPickerInsert nerd_font<cr>", mode = "i", desc = "IconPicker NerdFont Insert mode" },
-	},
-	opts = { disable_legacy_commands = true },
+  '2kabhishek/nerdy.nvim',
+  dependencies = {
+    'stevearc/dressing.nvim',
+    'nvim-telescope/telescope.nvim',
+  },
+  keys = {
+    { "<Leader><Leader>i", "<cmd>Nerdy<cr>", mode = "n", desc = "IconPicker NerdFont" },
+    { "<C-o>",             "<cmd>Nerdy<cr>", mode = "i", desc = "IconPicker NerdFont Insert mode" },
+  }
 }
