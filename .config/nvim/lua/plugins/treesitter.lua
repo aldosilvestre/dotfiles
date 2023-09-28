@@ -92,6 +92,9 @@ return {
     },
     autotag = {
       enable = true
+    },
+    matchup = {
+      enable = true
     }
   }
 }
