@@ -129,6 +129,7 @@ return {
   config = function()
     local gl = require('galaxyline')
     local condition = require('galaxyline.condition')
+    local fileinfo = require'galaxyline.provider_fileinfo'
 
     gl.short_line_list = { 'neo-tree', 'vista', 'dbui', 'packer', 'tagbar', '*' }
     local gls = gl.section
@@ -420,7 +421,7 @@ return {
     table.insert(gls.left, {
       GpsFile = {
         provider = function()
-          return vim.fn.expand('%:p'):gsub(vim.fn.getcwd() .. '/', '') .. " "
+          return fileinfo.get_current_file_path() -- vim.fn.expand('%:p'):gsub(vim.fn.getcwd() .. '/', '') .. " "
         end,
         highlight = { colors.gpstext, colors.gpsbg },
         color_mode = true

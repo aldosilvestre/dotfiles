@@ -5,7 +5,7 @@ print_lua = function(...)
   for _, v in ipairs(args) do
     table.insert(mapped, vim.inspect(v))
   end
-  print(table.unpack(mapped))
+  print(unpack(mapped))
 
-  return table.unpack(args)
+  return unpack(args)
 end
