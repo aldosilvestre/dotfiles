@@ -3,7 +3,7 @@ return {
   priority = 50,
   config = function()
     require('fluoromachine').setup {
-      transparent = true,
+      transparent = 'full',
       glow = true,
       theme = 'fluoromachine',
       overrides = {

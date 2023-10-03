@@ -22,7 +22,6 @@ return {
     mason_lspconfig.setup()
     mason_lspconfig.setup_handlers({
       function(server)
-        print_lua(server)
         lspconfig[server].setup {
           on_attach = on_attach,
           settings = servers_config.settings[server],

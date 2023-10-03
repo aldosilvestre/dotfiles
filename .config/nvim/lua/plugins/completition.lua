@@ -16,7 +16,9 @@ return {
     'saadparwaiz1/cmp_luasnip',
     {
       'L3MON4D3/LuaSnip',
+      version = "2.*",
       event = 'VeryLazy',
+      build = "make install_jsregexp",
       dependencies = { 'rafamadriz/friendly-snippets', 'dsznajder/vscode-es7-javascript-react-snippets' }
     },
   },
@@ -30,7 +32,7 @@ return {
     vim.fn.sign_define('DiagnosticSignHint', { text = resources.signs['hint'], texthl = 'DiagnosticSignHint' })
     vim.fn.sign_define('DiagnosticSignInfo', { text = resources.signs['info'], texthl = 'DiagnosticSignInfo' })
 
-    require"neodev".setup({})
+    require "neodev".setup({})
     cmp.setup({
       sources = resources.cmp_sources,
       snippet = {
@@ -59,7 +61,6 @@ return {
       mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        -- ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping(function(fallback)

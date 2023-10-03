@@ -6,14 +6,12 @@ local addDescription = require('config.utils').addDescription
 map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit"))  --> fast quit
 map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
 
-map('n', '<leader>nt', '<CMD>Neotree right<CR>', addDescription(opts, "Open Neotree"))
-map('n', '<leader>nf', '<CMD>Neotree float<CR>', addDescription(opts, "Open Neotree float"))
-
 -- Telescope
 map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
   addDescription(opts, "Find Files"))
 map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, "Find with grep"))
-map('n', '<leader>fb', '<CMD>Telescope buffers<CR>', addDescription(opts, "Show buffers"))
+map('n', '<leader>fb', '<CMD>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>', addDescription(opts, "Show file browser"))
+
 map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Find help"))
 map('n', 'gst', '<CMD>Telescope git_status<CR>', addDescription(opts, "Git status"))
 map('n', 'gsh', '<CMD>Telescope git_stash<CR>', addDescription(opts, "Git stash"))

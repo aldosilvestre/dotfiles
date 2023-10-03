@@ -11,7 +11,7 @@ return {
     require("telescope").load_extension "ui-select"
     require("telescope").load_extension "harpoon"
     require("telescope").load_extension "projects"
-
+    require("telescope").load_extension "file_browser"
 
     require('telescope').setup({
       defaults = {
@@ -19,6 +19,12 @@ return {
           prompt_position = "top",
         },
       },
+      extensions = {
+        file_browser = {
+          hidden = { file_browser = true, folder_browser = true },
+          hijack_netrw = true,
+        }
+      }
     })
   end
 }
