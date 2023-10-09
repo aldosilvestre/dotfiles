@@ -1,8 +1,8 @@
 return {
-  "junegunn/vim-easy-align",
-  event = "VeryLazy",
-  keys = {
-    { "ga",         "<Plug>(EasyAlign)", mode = "v", desc = "EasyAlign" },
-    { "<Leader>ga", "<Plug>(EasyAlign)", mode = "n", desc = "EasyAlign" }
-  },
+  'Vonr/align.nvim',
+  branch = 'v2',
+  keys   = {
+    { "ga",            function() require 'align'.align_to_char({ length = 1 }) end, mode = "v", desc = "Align" },
+    { "<Leader>ga",    function() require 'align'.align_to_char({ length = 1 }) end, mode = "n", desc = "Align" }
+  }
 }

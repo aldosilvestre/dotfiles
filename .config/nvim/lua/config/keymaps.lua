@@ -82,3 +82,14 @@ map("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end,
 
 -- Project
 map("n", "<leader>p", "<CMD>Telescope projects<CR>", addDescription(opts, "Show projects"))
+
+-- Dap
+map('n', '<F10>', "<CMD>DapStepOver<CR>", addDescription(opts, "Step Over"))
+map('n', '<F11>', "<CMD>DapStepInto<CR>", addDescription(opts, "Step Into"))
+map('n', '<F12>', "<CMD>DapStepOut<CR>", addDescription(opts, "Step Out"))
+map('n', '<Leader>dr', "<CMD>DapToggleRepl<CR>", addDescription(opts, "Dap Toggle Repl"))
+map('n', '<Leader>dl', "<CMD>DapRestartFrame<CR>", addDescription(opts, "Dap Restart Frame"))
+map({'n', 'v'}, '<Leader>dh', function()require('dap.ui.widgets').hover()end, addDescription(opts, "Dap Hover"))
+map({'n', 'v'}, '<Leader>dp', function()require('dap.ui.widgets').preview()end, addDescription(opts, "Dap Preview"))
+map('n', '<Leader>df', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames)end, addDescription(opts, "Dap Frames"))
+map('n', '<Leader>ds', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes)end, addDescription(opts, "Dap Scopes"))
