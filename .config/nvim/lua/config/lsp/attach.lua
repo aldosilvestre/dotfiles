@@ -14,9 +14,16 @@ return function(client, bufnr)
   keymap('n', 'K', vim.lsp.buf.hover, addDescription(bufopts, "Show Hover"))
   keymap('n', '<leader>D', vim.lsp.buf.type_definition, addDescription(bufopts, "Show Type description"))
   keymap('n', '<leader>ca', '<CMD>CodeActionMenu<CR>', addDescription(bufopts, "Show code action menu"))
-  keymap('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, addDescription(bufopts, "Format code"))
   keymap('n', 'gi', vim.lsp.buf.implementation, addDescription(bufopts, "Touble LSP implementations"))
   keymap('n', 'gI', '<CMD>Trouble lsp_implementations<CR>', addDescription(bufopts, "Touble LSP implementations"))
+  keymap('n', '<leader>f', function()
+    local success, plf = pcall(require, 'plf')
+    if success then
+      plf.format(bufopts)
+    else
+      vim.lsp.buf.format({ async = true })
+    end
+  end, addDescription(bufopts, "Format code"))
 
   if client.server_capabilities.inlayHintProvider then
     local success, inlay_hint = pcall(require, "vim.lsp.inlay_hint")
