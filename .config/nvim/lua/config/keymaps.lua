@@ -16,6 +16,10 @@ map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Fin
 map('n', 'gst', '<CMD>Telescope git_status<CR>', addDescription(opts, "Git status"))
 map('n', 'gsh', '<CMD>Telescope git_stash<CR>', addDescription(opts, "Git stash"))
 
+-- Neo Tree
+map('n', '<leader>nt', '<CMD>Neotree right<CR>', addDescription(opts, "Open Neotree"))
+map('n', '<leader>nf', '<CMD>Neotree float<CR>', addDescription(opts, "Open Neotree float"))
+
 -- Split resize
 map('n', '<leader>>', '10<C-w>>', addDescription(opts, "Resize Left"))
 map('n', '<leader><', '10<C-w><', addDescription(opts, "Resize Right"))
