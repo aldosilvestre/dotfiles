@@ -63,10 +63,6 @@ return {
       },
       termcolors = { "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White" }
     },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
     textobjects = {
       select = {
         enable = true,
