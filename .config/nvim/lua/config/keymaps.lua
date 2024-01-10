@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 local addDescription = require('config.utils').addDescription
 
 map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit"))  --> fast quit
-map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
+map('n', '<leader>w', '<CMD>w!<CR>', addDescription(opts, "Fast write")) --> fast save
 
 -- Telescope
 map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
