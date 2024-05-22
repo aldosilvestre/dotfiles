@@ -1,13 +1,19 @@
+local highlight = require("config.utils").highlight
+
 return {
   'romgrk/barbar.nvim',
   init = function() vim.g.barbar_auto_setup = false end,
   event = 'BufEnter',
   config = function()
+
+    highlight('BufferCurrent',"#FC199A", "transparent" )
+
     require('barbar').setup({
       animation = true,
       auto_hide = false,
       tabpages = true,
       closable = true,
+      highlight_visible = true,
       clickable = true,
       icons = { button = ' ', filetype = { enabled = true }, inactive = { button = ' ' } },
       icon_custom_colors = false,

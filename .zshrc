@@ -130,6 +130,8 @@ alias lt='ls --tree'
 alias cat='bat'
 alias icat='kitty +kitten icat'
 
+# alias npm=pnpm
+
 # Load additional sources
 if [[ -r ~/.zsh-extrarc ]]; then
   source ~/.zsh-extrarc
@@ -145,3 +147,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# pnpm
+export PNPM_HOME="/home/aldo/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

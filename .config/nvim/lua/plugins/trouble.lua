@@ -1,6 +1,7 @@
 return {
   "folke/lsp-trouble.nvim",
   event = "VeryLazy",
+  version = "2.*",
   config = function()
     require('trouble').setup {
       position = "bottom",            -- position of the list can be: bottom, top, left, right

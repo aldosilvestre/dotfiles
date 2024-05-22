@@ -24,9 +24,4 @@ return function(client, bufnr)
       vim.lsp.buf.format({ async = true })
     end
   end, addDescription(bufopts, "Format code"))
-
-  if client.server_capabilities.inlayHintProvider then
-    local success, inlay_hint = pcall(require, "vim.lsp.inlay_hint")
-    if success then inlay_hint(bufnr, true) end
-  end
 end

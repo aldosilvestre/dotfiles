@@ -10,4 +10,5 @@ return {
   { 'windwp/nvim-autopairs',        event = "InsertEnter",           opts = {} },       --> autopairs
   { "iamcco/markdown-preview.nvim", build = "cd app && npm install", ft = "markdown" }, --> Markdown preview
   { "folke/todo-comments.nvim",     event = "VeryLazy",              config = true },   --> TODO coments show
+  -- { 'echasnovski/mini.animate',     event = "VeryLazy",              version = '*', config = true } --> animations
 }

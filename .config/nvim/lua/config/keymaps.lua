@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 local addDescription = require('config.utils').addDescription
 
 map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit"))  --> fast quit
-map('n', '<leader>w', '<CMD>w!<CR>', addDescription(opts, "Fast write")) --> fast save
+map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
 
 -- Telescope
 map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
@@ -97,3 +97,8 @@ map({'n', 'v'}, '<Leader>dh', function()require('dap.ui.widgets').hover()end, ad
 map({'n', 'v'}, '<Leader>dp', function()require('dap.ui.widgets').preview()end, addDescription(opts, "Dap Preview"))
 map('n', '<Leader>df', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames)end, addDescription(opts, "Dap Frames"))
 map('n', '<Leader>ds', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes)end, addDescription(opts, "Dap Scopes"))
+
+-- Hints
+map('n', '<leader>h', '<CMD>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>', addDescription(opts, "Toggle inlay hints"))
+
+
