@@ -4,6 +4,7 @@ M.source_mapping = {
   luasnip = "Snippet",
   nvim_lsp = "Lsp",
   nvim_lua = "Lua",
+  supermaven = "SM",
   path = "Path",
   buffer = "Buffer",
 }
@@ -13,6 +14,7 @@ M.cmp_sources = {
   { name = 'luasnip' },
   { name = 'nvim_lsp' },
   { name = 'nvim_lua' },
+  { name = "supermaven" },
   { name = "path" },
 }
 

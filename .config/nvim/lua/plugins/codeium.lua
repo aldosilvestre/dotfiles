@@ -1,6 +1,6 @@
-local keymap = vim.keymap.set
+-- local keymap = vim.keymap.set
 
-return {
+--[[ return {
   'Exafunction/codeium.vim',
   cmd = "RunCodeium",
   ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "go", "vue" },
@@ -24,5 +24,26 @@ return {
       golang = true,
       json = false
     }
+  end
+} ]]
+
+return {
+  "supermaven-inc/supermaven-nvim",
+  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "go", "vue" },
+  config = function()
+    require("supermaven-nvim").setup({
+      keymaps = {
+        accept_suggestion = "<C-Return>",
+        clear_suggestion = "<C-x>",
+        accept_word = "<C-Space>",
+      },
+      ignore_filetypes = { cpp = true },
+      color = {
+        suggestion_color = "#ffffff",
+        cterm = 244,
+      },
+      disable_inline_completion = false, -- disables inline completion for use with cmp
+      disable_keymaps = false        -- disables built in keymaps for more manual control
+    })
   end
 }

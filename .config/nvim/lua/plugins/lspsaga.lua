@@ -1,4 +1,4 @@
-return {
+--[[ return {
   'glepnir/lspsaga.nvim',
   event = "LspAttach",
   opts = {
@@ -34,4 +34,5 @@ return {
       color_mode = true,
     },
   }
-}
+} ]]
+return {}
