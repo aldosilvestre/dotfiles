@@ -67,7 +67,7 @@ map('n', '<A-p>', '<CMD>BufferPin<CR>', addDescription(opts, "Pin buffer"))
 map('n', '<A-c>', '<CMD>BufferClose<CR>', addDescription(opts, "Close buffer"))
 
 -- Hop
-map('n', '<leader>s', '<CMD>HopPattern<CR>', addDescription(opts, "Fast Hop"))
+-- map('n', '<leader>s', '<CMD>HopPattern<CR>', addDescription(opts, "Fast Hop"))
 
 -- Noice
 map("n", "<leader>nl", "<CMD>Noice last<CR>", addDescription(opts, "Noice last"))
