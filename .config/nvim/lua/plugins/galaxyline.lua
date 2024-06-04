@@ -345,7 +345,7 @@ return {
 
 
     -- Codeium
-    table.insert(gls.left, {
+--[[     table.insert(gls.left, {
       CodeiumIconStart = {
         provider = function() return leftbracket end,
         highlight = { colors.codeiumiconbg, colors.bg }
@@ -369,8 +369,11 @@ return {
     table.insert(gls.left, {
       codeium_status = {
         provider = function()
-          local success, status_string = pcall(vim.api.nvim_call_function, 'codeium#GetStatusString', {})
-          if not success then
+          local status_string = ""
+          local success = require('supermaven-nvim.cmp').is_available()
+          if success then
+            status_string = "Supermaven"
+          else
             status_string = "No activated"
           end
           return status_string
@@ -389,7 +392,7 @@ return {
         provider = function() return rightbracket end,
         highlight = { colors.codeiumbg, colors.bg }
       }
-    })
+    }) ]]
 
     -- }}}3
 

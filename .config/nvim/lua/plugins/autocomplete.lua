@@ -29,15 +29,15 @@
 
 return {
   "supermaven-inc/supermaven-nvim",
-  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "go", "vue" },
+  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "python", "go", "vue", "lua" },
   config = function()
     require("supermaven-nvim").setup({
       keymaps = {
-        accept_suggestion = "<C-Return>",
-        clear_suggestion = "<C-x>",
-        accept_word = "<C-Space>",
+        accept_suggestion = "<C-j>",
+        clear_suggestion = "<C-;>",
+        accept_word = "<C-l>",
       },
-      ignore_filetypes = { cpp = true },
+      ignore_filetypes = { cpp = true, c = true, json = false },
       color = {
         suggestion_color = "#ffffff",
         cterm = 244,

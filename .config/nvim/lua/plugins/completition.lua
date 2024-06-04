@@ -28,11 +28,11 @@ return {
     local lspkind = require('lspkind')
     local luasnip = require('luasnip')
 
-    lspkind.init({
-      symbol_map = {
-        Supermaven = "",
-      },
-    })
+    -- lspkind.init({
+    --   symbol_map = {
+    --     Supermaven = "",
+    --   },
+    -- })
 
     vim.fn.sign_define('DiagnosticSignError', { text = resources.signs['error'], texthl = 'DiagnosticSignError' })
     vim.fn.sign_define('DiagnosticSignWarn', { text = resources.signs['warn'], texthl = 'DiagnosticSignWarn' })
