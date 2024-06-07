@@ -12,18 +12,13 @@
 @define-color accent5 #7da6ff;
 @define-color accent6 #0db9d7;
 
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-/* Translucent */
-
 * {
-    color: #eceff4;
-    border: 0;
-    border-radius: 0;
-    padding: 0 0;
-    font-family:Jetbrains Mono;
-    font-size: 12px;
-   }
-
+  font-weight: bold;
+  font-size: 97%;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  font-family:CaskaydiaCove;
+  padding: 1px;
+}
 
 window#waybar {
     background-color: rgba(0,0,0,0.3);
@@ -44,8 +39,7 @@ window#waybar.empty {
 window#waybar.empty #window {
     padding: 0px;
     border: 0px;
-    /*  background-color: rgba(66,66,66,0.5); */ /* transparent */
-    background-color: transparent;
+    background-color: rgba(66,66,66,0.5);
 }
 
 tooltip {
