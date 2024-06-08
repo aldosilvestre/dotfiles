@@ -1,2 +1,2 @@
 #!/bin/sh
-kitty -e micro ~/.config/hypr/cheatsheet.md
+kitty -e nvim ~/.config/hypr/cheatsheet.md
