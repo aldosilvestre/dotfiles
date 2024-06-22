@@ -81,4 +81,16 @@ M.commands = {
   }
 }
 
+M.server_avaliable = {
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact",
+  "python",
+  "go",
+  "vue",
+  "lua"
+}
+
+
 return M

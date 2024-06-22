@@ -7,12 +7,11 @@ map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit"))  --> fast
 map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
 
 -- Telescope
-map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
-  addDescription(opts, "Find Files"))
+map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>', addDescription(opts, "Find Files"))
 map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, "Find with grep"))
 map('n', '<leader>fb', '<CMD>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>', addDescription(opts, "Show file browser"))
-
 map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Find help"))
+map('n', '<leader>u', '<CMD>Telescope undo<CR>', addDescription(opts, "Undo history"))
 map('n', 'gst', '<CMD>Telescope git_status<CR>', addDescription(opts, "Git status"))
 map('n', 'gsh', '<CMD>Telescope git_stash<CR>', addDescription(opts, "Git stash"))
 
@@ -34,18 +33,11 @@ map('n', '<A-k>', '<CMD>m .-2<CR>==', addDescription(opts, "Move line up"))
 -- No highlight
 map('n', '<ESC><ESC>', '<CMD>noh<CR>', addDescription(opts, "Remove highlight"))
 
--- Diagnostics
-map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float({border = "rounded"})<CR>',
-  addDescription(opts, "Open diagnostic float"))
-map('n', '<leader>E', '<CMD>lua vim.diagnostic.setloclist()<CR>', addDescription(opts, "Diagnostics location"))
-
 -- Lua
 map("n", "<leader>xx", "<CMD>TroubleToggle<CR>", addDescription(opts, "Trouble toggle"))
 map("n", "<leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", addDescription(opts, "Trouble toggle workspace"))
 map("n", "<leader>gl", "<CMD>TroubleToggle document_diagnostics<CR>", addDescription(opts, "Trouble document"))
 map("n", "<leader>xl", "<CMD>TroubleToggle loclist<CR>", addDescription(opts, "Fast quit"))
-map("n", "gr", "<CMD>Trouble lsp_references<CR>", addDescription(opts, "Show references"))
-map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", addDescription(opts, "Show definitions"))
 
 -- barbar
 -- Goto buffer in position...
@@ -66,9 +58,6 @@ map('n', '<A-p>', '<CMD>BufferPin<CR>', addDescription(opts, "Pin buffer"))
 -- Close buffer
 map('n', '<A-c>', '<CMD>BufferClose<CR>', addDescription(opts, "Close buffer"))
 
--- Hop
--- map('n', '<leader>s', '<CMD>HopPattern<CR>', addDescription(opts, "Fast Hop"))
-
 -- Noice
 map("n", "<leader>nl", "<CMD>Noice last<CR>", addDescription(opts, "Noice last"))
 map("n", "<leader>nh", "<CMD>Noice history<CR>", addDescription(opts, "Noice history"))
@@ -81,8 +70,7 @@ map("n", "<leader><leader>x", "<CMD>%'<,'>SnipRun<CR>", addDescription(opts, "Ru
 
 -- Harpoon
 map("n", "<leader>hm", "<CMD>Telescope harpoon marks<CR>", addDescription(opts, "Show Harpoon marks"))
-map("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end,
-  addDescription(opts, "Toggle mark harpoon"))
+map("n", "<leader>ht", function() require("harpoon.mark").toggle_file() end, addDescription(opts, "Toggle mark harpoon"))
 
 -- Project
 map("n", "<leader>p", "<CMD>Telescope projects<CR>", addDescription(opts, "Show projects"))
@@ -98,7 +86,9 @@ map({'n', 'v'}, '<Leader>dp', function()require('dap.ui.widgets').preview()end, 
 map('n', '<Leader>df', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames)end, addDescription(opts, "Dap Frames"))
 map('n', '<Leader>ds', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes)end, addDescription(opts, "Dap Scopes"))
 
+-- Rename
+map('n', '<leader>rn', ":IncRename ", addDescription(opts, "Rename"))
+
 -- Hints
 map('n', '<leader>h', '<CMD>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>', addDescription(opts, "Toggle inlay hints"))
-
 

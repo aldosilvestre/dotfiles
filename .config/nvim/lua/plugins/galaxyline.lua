@@ -11,9 +11,9 @@ local rightbracket = ""
 local colors = {
   bg              = 'transparent',
   modetext        = '#000000',
-  codeiumicon     = '#72f1b8',
-  codeiumiconbg   = '#80199a',
-  codeiumbg       = '#75509a',
+  supermavenicon  = '#72f1b8',
+  supermaveniconbg= '#80199a',
+  supermavenbg    = '#75509a',
   giticon         = '#FF8800',
   gitbg           = '#5C2C2E',
   gittext         = '#C5C5C5',
@@ -344,55 +344,56 @@ return {
     })
 
 
-    -- Codeium
---[[     table.insert(gls.left, {
-      CodeiumIconStart = {
-        provider = function() return leftbracket end,
-        highlight = { colors.codeiumiconbg, colors.bg }
-      }
-    })
-
-    table.insert(gls.left, {
-      CodeiumIcon = {
-        provider = function()
-          return ' '
-        end,
-        highlight = { colors.codeiumicon, colors.codeiumiconbg }
-      }
-    })
-    table.insert(gls.left, {
-      CodeiumIconEnd = {
-        provider = function() return rightbracket end,
-        highlight = { colors.codeiumiconbg, colors.codeiumbg }
-      }
-    })
-    table.insert(gls.left, {
-      codeium_status = {
-        provider = function()
-          local status_string = ""
-          local success = require('supermaven-nvim.cmp').is_available()
-          if success then
-            status_string = "Supermaven"
-          else
-            status_string = "No activated"
-          end
-          return status_string
-        end,
-        highlight = { colors.textbg, colors.codeiumbg }
-      }
-    })
-    table.insert(gls.left, {
-      CodeiumStatusSpace = {
-        provider = function() return ' ' end,
-        highlight = { colors.codeiumbg, colors.codeiumbg }
-      }
-    })
-    table.insert(gls.left, {
-      CodeiumStatusEnd = {
-        provider = function() return rightbracket end,
-        highlight = { colors.codeiumbg, colors.bg }
-      }
-    }) ]]
+    -- Supermaven
+    -- table.insert(gls.left, {
+    --   SupermavenIconStart = {
+    --     provider = function() return leftbracket end,
+    --     highlight = { colors.supermaveniconbg, colors.bg }
+    --   }
+    -- })
+    --
+    -- table.insert(gls.left, {
+    --   SupermavenIcon = {
+    --     provider = function()
+    --       return ' '
+    --     end,
+    --     highlight = { colors.supermavenicon, colors.supermaveniconbg }
+    --   }
+    -- })
+    -- table.insert(gls.left, {
+    --   SupermavenIconEnd = {
+    --     provider = function() return rightbracket end,
+    --     highlight = { colors.supermaveniconbg, colors.supermavenbg }
+    --   }
+    -- })
+    -- table.insert(gls.left, {
+    --   supermaven_status = {
+    --     provider = function()
+    --       local status_string = ""
+    --       local success = vim.api.nvim_command_output('SupermavenStatus')
+    --       -- print_lua(success)
+    --       if success then
+    --         status_string = "Supermaven"
+    --       else
+    --         status_string = "No activated"
+    --       end
+    --       return status_string
+    --     end,
+    --     highlight = { colors.textbg, colors.codeiumbg }
+    --   }
+    -- })
+    -- table.insert(gls.left, {
+    --   SupermavenStatusSpace = {
+    --     provider = function() return ' ' end,
+    --     highlight = { colors.codeiumbg, colors.codeiumbg }
+    --   }
+    -- })
+    -- table.insert(gls.left, {
+    --   SupermavenStatusEnd = {
+    --     provider = function() return rightbracket end,
+    --     highlight = { colors.codeiumbg, colors.bg }
+    --   }
+    -- })
 
     -- }}}3
 

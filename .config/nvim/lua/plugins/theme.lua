@@ -1,11 +1,13 @@
+local highlight = require("config.utils").highlight
+
 return {
   'maxmx03/fluoromachine.nvim',
-  priority = 999,
+  priority = 1000,
   config = function()
-    require('fluoromachine').setup {
-      transparent = 'full',
+    require 'fluoromachine'.setup {
       glow = true,
       theme = 'fluoromachine',
+      transparent = 'full',
       overrides = {
         ['@comment'] = { italic = true },
         ['@conditional'] = { italic = true, bold = true },
@@ -21,6 +23,9 @@ return {
         ['@parameter'] = { italic = true },
       }
     }
+
+    highlight('IndentBlanklineChar', "#805495", "transparent")
+    highlight('IndentBlanklineContextChar', "#FC199A", "transparent")
     vim.cmd.colorscheme 'fluoromachine'
   end
 }

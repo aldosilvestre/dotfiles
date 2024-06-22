@@ -1,6 +1,7 @@
 return {
   "folke/lsp-trouble.nvim",
   event = "VeryLazy",
+  cmd = "Trouble",
   version = "2.*",
   config = function()
     require('trouble').setup {

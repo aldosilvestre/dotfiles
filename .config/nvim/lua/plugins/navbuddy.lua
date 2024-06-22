@@ -1,5 +1,8 @@
+local servers_config = require 'config.lsp.servers'
+
 return {
   "SmiteshP/nvim-navbuddy",
+  ft = servers_config.server_avaliable,
   event = "VeryLazy",
   dependencies = {
     "neovim/nvim-lspconfig",

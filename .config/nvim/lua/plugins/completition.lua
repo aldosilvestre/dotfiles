@@ -1,8 +1,10 @@
 local resources = require 'config.lsp.resources'
-local highlight = require("config.utils").highlight
+-- local server_config = require 'config.lsp.servers'
+-- local highlight = require("config.utils").highlight
 
 return {
   'hrsh7th/nvim-cmp', --> Autocompletion plugin
+  -- ft = server_config.server_avaliable,
   event = "LspAttach",
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', --> LSP source for nvim-cmp
@@ -41,7 +43,7 @@ return {
 
     -- vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})
 
-    highlight('CmpItemKindSupermaven', '#6CC644')
+    -- highlight('CmpItemKindSupermaven', '#6CC644')
 
     require "neodev".setup({})
     cmp.setup({

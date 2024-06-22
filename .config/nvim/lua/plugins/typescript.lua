@@ -3,5 +3,6 @@ return {
   'dmmulroy/tsc.nvim',
   'pmizio/typescript-tools.nvim',
   ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  event = 'VeryLazy',
   config = true
 }

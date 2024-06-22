@@ -3,7 +3,8 @@ local servers_config = require 'config.lsp.servers'
 
 return {
   'neovim/nvim-lspconfig',
-  event = "VeryLazy",
+  ft = servers_config.server_avaliable,
+  event = "LspAttach",
   dependencies = {
     {
       "williamboman/mason.nvim",
@@ -26,7 +27,11 @@ return {
           on_attach = on_attach,
           settings = servers_config.settings[server],
           commands = servers_config.commands[server],
-          init_options = { documentFormatting = true, codeAction = true, codelens = true }
+          init_options = {
+            documentFormatting = true,
+            codeAction = true,
+            codelens = true
+          }
         }
       end
     })

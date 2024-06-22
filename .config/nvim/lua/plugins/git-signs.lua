@@ -1,4 +1,4 @@
-return {
+--[[ return {
   "lewis6991/gitsigns.nvim",
   opts = {
     signs = {
@@ -38,4 +38,6 @@ return {
     end
   },
   config = true
-}
+} ]]
+
+return {}
