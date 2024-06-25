@@ -7,10 +7,10 @@ map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, "Fast quit"))  --> fast
 map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, "Fast write")) --> fast save
 
 -- Telescope
-map('n', '<leader>ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>', addDescription(opts, "Find Files"))
-map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, "Find with grep"))
-map('n', '<leader>fb', '<CMD>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>', addDescription(opts, "Show file browser"))
-map('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Find help"))
+map('n', 'ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>', addDescription(opts, "Find Files"))
+map('n', 'fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, "Find with grep"))
+map('n', 'fb', '<CMD>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>', addDescription(opts, "Show file browser"))
+map('n', 'fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, "Find help"))
 map('n', '<leader>u', '<CMD>Telescope undo<CR>', addDescription(opts, "Undo history"))
 map('n', 'gst', '<CMD>Telescope git_status<CR>', addDescription(opts, "Git status"))
 map('n', 'gsh', '<CMD>Telescope git_stash<CR>', addDescription(opts, "Git stash"))

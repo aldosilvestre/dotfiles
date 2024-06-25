@@ -1,5 +1,6 @@
 return {
   "rcarriga/nvim-notify",
+  -- event = "BufEnter",
   config = function()
     local success, notify = pcall(require, 'notify')
     if not success then return end

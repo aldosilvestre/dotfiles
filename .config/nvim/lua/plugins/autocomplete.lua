@@ -1,10 +1,10 @@
-local servers_config = require 'config.lsp.servers'
+-- local servers_config = require 'config.lsp.servers'
 
 return {
   "supermaven-inc/supermaven-nvim",
-  ft = servers_config.server_avaliable,
+  -- ft = servers_config.server_avaliable,
   event = "VeryLazy",
-  cmd = "SuperMaven",
+  -- cmd = { "SuperMaven" },
   config = function()
     require("supermaven-nvim").setup({
       keymaps = {
@@ -12,7 +12,7 @@ return {
         clear_suggestion = "<C-;>",
         accept_word = "<C-l>",
       },
-      ignore_filetypes = { cpp = true, c = true, json = false },
+      ignore_filetypes = { cpp = true, c = true },
       ignore_buftypes = { nofile = true, terminal = true, toolbar = true, telescope = true },
       color = {
         suggestion_color = "#646464",
@@ -20,7 +20,7 @@ return {
       },
       log_level = "off",
       disable_inline_completion = false, -- disables inline completion for use with cmp
-      disable_keymaps = false        -- disables built in keymaps for more manual control
+      disable_keymaps = false            -- disables built in keymaps for more manual control
     })
   end
 }

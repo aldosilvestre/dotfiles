@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim", --> Find, Filter, Preview, Pick. All lua, all the time.
-  event = "VeryLazy",
+  -- event = "VeryLazy",
+  cmd = { "Telescope" },
   dependencies = {
     "nvim-lua/popup.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
@@ -21,6 +22,9 @@ return {
         layout_config = {
           prompt_position = "top",
         },
+        keymaps = {
+          enable = false,
+        }
       },
       extensions = {
         file_browser = {

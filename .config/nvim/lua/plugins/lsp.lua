@@ -3,7 +3,7 @@ local servers_config = require 'config.lsp.servers'
 
 return {
   'neovim/nvim-lspconfig',
-  ft = servers_config.server_avaliable,
+  -- ft = servers_config.server_avaliable,
   event = "LspAttach",
   dependencies = {
     {

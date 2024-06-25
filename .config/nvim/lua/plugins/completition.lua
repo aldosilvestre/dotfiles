@@ -16,14 +16,6 @@ return {
     'hrsh7th/nvim-compe',
     'hrsh7th/cmp-git',
     "folke/neodev.nvim",
-    'saadparwaiz1/cmp_luasnip',
-    {
-      'L3MON4D3/LuaSnip',
-      version = "2.*",
-      event = 'VeryLazy',
-      build = "make install_jsregexp",
-      dependencies = { 'rafamadriz/friendly-snippets', 'dsznajder/vscode-es7-javascript-react-snippets' }
-    },
   },
   config = function()
     local cmp = require "cmp"

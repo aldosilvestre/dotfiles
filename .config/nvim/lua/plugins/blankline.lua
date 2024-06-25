@@ -6,7 +6,7 @@ return {
     indent = {
       char = "▏",
       tab_char = nil,
-      -- highlight = "IndentBlanklineChar",
+      highlight = "IndentBlanklineChar",
       smart_indent_cap = true,
       priority = 1024,
     },
@@ -16,7 +16,7 @@ return {
     },
     scope = {
       enabled = true,
-      -- highlight = "IndentBlanklineContextChar",
+      highlight = "IndentBlanklineContextChar",
       char = "▎"
     }
   }

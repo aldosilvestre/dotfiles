@@ -1,6 +1,4 @@
--- return {
---   "hinell/lsp-timeout.nvim",
---   event = "LspAttach",
---   dependencies = { "neovim/nvim-lspconfig" }
--- }
-return {}
+return {
+  "hinell/lsp-timeout.nvim",
+  event = "LspAttach"
+}

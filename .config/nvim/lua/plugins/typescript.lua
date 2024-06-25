@@ -1,8 +1,8 @@
 return {
   -- 'jose-elias-alvarez/typescript.nvim',
-  'dmmulroy/tsc.nvim',
-  'pmizio/typescript-tools.nvim',
-  ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-  event = 'VeryLazy',
-  config = true
+  { 'dmmulroy/tsc.nvim',                           event = "VeryLazy" },
+  { 'pmizio/typescript-tools.nvim',                event = "VeryLazy" },
+  { 'mfussenegger/nvim-ts-hint-textobject',        event = "VeryLazy" },
+  { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
+  { "windwp/nvim-ts-autotag",                      event = "VeryLazy" }, --> auto tag close
 }
