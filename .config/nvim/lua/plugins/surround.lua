@@ -1,8 +1,3 @@
--- return {
---   "tpope/vim-surround",
---   event = "VeryLazy",
--- }
---
 return {
   {
     "kylechui/nvim-surround",

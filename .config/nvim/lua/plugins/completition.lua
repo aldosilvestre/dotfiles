@@ -5,7 +5,8 @@ local resources = require 'config.lsp.resources'
 return {
   'hrsh7th/nvim-cmp', --> Autocompletion plugin
   -- ft = server_config.server_avaliable,
-  event = "LspAttach",
+  -- event = "LspAttach",
+  event = "InsertEnter",
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', --> LSP source for nvim-cmp
     'hrsh7th/nvim-compe',
@@ -13,8 +14,7 @@ return {
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-compe',
-    'hrsh7th/cmp-git',
+    -- 'hrsh7th/cmp-git',
     "folke/neodev.nvim",
   },
   config = function()

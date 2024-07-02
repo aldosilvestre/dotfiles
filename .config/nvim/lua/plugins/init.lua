@@ -15,6 +15,5 @@ return {
     build = function() vim.fn["mkdp#util#install"]() end,
   },
   { "folke/todo-comments.nvim", event = "VeryLazy", config = true },                                         --> TODO coments show
-  -- { 'echasnovski/mini.animate',     event = "VeryLazy",              version = '*', config = true } --> animations
   { "smjonas/inc-rename.nvim",  event = "VeryLazy", config = function() require("inc_rename").setup() end }, --> incremental rename
 }

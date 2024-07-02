@@ -15,7 +15,17 @@ return {
       closable = true,
       highlight_visible = true,
       clickable = true,
-      icons = { button = ' ', filetype = { enabled = true }, inactive = { button = ' ' } },
+      icons = {
+        button = ' ',
+        buffer_index = true,
+        -- buffer_number = true,
+        filetype = {
+          enabled = true
+        },
+        inactive = {
+          button = ' '
+        }
+      },
       icon_custom_colors = false,
       icon_pinned_button = ' ',
       insert_at_end = false,

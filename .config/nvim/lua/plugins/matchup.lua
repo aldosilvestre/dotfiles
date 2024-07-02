@@ -1,6 +1,5 @@
--- return {
---   "andymass/vim-matchup",
---   event = "VeryLazy",
---   config = true
--- }
-return {}
+return {
+  "andymass/vim-matchup",
+  event = "VeryLazy",
+  config = true
+}

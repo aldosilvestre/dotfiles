@@ -31,18 +31,20 @@ local options = {
   wildignore     = "*node_modules/**",      --- Don't search inside Node.js modules (works for gutentag)
   wrap           = false,                   --- Display long lines as just one line
   writebackup    = false,                   --- Not needed
+  pumblend       = 0,                       --- Popup blend
 
   -- Neovim defaults
-  autoindent     = true,                 --- Good auto             indent
-  backspace      = "indent,eol,start",   --- Making sure backspace works
-  backup         = false,                --- Recommended by coc
-  conceallevel   = 0,                    --- Show `` in markdown files
-  encoding       = "utf-8",              --- The encoding displayed
-  errorbells     = false,                --- Disables sound effect for errors
-  fileencoding   = "utf-8",              --- The encoding written to file
-  incsearch      = true,                 --- Start searching before pressing enter
-  showmode       = false,                --- Don't show things like -- INSERT -- anymore
-  guicursor      = "i:ver25,n-v-c:hor20" --- Gui cursor
+  autoindent     = true,                  --- Good auto             indent
+  backspace      = "indent,eol,start",    --- Making sure backspace works
+  backup         = false,                 --- Recommended by coc
+  conceallevel   = 0,                     --- Show `` in markdown files
+  encoding       = "utf-8",               --- The encoding displayed
+  errorbells     = false,                 --- Disables sound effect for errors
+  fileencoding   = "utf-8",               --- The encoding written to file
+  incsearch      = true,                  --- Start searching before pressing enter
+  showmode       = false,                 --- Don't show things like -- INSERT -- anymore
+  guicursor      = "i:ver25,n-v-c:hor20", --- Gui cursor
+  smoothscroll   = true
 }
 
 for k, v in pairs(options) do
@@ -51,7 +53,11 @@ end
 
 -- Settings globals
 local globals = {
-  mapleader = ' ' --> leader blankspace
+  mapleader = ' ', --> leader blankspace
+  loaded_perl_provider = false,
+  loaded_python3_provider = 0,
+  deprecation_warnings = false,
+  trouble_lualine = true
 }
 
 for k, v in pairs(globals) do
