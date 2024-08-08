@@ -29,11 +29,11 @@ return function(client, bufnr)
   keymap('n', '<leader>e', '<CMD>Trouble document_diagnostics<CR>', addDescription(bufopts, "Diagnostics location"))
 
   keymap('n', '<leader>f', function()
-    local success, plf = pcall(require, 'plf')
-    if success then
-      plf.format(bufopts)
-    else
+    -- local success, plf = pcall(require, 'plf')
+    -- if success then
+    --   plf.format(bufopts)
+    -- else
       vim.lsp.buf.format({ async = true })
-    end
+    -- end
   end, addDescription(bufopts, "Format code"))
 end

@@ -1,4 +1,6 @@
-return {
-  "hinell/lsp-timeout.nvim",
-  event = "LspAttach"
-}
+-- return {
+--   "hinell/lsp-timeout.nvim",
+--   event = "LspAttach"
+-- }
+
+return {}

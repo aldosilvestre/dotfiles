@@ -86,6 +86,20 @@ return {
           goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
         },
       },
+      refactor = {
+        highlight_definitions = {
+          enable = true,
+          underline = true,
+          severity = vim.diagnostic.severity.INFO,
+        },
+        context_actions = {
+          enable = true,
+          show = true,
+          remove = true,
+          word = true,
+          workspace = true,
+        },
+      },
     },
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then
@@ -130,5 +144,6 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {},
   },
+  { "nvim-treesitter/nvim-treesitter-refactor", event = { "BufReadPost", "BufNewFile", "BufWritePre" } },
   { "hiphish/rainbow-delimiters.nvim", event = { "BufReadPost", "BufNewFile", "BufWritePre" } },
 }

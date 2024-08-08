@@ -62,10 +62,6 @@ map('n', '<leader>nh', '<CMD>Noice history<CR>', addDescription(opts, 'Noice his
 -- NavBuddy
 map('n', '<leader>nb', '<CMD>Navbuddy<CR>', addDescription(opts, 'NavBuddy explorer'))
 
--- Harpoon
-map('n', '<leader>hm', '<CMD>Telescope harpoon marks<CR>', addDescription(opts, 'Show Harpoon marks'))
-map('n', '<leader>ht', function() require("harpoon.mark").toggle_file() end, addDescription(opts, 'Toggle mark harpoon'))
-
 -- Project
 map('n', '<leader>p', '<CMD>Telescope projects<CR>', addDescription(opts, 'Show projects'))
 

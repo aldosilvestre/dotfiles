@@ -3,7 +3,7 @@
 return {
   "supermaven-inc/supermaven-nvim",
   -- ft = servers_config.server_avaliable,
-  event = "VeryLazy",
+  event = "InsertEnter",
   -- cmd = { "SuperMaven" },
   config = function()
     require("supermaven-nvim").setup({
