@@ -1,11 +1,7 @@
 local resources = require 'config.lsp.resources'
--- local server_config = require 'config.lsp.servers'
--- local highlight = require("config.utils").highlight
 
 return {
   'hrsh7th/nvim-cmp', --> Autocompletion plugin
-  -- ft = server_config.server_avaliable,
-  -- event = "LspAttach",
   event = "InsertEnter",
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', --> LSP source for nvim-cmp
@@ -14,7 +10,6 @@ return {
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    -- 'hrsh7th/cmp-git',
     "folke/neodev.nvim",
   },
   config = function()
@@ -22,20 +17,10 @@ return {
     local lspkind = require('lspkind')
     local luasnip = require('luasnip')
 
-    -- lspkind.init({
-    --   symbol_map = {
-    --     Supermaven = "",
-    --   },
-    -- })
-
     vim.fn.sign_define('DiagnosticSignError', { text = resources.signs['error'], texthl = 'DiagnosticSignError' })
     vim.fn.sign_define('DiagnosticSignWarn', { text = resources.signs['warn'], texthl = 'DiagnosticSignWarn' })
     vim.fn.sign_define('DiagnosticSignHint', { text = resources.signs['hint'], texthl = 'DiagnosticSignHint' })
     vim.fn.sign_define('DiagnosticSignInfo', { text = resources.signs['info'], texthl = 'DiagnosticSignInfo' })
-
-    -- vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})
-
-    -- highlight('CmpItemKindSupermaven', '#6CC644')
 
     require "neodev".setup({})
     cmp.setup({

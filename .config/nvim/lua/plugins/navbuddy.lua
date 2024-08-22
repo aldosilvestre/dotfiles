@@ -1,10 +1,7 @@
--- local servers_config = require 'config.lsp.servers'
-
 return {
   { "SmiteshP/nvim-navic" },
   {
     "SmiteshP/nvim-navbuddy",
-    -- ft = servers_config.server_avaliable,
     event = "VeryLazy",
     opts = {
       lsp = {

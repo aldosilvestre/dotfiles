@@ -10,7 +10,7 @@ local options = {
   ignorecase     = true,                    --- Needed for smartcase
   lazyredraw     = false,                   --- Makes macros faster & prevent errors in complicated mappings
   mouse          = "a",                     --- Enable mouse
-  statuscolumn   = '%s%=%{v:relnum==0 ? "" : v:lnum}│%2(%=%{v:relnum==0 ? v:lnum : v:relnum }%)│%T',
+  statuscolumn   = '%s%3(%l%)│%2(%=%{v:relnum==0 ? "" : v:relnum }%#RainbowDelimiterOrange#%{v:relnum==0? "":""}%) ',
   number         = true,                    --- Shows current line number
   relativenumber = true,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge

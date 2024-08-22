@@ -1,10 +1,6 @@
--- local servers_config = require 'config.lsp.servers'
-
 return {
   "supermaven-inc/supermaven-nvim",
-  -- ft = servers_config.server_avaliable,
   event = "InsertEnter",
-  -- cmd = { "SuperMaven" },
   config = function()
     require("supermaven-nvim").setup({
       keymaps = {
