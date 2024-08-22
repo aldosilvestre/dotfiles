@@ -1,8 +1,8 @@
 local options = {
   clipboard      = "unnamed,unnamedplus",   --- Copy-paste between vim and everything else
-  cmdheight      = 1,                       --- Give more space for displaying messages
+  cmdheight      = 0,                       --- Give more space for displaying messages
   completeopt    = "menu,menuone,noselect", --- Better autocompletion
-  cursorline     = true,                   --- Highlight of current line
+  cursorline     = true,                    --- Highlight of current line
   emoji          = true,                    --- Fix emoji display
   expandtab      = true,                    --- Use spaces instead of tabs
   foldlevelstart = 99,                      --- Expand all folds by default
@@ -10,6 +10,7 @@ local options = {
   ignorecase     = true,                    --- Needed for smartcase
   lazyredraw     = false,                   --- Makes macros faster & prevent errors in complicated mappings
   mouse          = "a",                     --- Enable mouse
+  statuscolumn   = '%s%=%{v:relnum==0 ? "" : v:lnum}│%2(%=%{v:relnum==0 ? v:lnum : v:relnum }%)│%T',
   number         = true,                    --- Shows current line number
   relativenumber = true,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge

@@ -23,6 +23,6 @@ return {
       }
     }
     vim.cmd.colorscheme 'fluoromachine'
-    vim.cmd.highlight 'CursorLine guibg=transparent' --> cursorline transparent
+    vim.cmd.highlight 'CursorLine gui=bold,italic guibg=transparent ' --> cursorline transparent
   end
 }
