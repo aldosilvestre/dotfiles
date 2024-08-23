@@ -28,7 +28,7 @@ map('n', '<leader><', '10<C-w><', addDescription(opts, 'Resize Right'))
 map('n', '<leader>;', '$a;<Esc>', addDescription(opts, 'fast add ; end line')) --> set ; final line
 
 -- No highlight
-map('n', '<ESC><ESC>', '<CMD>noh<CR>', addDescription(opts, 'Remove highlight'))
+map('n', '<leader><ESC>', '<CMD>noh<CR>', addDescription(opts, 'Remove highlight'))
 
 -- Lua
 map('n', '<leader>xx', '<CMD>TroubleToggle<CR>', addDescription(opts, 'Trouble toggle'))
