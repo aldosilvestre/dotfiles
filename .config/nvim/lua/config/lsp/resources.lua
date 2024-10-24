@@ -1,12 +1,12 @@
 local M = {}
 
 M.source_mapping = {
-  luasnip = "Snippet",
-  nvim_lsp = "Lsp",
+  Snippets = "Snippet",
+  LSP = "Lsp",
   nvim_lua = "Lua",
   -- supermaven = "SM",
-  path = "Path",
-  buffer = "Buffer",
+  Path = "Path",
+  Buffer = "Buffer",
 }
 
 M.cmp_sources = {

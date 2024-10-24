@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require 'fluoromachine'.setup {
-      glow = true,
+      glow = false,
       theme = 'fluoromachine',
       transparent = 'full',
       overrides = {
@@ -23,6 +23,6 @@ return {
       }
     }
     vim.cmd.colorscheme 'fluoromachine'
-    vim.cmd.highlight 'CursorLine gui=bold,italic guibg=transparent ' --> cursorline transparent
+    vim.cmd.highlight 'CursorLine gui=bold,italic' --> cursorline transparent
   end
 }

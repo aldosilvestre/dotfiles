@@ -31,10 +31,10 @@ map('n', '<leader>;', '$a;<Esc>', addDescription(opts, 'fast add ; end line')) -
 map('n', '<leader><ESC>', '<CMD>noh<CR>', addDescription(opts, 'Remove highlight'))
 
 -- Lua
-map('n', '<leader>xx', '<CMD>TroubleToggle<CR>', addDescription(opts, 'Trouble toggle'))
-map('n', '<leader>xw', '<CMD>TroubleToggle workspace_diagnostics<CR>', addDescription(opts, 'Trouble toggle workspace'))
+-- map('n', '<leader>xx', '<CMD>TroubleToggle<CR>', addDescription(opts, 'Trouble toggle'))
+-- map('n', '<leader>xw', '<CMD>TroubleToggle workspace_diagnostics<CR>', addDescription(opts, 'Trouble toggle workspace'))
 map('n', '<leader>gl', '<CMD>TroubleToggle document_diagnostics<CR>', addDescription(opts, 'Trouble document'))
-map('n', '<leader>xl', '<CMD>TroubleToggle loclist<CR>', addDescription(opts, 'Fast quit'))
+-- map('n', '<leader>xl', '<CMD>TroubleToggle loclist<CR>', addDescription(opts, 'Fast quit'))
 
 -- barbar
 -- Goto buffer in position...
@@ -81,3 +81,7 @@ map('n', '<leader>rn', ':IncRename ', addDescription(opts, 'Lsp variable rename'
 
 -- Hints
 map('n', '<leader>h', '<CMD>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>', addDescription(opts, 'Toggle inlay hints'))
+
+-- Legendary
+map({'n', 'v'}, '<C-p>', '<CMD>Legendary commands<CR>', addDescription(opts, 'Show Legendary'))
+

@@ -1,4 +1,6 @@
-local resources = require 'config.lsp.resources'
+return {}
+
+--[[ local resources = require 'config.lsp.resources'
 
 return {
   'hrsh7th/nvim-cmp', --> Autocompletion plugin
@@ -77,4 +79,4 @@ return {
     })
     require("luasnip.loaders.from_vscode").lazy_load()
   end
-}
+} ]]
