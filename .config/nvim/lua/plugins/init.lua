@@ -6,14 +6,9 @@ return {
   "christoomey/vim-tmux-navigator", --> tmux
   "onsails/lspkind.nvim",           --> icons
   -- 'adelarsq/vim-devicons-emoji', --> Emojis
-  { "stevearc/dressing.nvim", event = "VeryLazy",    config = true },
-  { 'windwp/nvim-autopairs',  event = "InsertEnter", opts = {} }, --> autopairs
-  {
-    "iamcco/markdown-preview.nvim",                               --> markdown preview
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
-  },
-  { "folke/todo-comments.nvim", event = "VeryLazy", config = true },                                         --> TODO coments show
-  { "smjonas/inc-rename.nvim",  event = "VeryLazy", config = function() require("inc_rename").setup() end }, --> incremental rename
+  { "stevearc/dressing.nvim",   event = "VeryLazy",    config = true },
+  { 'windwp/nvim-autopairs',    event = "InsertEnter", opts = {} },                                             --> autopairs
+  { "folke/todo-comments.nvim", event = "VeryLazy",    config = true },                                         --> TODO coments show
+  { "smjonas/inc-rename.nvim",  event = "VeryLazy",    config = function() require("inc_rename").setup() end }, --> incremental rename
+  { "Aasim-A/scrollEOF.nvim",   event = "CursorMoved", config = true }                                          --> fixes scrolloff at end of file
 }

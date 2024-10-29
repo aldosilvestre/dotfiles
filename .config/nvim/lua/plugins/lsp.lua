@@ -10,6 +10,8 @@ return {
       opts = {
         ui = {
           border = "rounded",
+          height = 0.6,
+          width = 0.5,
         },
       },
     },

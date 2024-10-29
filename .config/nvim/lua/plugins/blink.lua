@@ -3,6 +3,9 @@ local resources = require 'config.lsp.resources'
 return {
   'saghen/blink.cmp',
   lazy = false,
+  dependencies = {
+    "rafamadriz/friendly-snippets"
+  },
   version = 'v0.*',
   config = function()
     require("blink.cmp").setup {
@@ -39,8 +42,8 @@ return {
       nerd_font_variant = "normal",
       keymap = {
         accept = "<CR>",
-        scroll_documentation_up = "<C-k>",
-        scroll_documentation_down = "<C-j>",
+        scroll_documentation_up = "<C-b>",
+        scroll_documentation_down = "<C-f>",
         select_next = { "<Tab>", "<Down>" },
         select_prev = { "<S-Tab>", "<Up>" },
       },
@@ -61,6 +64,9 @@ return {
           max_height = 15,
           auto_show_delay_ms = 100,
         },
+        signature_help = {
+          border = "rounded",
+        }
       },
     }
 
