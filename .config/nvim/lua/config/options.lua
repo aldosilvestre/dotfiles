@@ -35,16 +35,21 @@ local options = {
   pumblend       = 0,                       --- Popup blend
 
   -- Neovim defaults
-  autoindent     = true,                  --- Good auto             indent
-  backspace      = "indent,eol,start",    --- Making sure backspace works
-  backup         = false,                 --- Recommended by coc
-  conceallevel   = 0,                     --- Show `` in markdown files
-  encoding       = "utf-8",               --- The encoding displayed
-  errorbells     = false,                 --- Disables sound effect for errors
-  fileencoding   = "utf-8",               --- The encoding written to file
-  incsearch      = true,                  --- Start searching before pressing enter
-  showmode       = false,                 --- Don't show things like -- INSERT -- anymore
-  guicursor      = "i:ver25,n-v-c:hor20", --- Gui cursor
+  autoindent     = true,               --- Good auto             indent
+  backspace      = "indent,eol,start", --- Making sure backspace works
+  backup         = false,              --- Recommended by coc
+  conceallevel   = 0,                  --- Show `` in markdown files
+  encoding       = "utf-8",            --- The encoding displayed
+  errorbells     = false,              --- Disables sound effect for errors
+  fileencoding   = "utf-8",            --- The encoding written to file
+  incsearch      = true,               --- Start searching before pressing enter
+  showmode       = false,              --- Don't show things like -- INSERT -- anymore
+  -- guicursor      = "i:ver25,n-v-c:hor20", --- Gui cursor
+  guicursor      = {
+    "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50",
+    "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+    "sm:block-blinkwait175-blinkoff150-blinkon175",
+  },                                    --- Gui cursor
   smoothscroll   = true
 }
 
