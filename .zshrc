@@ -162,3 +162,4 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+source ~/powerlevel10k/powerlevel10k.zsh-theme

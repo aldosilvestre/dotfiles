@@ -13,45 +13,34 @@ return {
         completion = {
           enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
         },
-        -- providers = {
-        --   lsp = {
-        --     name = "LSP",
-        --     module = "blink.cmp.sources.lsp"
-        --   },
-        --   path = {
-        --     name = "Path",
-        --     module = "blink.cmp.sources.path",
-        --     score_offset = 3
-        --   },
-        --   snippets = {
-        --     name = "Snippets",
-        --     module = "blink.cmp.sources.snippets",
-        --     score_offset = -1
-        --   },
-        --   buffer = {
-        --     name = "Buffer",
-        --     module = "blink.cmp.sources.buffer",
-        --     keyword_length = 3,
-        --     fallback_for = { "lsp" }
-        --   }
-        -- }
       },
       highlight = {
         use_nvim_cmp_as_default = true,
       },
       nerd_font_variant = "normal",
       keymap = {
-        accept = "<CR>",
-        scroll_documentation_up = "<C-b>",
-        scroll_documentation_down = "<C-f>",
-        select_next = { "<Tab>", "<Down>" },
-        select_prev = { "<S-Tab>", "<Up>" },
+        ["<CR>"] = { function(cmp)
+          if cmp.is_in_snippet() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+          'snippet_forward',
+          'fallback'
+        },
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<Tab>'] = { 'select_prev', 'fallback' },
+        ['<S-Tab>'] = { 'select_next', 'fallback' },
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
       },
       windows = {
         autocomplete = {
           border = "rounded",
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          selection = 'auto_insert',
+          selection = 'manual',
           cycle = { from_top = false },
           draw = 'reversed',
         },

@@ -20,13 +20,13 @@ if [[ ! 'pidof polkit-gnome-authentication-agent-1' ]];then
 fi
 
 # Apply themes
-${SCRIPTSDIR}/gtkthemes &
+# ${SCRIPTSDIR}/gtkthemes &
 
 # Lauch notification daemon (mako)
-${SCRIPTSDIR}/notifications &
+# ${SCRIPTSDIR}/notifications &
 
 # Lauch statusbar (waybar)
-${SCRIPTSDIR}/statusbar &
+# ${SCRIPTSDIR}/statusbar &
 
 # Xauthority
 ${SCRIPTSDIR}/xauthority &
@@ -37,6 +37,7 @@ ${SCRIPTSDIR}/xauthority &
 #dropbox &
 #telegram-desktop &
 #discord &
-blueberry-tray & # systray app for BT
-nm-applet --indicator &
-indicator-sound-switcher & # indicator sound source
+# blueberry-tray & # systray app for BT
+# nm-applet --indicator &
+nm-applet &
+# indicator-sound-switcher & # indicator sound source

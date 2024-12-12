@@ -8,11 +8,13 @@ roconf="~/.config/rofi/config.rasi"
 # rofi action
 
 case $1 in
-    d)  r_mode="drun" ;; 
+    d)  r_mode="drun" ;;
     w)  r_mode="window" ;;
+    y)  r_mode="emoji" ;;
     f)  r_mode="filebrowser" ;;
     h)  echo -e "rofilaunch.sh [action]\nwhere action,"
         echo "d :  drun mode"
+        echo "y :  emoji mode"
         echo "w :  window mode"
         echo "f :  filebrowser mode,"
         exit 0 ;;
@@ -40,6 +42,5 @@ icon_override="configuration {icon-theme: \"${icon_override}\";}"
 
 
 # launch rofi
-
 rofi -show $r_mode -theme-str "${fnt_override}" -theme-str "${r_override}" -theme-str "${icon_override}" -config "${roconf}"
 
