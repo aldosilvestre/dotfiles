@@ -9,18 +9,15 @@ return {
   version = 'v0.*',
   config = function()
     require("blink.cmp").setup {
+      appearance = {
+        nerd_font_variant = 'normal'
+      },
       sources = {
-        completion = {
-          enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
-        },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
-      highlight = {
-        use_nvim_cmp_as_default = true,
-      },
-      nerd_font_variant = "normal",
       keymap = {
-        ["<CR>"] = { function(cmp)
-          if cmp.is_in_snippet() then
+        ["<CR>"]    = { function(cmp)
+          if cmp.snippet_active() then
             return cmp.accept()
           else
             return cmp.select_and_accept()
@@ -29,34 +26,30 @@ return {
           'snippet_forward',
           'fallback'
         },
-        ['<Up>'] = { 'select_prev', 'fallback' },
-        ['<Down>'] = { 'select_next', 'fallback' },
-        ['<Tab>'] = { 'select_prev', 'fallback' },
+        ['<Up>']    = { 'select_prev', 'fallback' },
+        ['<Down>']  = { 'select_next', 'fallback' },
+        ['<Tab>']   = { 'select_prev', 'fallback' },
         ['<S-Tab>'] = { 'select_next', 'fallback' },
-        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+        ['<C-b>']   = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>']   = { 'scroll_documentation_down', 'fallback' },
       },
-      windows = {
-        autocomplete = {
-          border = "rounded",
+      completion = {
+        menu = {
+          enabled = true,
+          border = 'rounded',
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          selection = 'manual',
-          cycle = { from_top = false },
-          draw = 'reversed',
         },
-        documentation = {
-          border = "rounded",
-          winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          auto_show = true,
-          min_width = 15,
-          max_width = 50,
-          max_height = 15,
-          auto_show_delay_ms = 100,
-        },
-        signature_help = {
-          border = "rounded",
-        }
       },
+      documentation = {
+        border = "rounded",
+        winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+        auto_show = true,
+        min_width = 15,
+        max_width = 50,
+        max_height = 15,
+        auto_show_delay_ms = 100,
+      },
+      opts_extend = { "sources.default" }
     }
 
     vim.fn.sign_define('DiagnosticSignError', { text = resources.signs['error'], texthl = 'DiagnosticSignError' })

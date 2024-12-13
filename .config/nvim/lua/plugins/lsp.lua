@@ -15,7 +15,8 @@ return {
         },
       },
     },
-    "williamboman/mason-lspconfig.nvim"
+    "williamboman/mason-lspconfig.nvim",
+    'saghen/blink.cmp'
   },
   config = function()
     local lspconfig = require "lspconfig"
@@ -28,6 +29,7 @@ return {
           on_attach = on_attach,
           settings = servers_config.settings[server],
           commands = servers_config.commands[server],
+          capabilities = require('blink.cmp').get_lsp_capabilities(),
           init_options = {
             documentFormatting = true,
             codeAction = true,
