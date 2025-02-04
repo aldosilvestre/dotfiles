@@ -34,22 +34,27 @@ return {
         ['<C-f>']   = { 'scroll_documentation_down', 'fallback' },
       },
       completion = {
+        ghost_text = {
+          enabled = false
+        },
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = true
+          }
+        },
         menu = {
           enabled = true,
           border = 'rounded',
+          -- auto_show = function(ctx) return ctx.mode ~= 'cmdline' end,
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          draw = {
+            treesitter = {
+              'lsp'
+            }
+          }
         },
-      },
-      documentation = {
-        border = "rounded",
-        winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-        auto_show = true,
-        min_width = 15,
-        max_width = 50,
-        max_height = 15,
-        auto_show_delay_ms = 100,
-      },
-      opts_extend = { "sources.default" }
+      }
     }
 
     vim.fn.sign_define('DiagnosticSignError', { text = resources.signs['error'], texthl = 'DiagnosticSignError' })

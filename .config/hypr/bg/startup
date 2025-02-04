@@ -7,12 +7,12 @@
 SCRIPTSDIR=$HOME/.config/hypr/scripts
 
 Kill already running process
-_ps=(waybar mako)
-for _prs in "${_ps[@]}"; do
-	if [[ $(pidof ${_prs}) ]]; then
-		killall -9 ${_prs}
-	fi
-done
+# _ps=(waybar mako)
+# for _prs in "${_ps[@]}"; do
+# 	if [[ $(pidof ${_prs}) ]]; then
+# 		killall -9 ${_prs}
+# 	fi
+# done
 
 # polkit agent
 if [[ ! 'pidof polkit-gnome-authentication-agent-1' ]];then
@@ -23,10 +23,10 @@ fi
 # ${SCRIPTSDIR}/gtkthemes &
 
 # Lauch notification daemon (mako)
-${SCRIPTSDIR}/notifications &
+# ${SCRIPTSDIR}/notifications &
 
 # Lauch statusbar (waybar)
-${SCRIPTSDIR}/statusbar &
+# ${SCRIPTSDIR}/statusbar &
 
 Xauthority
 ${SCRIPTSDIR}/xauthority &
@@ -41,6 +41,6 @@ $HOME/.azotebg-hyprland &
 #telegram-desktop &
 #discord &
 # blueman-applet # systray app for BT
-blueberry-tray & # systray app for BT
-indicator-sound-switcher & # indicator sound source
-nm-applet --indicator & # systray app for Network/Wifi
+# blueberry-tray & # systray app for BT
+# indicator-sound-switcher & # indicator sound source
+# nm-applet --indicator & # systray app for Network/Wifi

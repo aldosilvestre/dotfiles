@@ -6,18 +6,20 @@
 
 SCRIPTSDIR=$HOME/.config/hypr/scripts
 
+# hyprpanel &
+
 # Kill already running process
-_ps=(waybar mako)
-for _prs in "${_ps[@]}"; do
-	if [[ $(pidof ${_prs}) ]]; then
-		killall -9 ${_prs}
-	fi
-done
+# _ps=(waybar mako)
+# for _prs in "${_ps[@]}"; do
+# 	if [[ $(pidof ${_prs}) ]]; then
+# 		killall -9 ${_prs}
+# 	fi
+# done
 
 # polkit agent
-if [[ ! 'pidof polkit-gnome-authentication-agent-1' ]];then
-	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-fi
+# if [[ ! 'pidof polkit-gnome-authentication-agent-1' ]];then
+# 	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# fi
 
 # Apply themes
 # ${SCRIPTSDIR}/gtkthemes &
