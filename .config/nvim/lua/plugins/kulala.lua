@@ -1,23 +1,12 @@
--- HTTP REST-Client Interface
-vim.filetype.add({
-  extension = {
-    ['http'] = 'http',
-  },
-})
-
 return {
-  'mistweaverco/kulala.nvim',
-  event = "VeryLazy",
-  config = function()
-    -- Setup is required, even if you don't pass any options
-    require('kulala').setup({
-      -- default_view, body or headers
-      default_view = "body",
-      -- dev, test, prod, can be anything
-      -- see: https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0#environment-files
-      default_env = "dev",
-      -- enable/disable debug mode
-      debug = false,
-    })
-  end
+  "mistweaverco/kulala.nvim",
+  keys = {
+    { "<leader>rs", function() require('kulala').run() end ,desc = "Send request" },
+    { "<leader>ra", function() require('kulala').run_all() end, desc = "Send all requests" },
+    { "<leader>rb", function() require('kulala').scratchpad() end, desc = "Open scratchpad" },
+  },
+  ft = { "http", "rest" },
+  opts = {
+    global_keymaps = false,
+  },
 }

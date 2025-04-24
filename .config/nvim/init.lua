@@ -1,2 +1,5 @@
 require("before.globals")
+require("before.autocomands")
 require("config")
+require("after.lsp")
+require("after.commands")

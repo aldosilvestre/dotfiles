@@ -7,18 +7,15 @@ local opts = { noremap = true, silent = true }
 map('n', '<leader>q', '<CMD>q<CR>', addDescription(opts, 'Fast quit'))  --> Quit
 map('n', '<leader>w', '<CMD>w<CR>', addDescription(opts, 'Fast write')) --> Save
 
--- Telescope
-map('n', 'ff', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>', addDescription(opts, 'Find Files'))
-map('n', 'fg', '<CMD>Telescope live_grep<CR>', addDescription(opts, 'Find with grep'))
-map('n', 'fb', '<CMD>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>', addDescription(opts, 'Show file browser'))
-map('n', 'fh', '<CMD>Telescope help_tags<CR>', addDescription(opts, 'Find help'))
-map('n', '<leader>u', '<CMD>Telescope undo<CR>', addDescription(opts, 'Undo history'))
-map('n', 'gst', '<CMD>Telescope git_status<CR>', addDescription(opts, 'Git status'))
-map('n', 'gsh', '<CMD>Telescope git_stash<CR>', addDescription(opts, 'Git stash'))
+-- Search
+map('n', 'ff', function() require('snacks').picker.files({ hidden = true }) end, addDescription(opts, 'Find Files'))
+map('n', 'fg', function() require('snacks').picker.grep({ hidden = true }) end, addDescription(opts, 'Find with grep'))
+map('n', 'fh', function() require('snacks').picker.help() end, addDescription(opts, 'Find help'))
+map('n', '<leader>u', function() require('snacks').picker.undo() end, addDescription(opts, 'Undo history'))
+map('n', 'gst', function() require('snacks').picker.git_status() end, addDescription(opts, 'Git status'))
 
--- Neo Tree
-map('n', '<leader>nt', '<CMD>Neotree right<CR>', addDescription(opts, 'Open Neotree'))
-map('n', '<leader>nf', '<CMD>Neotree float<CR>', addDescription(opts, 'Open Neotree float'))
+-- File explorer
+map('n', '<leader>nt', function() require('snacks').explorer() end, addDescription(opts, 'Open Neotree'))
 
 -- Split resize
 map('n', '<leader>>', '10<C-w>>', addDescription(opts, 'Resize Left'))
@@ -33,7 +30,8 @@ map('n', '<leader><ESC>', '<CMD>noh<CR>', addDescription(opts, 'Remove highlight
 -- Lua
 -- map('n', '<leader>xx', '<CMD>TroubleToggle<CR>', addDescription(opts, 'Trouble toggle'))
 -- map('n', '<leader>xw', '<CMD>TroubleToggle workspace_diagnostics<CR>', addDescription(opts, 'Trouble toggle workspace'))
-map('n', '<leader>gl', '<CMD>TroubleToggle document_diagnostics<CR>', addDescription(opts, 'Trouble document'))
+-- map('n', '<leader>gl', '<CMD>TroubleToggle document_diagnostics<CR>', addDescription(opts, 'Trouble document'))
+map('n', '<leader>gl', '<CMD>Trouble diagnostics toggle filter.buf=0<CR>', addDescription(opts, 'Trouble document'))
 -- map('n', '<leader>xl', '<CMD>TroubleToggle loclist<CR>', addDescription(opts, 'Fast quit'))
 
 -- barbar
@@ -63,7 +61,7 @@ map('n', '<leader>nh', '<CMD>Noice history<CR>', addDescription(opts, 'Noice his
 map('n', '<leader>nb', '<CMD>Navbuddy<CR>', addDescription(opts, 'NavBuddy explorer'))
 
 -- Project
-map('n', '<leader>p', '<CMD>Telescope projects<CR>', addDescription(opts, 'Show projects'))
+map('n', '<leader>p', function() require('snacks').picker.projects() end, addDescription(opts, 'Show projects'))
 
 -- Dap
 map('n', '<F10>', '<CMD>DapStepOver<CR>', addDescription(opts, 'Step Over'))
@@ -71,17 +69,20 @@ map('n', '<F11>', '<CMD>DapStepInto<CR>', addDescription(opts, 'Step Into'))
 map('n', '<F12>', '<CMD>DapStepOut<CR>', addDescription(opts, 'Step Out'))
 map('n', '<Leader>dr', '<CMD>DapToggleRepl<CR>', addDescription(opts, 'Dap Toggle Repl'))
 map('n', '<Leader>dl', '<CMD>DapRestartFrame<CR>', addDescription(opts, 'Dap Restart Frame'))
-map({'n', 'v'}, '<Leader>dh', function()require('dap.ui.widgets').hover()end, addDescription(opts, 'Dap Hover'))
-map({'n', 'v'}, '<Leader>dp', function()require('dap.ui.widgets').preview()end, addDescription(opts, 'Dap Preview'))
-map('n', '<Leader>df', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames)end, addDescription(opts, 'Dap Frames'))
-map('n', '<Leader>ds', function()local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes)end, addDescription(opts, 'Dap Scopes'))
+map({ 'n', 'v' }, '<Leader>dh', function() require('dap.ui.widgets').hover() end, addDescription(opts, 'Dap Hover'))
+map({ 'n', 'v' }, '<Leader>dp', function() require('dap.ui.widgets').preview() end, addDescription(opts, 'Dap Preview'))
+map('n', '<Leader>df', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.frames)
+end, addDescription(opts, 'Dap Frames'))
+map('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end, addDescription(opts, 'Dap Scopes'))
 
 -- Rename
-map('n', '<leader>rn', ':IncRename ', addDescription(opts, 'Lsp variable rename'))
-
--- Hints
-map('n', '<leader>h', '<CMD>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>', addDescription(opts, 'Toggle inlay hints'))
+-- map('n', '<leader>rn', require("inc_rename").rename , addDescription(opts, 'Lsp variable rename'))
+map("n", "<leader>rn", function() return ":IncRename " .. vim.fn.expand("<cword>") end, { expr = true })
 
 -- Legendary
-map({'n', 'v'}, '<C-p>', '<CMD>Legendary commands<CR>', addDescription(opts, 'Show Legendary'))
-
+map({ 'n', 'v' }, '<C-p>', '<CMD>Legendary commands<CR>', addDescription(opts, 'Show Legendary'))

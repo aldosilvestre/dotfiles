@@ -1,5 +1,6 @@
-return {
-  "karb94/neoscroll.nvim", --> smooth scroll
-  event = "VeryLazy",
-  opts = {}
-}
+-- return {
+--   "karb94/neoscroll.nvim", --> smooth scroll
+--   event = "VeryLazy",
+--   opts = {}
+-- }
+return {}

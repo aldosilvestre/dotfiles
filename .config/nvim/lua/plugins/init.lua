@@ -9,6 +9,6 @@ return {
   { "stevearc/dressing.nvim",   event = "VeryLazy",    config = true },
   { 'windwp/nvim-autopairs',    event = "InsertEnter", opts = {} },                                             --> autopairs
   { "folke/todo-comments.nvim", event = "VeryLazy",    config = true },                                         --> TODO coments show
-  { "smjonas/inc-rename.nvim",  event = "VeryLazy",    config = function() require("inc_rename").setup() end }, --> incremental rename
-  { "Aasim-A/scrollEOF.nvim",   event = "CursorMoved", config = true }                                          --> fixes scrolloff at end of file
+  { "smjonas/inc-rename.nvim",  event = "VeryLazy",    opts = {} }, --> incremental rename
+  -- { "Aasim-A/scrollEOF.nvim",   event = "CursorMoved", config = true }                                          --> fixes scrolloff at end of file
 }

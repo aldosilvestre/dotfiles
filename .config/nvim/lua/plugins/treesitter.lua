@@ -145,5 +145,5 @@ return {
     opts = {},
   },
   { "nvim-treesitter/nvim-treesitter-refactor", event = { "BufReadPost", "BufNewFile", "BufWritePre" } },
-  { "hiphish/rainbow-delimiters.nvim", event = { "BufReadPost", "BufNewFile", "BufWritePre" } },
+  { "hiphish/rainbow-delimiters.nvim", config = function() require('rainbow-delimiters.setup').setup{} end }
 }

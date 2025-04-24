@@ -66,7 +66,7 @@ M.settings = {
 }
 
 M.commands = {
-  ['tsserver'] = {
+  ['ts_ls'] = {
     OrganizeImports = {
       function()
         local params = {

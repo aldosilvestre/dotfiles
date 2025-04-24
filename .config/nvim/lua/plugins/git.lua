@@ -5,7 +5,7 @@ local opts = { silent = true, noremap = true }
 -- local colbg = "#1c082d"
 
 return {
-  { "kdheepak/lazygit.nvim", event = "VeryLazy" }, --> Manager Git
+  -- { "kdheepak/lazygit.nvim", event = "VeryLazy" }, --> Manager Git
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",

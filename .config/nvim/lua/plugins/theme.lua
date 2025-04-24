@@ -22,6 +22,7 @@ return {
         ['@parameter'] = { italic = true },
       }
     }
+    -- vim.cmd.highlight 'Whitespace guibg=transparent'
     vim.cmd.colorscheme 'fluoromachine'
     vim.cmd.highlight 'CursorLine gui=bold,italic' --> cursorline transparent
   end

@@ -1,4 +1,4 @@
-return {
+--[[ return {
   "LunarVim/bigfile.nvim",
   lazy = false,
   priority = 1000,
@@ -19,4 +19,6 @@ return {
       },
     }
   end
-}
+} ]]
+
+return {}

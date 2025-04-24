@@ -9,49 +9,49 @@ local leftbracket = ""
 local rightbracket = ""
 
 local colors = {
-  bg              = 'transparent',
-  modetext        = '#000000',
-  supermavenicon  = '#72f1b8',
-  supermaveniconbg= '#80199a',
-  supermavenbg    = '#75509a',
-  giticon         = '#FF8800',
-  gitbg           = '#5C2C2E',
-  gittext         = '#C5C5C5',
-  gpsicon         = '#C5C5C5',
-  gpsiconbg       = '#000000',
-  gpsbg           = '#5C00A3',
-  gpstext         = '#C5C5C5',
-  diagerror       = '#F44747',
-  diagwarn        = '#FF8800',
-  diaghint        = '#4FC1FF',
-  diaginfo        = '#FFCC66',
-  lspicon         = '#68AF00',
-  lspbg           = '#304B2E',
-  lsptext         = '#C5C5C5',
-  typeicon        = '#FF8800',
-  typebg          = '#5C2C2E',
-  typetext        = '#C5C5C5',
-  statsicon       = '#9CDCFE',
-  statsbg         = '#5080A0',
-  statstext       = '#000000',
-  lineokfg        = '#000000',
-  lineokbg        = '#5080A0',
-  linelongerrorfg = '#FF0000',
-  linelongwarnfg  = '#FFFF00',
-  linelongbg      = '#5080A0',
-  shortbg         = '#DCDCAA',
-  shorttext       = '#000000',
-  shortrightbg    = '#3F3F3F',
-  shortrighttext  = '#7C4C4E',
-  red             = '#fe4450',
-  yellow          = '#FFCC00',
-  magenta         = '#FC199A',
-  green           = '#72f1b8',
-  orange          = '#ff8b39',
-  purple          = '#AF6DF9',
-  blue            = '#569CD6',
-  cyan            = '#61E2FF',
-  white           = '#FFFFFF'
+  bg               = 'transparent',
+  modetext         = '#000000',
+  supermavenicon   = '#72f1b8',
+  supermaveniconbg = '#80199a',
+  supermavenbg     = '#75509a',
+  giticon          = '#FF8800',
+  gitbg            = '#5C2C2E',
+  gittext          = '#C5C5C5',
+  gpsicon          = '#C5C5C5',
+  gpsiconbg        = '#000000',
+  gpsbg            = '#5C00A3',
+  gpstext          = '#C5C5C5',
+  diagerror        = '#F44747',
+  diagwarn         = '#FF8800',
+  diaghint         = '#4FC1FF',
+  diaginfo         = '#FFCC66',
+  lspicon          = '#68AF00',
+  lspbg            = '#304B2E',
+  lsptext          = '#C5C5C5',
+  typeicon         = '#FF8800',
+  typebg           = '#5C2C2E',
+  typetext         = '#C5C5C5',
+  statsicon        = '#9CDCFE',
+  statsbg          = '#5080A0',
+  statstext        = '#000000',
+  lineokfg         = '#000000',
+  lineokbg         = '#5080A0',
+  linelongerrorfg  = '#FF0000',
+  linelongwarnfg   = '#FFFF00',
+  linelongbg       = '#5080A0',
+  shortbg          = '#DCDCAA',
+  shorttext        = '#000000',
+  shortrightbg     = '#3F3F3F',
+  shortrighttext   = '#7C4C4E',
+  red              = '#fe4450',
+  yellow           = '#FFCC00',
+  magenta          = '#FC199A',
+  green            = '#72f1b8',
+  orange           = '#ff8b39',
+  purple           = '#AF6DF9',
+  blue             = '#569CD6',
+  cyan             = '#61E2FF',
+  white            = '#FFFFFF'
 }
 
 local mode_map = {
@@ -129,9 +129,9 @@ return {
   config = function()
     local gl = require('galaxyline')
     local condition = require('galaxyline.condition')
-    local fileinfo = require'galaxyline.provider_fileinfo'
+    local fileinfo = require 'galaxyline.provider_fileinfo'
 
-    gl.short_line_list = { 'neo-tree', 'vista', 'dbui', 'packer', 'tagbar', '*' }
+    gl.short_line_list = { 'neo-tree', 'vista', 'dbui', 'lazy', 'tagbar', '*' }
     local gls = gl.section
 
 
@@ -144,7 +144,7 @@ return {
           if vim.fn.reg_recording() == '' then
             return ""
           else
-            return ' '
+            return ' '
           end
         end,
         condition = condition.hide_in_width,
@@ -345,7 +345,7 @@ return {
 
 
     -- Supermaven
---[[     table.insert(gls.left, {
+    --[[     table.insert(gls.left, {
       SupermavenIconStart = {
         provider = function() return leftbracket end,
         highlight = { colors.supermaveniconbg, colors.bg }
@@ -399,14 +399,14 @@ return {
 
     -- GPS {{{3
 
-    table.insert(gls.left, {
+    table.insert(gls.mid, {
       GpsStart = {
         provider = function() return leftbracket end,
         highlight = { colors.gpsicon, colors.bg }
       }
     })
 
-    table.insert(gls.left, {
+    table.insert(gls.mid, {
       GpsIcon = {
         provider = function()
           return '  '
@@ -415,16 +415,17 @@ return {
       }
     })
 
-    table.insert(gls.left, {
+    table.insert(gls.mid, {
       GpsMid = {
         provider = function() return rightbracket .. ' ' end,
         highlight = { colors.gpsicon, colors.gpsbg }
       }
     })
 
-    table.insert(gls.left, {
+    table.insert(gls.mid, {
       GpsFile = {
         provider = function()
+          --return require('nvim-gps').get_current_file_path()
           return fileinfo.get_current_file_path() -- vim.fn.expand('%:p'):gsub(vim.fn.getcwd() .. '/', '') .. " "
         end,
         highlight = { colors.gpstext, colors.gpsbg },
@@ -432,7 +433,7 @@ return {
       }
     })
 
-    table.insert(gls.left, {
+    table.insert(gls.mid, {
       GpsEnd = {
         provider = function() return rightbracket .. " " end,
         highlight = { colors.gpsbg, colors.bg }
