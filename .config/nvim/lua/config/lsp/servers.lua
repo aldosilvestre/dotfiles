@@ -65,22 +65,6 @@ M.settings = {
   }
 }
 
-M.commands = {
-  ['ts_ls'] = {
-    OrganizeImports = {
-      function()
-        local params = {
-          command = "_typescript.organizeImports",
-          arguments = { vim.api.nvim_buf_get_name(0) },
-          title = ""
-        }
-        vim.lsp.buf.execute_command(params)
-      end,
-      description = "Organize Imports"
-    }
-  }
-}
-
 M.server_avaliable = {
   "javascript",
   "javascriptreact",

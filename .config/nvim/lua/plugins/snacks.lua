@@ -9,9 +9,8 @@ local picker_opts = {
       jump = { close = true },
 
       layout = {
-        layout = {
-          position = "right"
-        },
+        preset = "right",
+        preview = false,
       }
     },
   },

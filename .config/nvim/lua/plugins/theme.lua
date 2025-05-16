@@ -3,26 +3,35 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    require 'fluoromachine'.setup {
+    -- require 'fluoromachine'.setup {
+    --   glow = false,
+    --   theme = 'fluoromachine',
+    --   transparent = 'full',
+    --   overrides = {
+    --     ['@comment'] = { italic = true },
+    --     ['@conditional'] = { italic = true, bold = true },
+    --     ['@constant'] = { bold = true },
+    --     ['@function'] = { italic = true, bold = false },
+    --     ['@keyword'] = { italic = true, bold = true },
+    --     ['@number'] = { italic = false, bold = false },
+    --     ['@operator'] = { italic = false, bold = false },
+    --     ['@string'] = { italic = false, bold = false },
+    --     ['@type'] = { italic = false, bold = false },
+    --     ['@variable'] = { italic = false, bold = true },
+    --     ['@field'] = { italic = true },
+    --     ['@parameter'] = { italic = true },
+    --   }
+    -- }
+    -- vim.cmd.highlight 'Whitespace guibg=transparent'
+    -- vim.cmd.colorscheme 'fluoromachine'
+    -- vim.cmd.highlight 'CursorLine gui=bold,italic' --> cursorline transparent
+
+    local fm = require 'fluoromachine'
+    fm.setup {
       glow = false,
       theme = 'fluoromachine',
-      transparent = 'full',
-      overrides = {
-        ['@comment'] = { italic = true },
-        ['@conditional'] = { italic = true, bold = true },
-        ['@constant'] = { bold = true },
-        ['@function'] = { italic = true, bold = false },
-        ['@keyword'] = { italic = true, bold = true },
-        ['@number'] = { italic = false, bold = false },
-        ['@operator'] = { italic = false, bold = false },
-        ['@string'] = { italic = false, bold = false },
-        ['@type'] = { italic = false, bold = false },
-        ['@variable'] = { italic = false, bold = true },
-        ['@field'] = { italic = true },
-        ['@parameter'] = { italic = true },
-      }
+      transparent = 'true'
     }
-    -- vim.cmd.highlight 'Whitespace guibg=transparent'
     vim.cmd.colorscheme 'fluoromachine'
     vim.cmd.highlight 'CursorLine gui=bold,italic' --> cursorline transparent
   end
