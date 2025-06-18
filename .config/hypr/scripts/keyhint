@@ -1,2 +1,0 @@
-#!/bin/sh
-kitty -e nvim ~/.config/hypr/cheatsheet.md

@@ -1,9 +1,0 @@
-configuration {
-  display-drun: "Applications:";
-  display-window: "Window:";
-  drun-display-format: "{name}";
-  modi: "window,drun,ssh,run,emoji";
-}
-//@theme "/usr/share/rofi/themes/android_notification.rasi"
-
-@theme "/usr/share/rofi/themes/purple.rasi"

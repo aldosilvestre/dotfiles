@@ -82,9 +82,32 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-history-substring-search zsh-autosuggestions emoji fast-syntax-highlighting docker)
+plugins=(git sudo zsh-history-substring-search zsh-autosuggestions emoji fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+## Plugins section: Enable fish style features
+# Use syntax highlighting
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Use autosuggestion
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Use history substring search
+# source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Use fzf
+# source /usr/share/fzf/key-bindings.zsh
+# source /usr/share/fzf/completion.zsh
+
+
+
+
+eval "$(starship init zsh)"
+function set_win_title(){
+    echo -ne "\033]0; $USER@$HOST:${PWD/$HOME/~} \007"
+}
+precmd_functions+=(set_win_title)
+
 
 # User configuration
 
@@ -121,11 +144,14 @@ function openNvim {
     fi
 }
 alias v=openNvim
-alias ls='lsd'
 
-alias ll='ls -l'
-alias la='ls -la'
-alias lt='ls --tree'
+# alias ls='lsd'
+# alias ll='ls -l'
+# alias la='ls -la'
+# alias lt='ls --tree'
+alias l='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
 
 alias cat='bat'
 alias icat='kitty +kitten icat'
@@ -138,8 +164,10 @@ if [[ -r ~/.zsh-extrarc ]]; then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# source /usr/share/nvm/init-nvm.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -162,4 +190,3 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
