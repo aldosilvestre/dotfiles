@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map('gD', '<CMD>Trouble lsp_outgoing_calls<CR>', "Go to declaration")
     map("gr", "<CMD>Trouble lsp_references<CR>", "Show references")
     map('<leader>e', '<CMD>Trouble diagnostics<CR>', "Diagnostics location")
+    map('<leader>f', vim.lsp.buf.format, "Format")
 
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -72,3 +73,4 @@ vim.lsp.enable('ts_ls')
 vim.lsp.enable('emmet')
 vim.lsp.enable('html')
 vim.lsp.enable('angularls')
+-- vim.lsp.enable('jdtls')

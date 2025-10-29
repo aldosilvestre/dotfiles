@@ -18,7 +18,7 @@ local picker_opts = {
 
 local explorer_opts = {
   enabled = true,
-  replace_netrw = true,
+  replace_netrw = false,
 }
 
 
@@ -78,10 +78,10 @@ return {
       stages = "fade",
       top_down = false
     },
-    quickfile = { enabled = false },
-    scope = { enabled = false },
+    quickfile = { enabled = true },
+    scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = false },
-    words = { enabled = false },
+    words = { enabled = true },
   },
 }

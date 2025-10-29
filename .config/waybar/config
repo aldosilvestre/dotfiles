@@ -56,8 +56,8 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
-    "format": " {:%a %d %b  %I:%M %p}",	//12 hour format
-    //"format": " {:%a %d %b  %H:%M}",	//24 hour format
+    //"format": " {:%a %d %b  %I:%M %p}",	//12 hour format
+    "format": " {:%a %d %b  %H:%M}",	//24 hour format
     "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
     //"max-length": 200
     "interval": 1,
@@ -169,8 +169,8 @@
   },
   // https://github.com/chubin/wttr.in
   "custom/weather": {
-    "exec": "curl 'https://wttr.in/Salta?format=2'",
+    "exec": "curl 'https://wttr.in/Salta?m&format=2'",
     "interval": 900,
-    "on-click": "yad --html --uri='https://wttr.in/Salta' --center --fixed --width=1000 --height=680 --timeout=60 --timeout-indicator=right"
+    "on-click": "yad --html --uri='https://wttr.in/Salta?m' --center --fixed --width=1000 --height=680 --timeout=60 --timeout-indicator=right"
   },
 }

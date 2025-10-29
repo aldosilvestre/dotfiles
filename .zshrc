@@ -156,6 +156,9 @@ alias ls='exa -al --color=always --group-directories-first --icons' # preferred 
 alias cat='bat'
 alias icat='kitty +kitten icat'
 
+alias mvn='/home/aldo/.local/share/JetBrains/Toolbox/apps/intellij-idea-community-edition/plugins/maven/lib/maven3/bin/mvn'
+
+
 # alias npm=pnpm
 
 # Load additional sources
@@ -190,3 +193,9 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+PATH=$PATH:$HOME/.local/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

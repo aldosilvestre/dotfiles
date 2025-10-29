@@ -2,6 +2,7 @@ return {
   { -- QoL features for folding
     "chrisgrieser/nvim-origami",
     event = "VeryLazy",
+    version = "v1.9",
     opts = true,
   },
   { -- use LSP as folding provider
