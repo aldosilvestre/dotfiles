@@ -5,5 +5,6 @@ return {
       border = "rounded"
     }
   },
+  lazy = false,
   config = true
 }

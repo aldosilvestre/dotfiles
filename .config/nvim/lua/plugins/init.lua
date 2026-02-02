@@ -3,8 +3,8 @@ return {
   "nvim-lua/plenary.nvim",
   "MunifTanjim/nui.nvim",
   "nvim-tree/nvim-web-devicons",    --> glyph icons
-  "christoomey/vim-tmux-navigator", --> tmux
-  "onsails/lspkind.nvim",           --> icons
+  {"christoomey/vim-tmux-navigator", lazy = false }, --> tmux navigation
+  {"onsails/lspkind.nvim", lazy = false },           --> icons
   -- 'adelarsq/vim-devicons-emoji', --> Emojis
   { "stevearc/dressing.nvim",   event = "VeryLazy",    config = true },
   { 'windwp/nvim-autopairs',    event = "InsertEnter", opts = {} },                                             --> autopairs

@@ -1,5 +1,7 @@
-return {
-  "rcarriga/nvim-dap-ui",
-  event = "VeryLazy",
-  dependencies = {"mfussenegger/nvim-dap"}
-}
+-- return {
+--   "rcarriga/nvim-dap-ui",
+--   event = "VeryLazy",
+--   dependencies = {"mfussenegger/nvim-dap"}
+-- }
+
+return {}

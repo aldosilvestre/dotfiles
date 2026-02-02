@@ -61,6 +61,7 @@ end
 -- Settings globals
 local globals = {
   mapleader = ' ', --> leader blankspace
+  maplocalleader = ' ',
   loaded_perl_provider = false,
   loaded_python3_provider = 0,
   deprecation_warnings = false,
