@@ -1,8 +1,8 @@
 -- local lombok_path = vim.fn.expand("~/.local/share/nvim/mason/share/lombok-nightly/lombok.jar")
 
-return {
+-- return {
   -- "nvim-java/nvim-java",
-}
+-- }
 
 -- return {
 --   "nvim-java/nvim-java",
@@ -37,4 +37,10 @@ return {
 --       end
 --     },
 --   },
--- }
+return {
+  'nvim-java/nvim-java',
+  config = function()
+    require('java').setup()
+    vim.lsp.enable('jdtls')
+  end,
+}
