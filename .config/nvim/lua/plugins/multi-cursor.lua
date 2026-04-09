@@ -47,7 +47,7 @@ return {
     end)
 
     -- Align cursor columns.
-    vim.keymap.set("n", "<leader>a", mc.alignCursors)
+    vim.keymap.set("n", "<c-a>", mc.alignCursors)
 
     -- Split visual selections by regex.
     vim.keymap.set("v", "S", mc.splitCursors)

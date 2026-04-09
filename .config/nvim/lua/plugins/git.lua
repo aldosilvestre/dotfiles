@@ -3,12 +3,10 @@ local map = vim.keymap.set
 local opts = { silent = true, noremap = true }
 
 return {
-  -- { "kdheepak/lazygit.nvim", event = "VeryLazy" }, --> Manager Git
   {
     "esmuellert/vscode-diff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff"
-
   },
   -- {
   --   "sindrets/diffview.nvim",

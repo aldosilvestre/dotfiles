@@ -11,7 +11,7 @@ local options = {
   ignorecase     = true,                    --- Needed for smartcase
   lazyredraw     = false,                   --- Makes macros faster & prevent errors in complicated mappings
   mouse          = "a",                     --- Enable mouse
-  statuscolumn   = '%s%3(%=%{v:lnum}%)│%2(%=%{v:relnum==0 ? "" : v:relnum }%#RainbowDelimiterOrange#%{v:relnum==0? "":""}%) ',
+  statuscolumn   = '%s%3(%=%{v:lnum}%)│%2(%=%{v:relnum==0 ? "" : v:relnum }%#SpecialKey#%{v:relnum==0? "":""}%) ',
   number         = true,                    --- Shows current line number
   relativenumber = true,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge
@@ -51,7 +51,8 @@ local options = {
     "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
     "sm:block-blinkwait175-blinkoff150-blinkon175",
   },                                    --- Gui cursor
-  smoothscroll   = true
+  smoothscroll   = true,
+  ruler          = false
 }
 
 for k, v in pairs(options) do

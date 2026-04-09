@@ -91,3 +91,44 @@ return {
   },
   opts_extend = { "sources.default" }
 }
+
+-- return {
+--   'saghen/blink.nvim',
+--   build = 'cargo build --release', -- for delimiters
+--   dependencies = {
+--     'saghen/blink.cmp',
+--     'onsails/lspkind.nvim'
+--   },
+--   keys = {
+--     -- chartoggle
+--     {
+--       '<C-;>',
+--       function()
+--         require('blink.chartoggle').toggle_char_eol(';')
+--       end,
+--       mode = { 'n', 'v' },
+--       desc = 'Toggle ; at eol',
+--     },
+--     {
+--       ',',
+--       function()
+--         require('blink.chartoggle').toggle_char_eol(',')
+--       end,
+--       mode = { 'n', 'v' },
+--       desc = 'Toggle , at eol',
+--     },
+--
+--     -- tree
+--     { '<C-e>',     '<cmd>BlinkTree reveal<cr>',       desc = 'Reveal current file in tree' },
+--     { '<leader>E', '<cmd>BlinkTree toggle<cr>',       desc = 'Reveal current file in tree' },
+--     { '<leader>e', '<cmd>BlinkTree toggle-focus<cr>', desc = 'Toggle file tree focus' },
+--   },
+--   -- all modules handle lazy loading internally
+--   lazy = false,
+--   opts = {
+--     chartoggle = { enabled = true },
+--     tree = { enabled = true },
+--     select = { enabled = true },
+--     clue = { enabled = true }
+--   }
+-- }

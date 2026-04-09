@@ -1,4 +1,4 @@
-return {
+local noiceNvim = {
   "folke/noice.nvim",
   event = "VeryLazy",
   dependencies = {
@@ -13,6 +13,9 @@ return {
   },
   config = function()
     require("noice").setup {
+      notify = {
+        enabled = false
+      },
       lsp = {
         enabled = true,
         progress = {
@@ -37,7 +40,6 @@ return {
         signature = {
           enabled = true
         },
-
         documentation = {
           view = "hover",
           opts = {
@@ -78,5 +80,6 @@ return {
     -- vim.cmd.highlight 'NotifyDEBUGBody guibg=transparent'
     -- vim.cmd.highlight 'NotifyTRACEBody guibg=transparent'
   end
-
 }
+
+return noiceNvim

@@ -1,6 +1,6 @@
 return {
   'stevearc/oil.nvim',
-  -- event = 'VeryLazy',
+  event = 'VeryLazy',
   cmd = 'Oil',
   opts = {
     default_file_explorer = false
