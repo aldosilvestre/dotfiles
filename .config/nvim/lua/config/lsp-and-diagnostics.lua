@@ -115,7 +115,7 @@ local function addCodeAndSourceAsSuffix(diag)
 end
 
 vim.diagnostic.config {
-  jump = { float = true }, -- (nvim 0.11)
+--   jump = { float = true }, -- (nvim 0.11)
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = resources.signs['error'],

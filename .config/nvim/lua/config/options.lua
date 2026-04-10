@@ -73,5 +73,41 @@ for k, v in pairs(globals) do
   vim.g[k] = v
 end
 
+
+-- Plugins to disable
+local disabled_builtin_plugins = {
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
+}
+
+-- Prevenir la carga automática
+for _, plugin in ipairs(disabled_builtin_plugins) do
+  vim.g["loaded_" .. plugin] = 1
+end
+
 -- Autocmd commands
 vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]] --> remove spaces from the end of line

@@ -64,13 +64,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.lsp.config("*", {
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
-})
 
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('emmet')
-vim.lsp.enable('html')
-vim.lsp.enable('angularls')
--- vim.lsp.enable('jdtls')
+local capabilities = {
+  textDocument = {
+    foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+    }
+  }
+}
+
+-- vim.lsp.config("*", {
+--   capabilities = require("blink.cmp").get_lsp_capabilities()
+-- })
+-- require('blink.cmp').get_lsp_capabilities()
+
+
+vim.lsp.enable({
+  'lua_ls',
+  'ts_ls',
+  'emmet',
+  'html',
+  'angularls'
+})
