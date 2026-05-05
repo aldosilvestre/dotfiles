@@ -105,17 +105,17 @@ local resources = require 'config.lsp.resources'
 --------------------------------------------------------------------------------
 -- DIAGNOSTICS
 
----@param diag vim.Diagnostic
----@return string displayedText
-local function addCodeAndSourceAsSuffix(diag)
-  if not diag.source then return "" end
-  local source = diag.source:gsub(" ?%.$", "") -- rm trailing dot for lua_ls
-  local code = diag.code and ": " .. diag.code or ""
-  return (" (%s%s)"):format(source, code)
-end
+-- ---@param diag vim.Diagnostic
+-- ---@return string displayedText
+-- local function addCodeAndSourceAsSuffix(diag)
+--   if not diag.source then return "" end
+--   local source = diag.source:gsub(" ?%.$", "") -- rm trailing dot for lua_ls
+--   local code = diag.code and ": " .. diag.code or ""
+--   return (" (%s%s)"):format(source, code)
+-- end
 
 vim.diagnostic.config {
---   jump = { float = true }, -- (nvim 0.11)
+  jump = { float = true }, -- (nvim 0.11)
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = resources.signs['error'],
@@ -124,15 +124,15 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.HINT] = resources.signs['hint'],
     },
   },
-  virtual_text = {
-    severity = { min = vim.diagnostic.severity.WARN }, -- leave out hints & info
-    suffix = addCodeAndSourceAsSuffix,
-  },
-  float = {
-    border = vim.g.borderStyle,
-    max_width = 70,
-    header = "",
-    prefix = function(_, _, total) return (total > 1 and "• " or " "), "Comment" end,
-    suffix = function(diag) return addCodeAndSourceAsSuffix(diag), "Comment" end,
-  },
+--   virtual_text = {
+--     severity = { min = vim.diagnostic.severity.WARN }, -- leave out hints & info
+--     suffix = addCodeAndSourceAsSuffix,
+--   },
+--   float = {
+--     border = vim.g.borderStyle,
+--     max_width = 70,
+--     header = "",
+--     prefix = function(_, _, total) return (total > 1 and "• " or " "), "Comment" end,
+--     suffix = function(diag) return addCodeAndSourceAsSuffix(diag), "Comment" end,
+--   },
 }

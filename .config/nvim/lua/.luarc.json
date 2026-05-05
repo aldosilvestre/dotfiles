@@ -1,12 +1,12 @@
 {
     "diagnostics.globals": [
         "vim",
-        "print_lua",
         "secrets"
     ],
     "diagnostics.disable": [
         "missing-fields",
-        "redundant-parameter"
+        "redundant-parameter",
+        "print_lua"
     ],
     "workspace.checkThirdParty": false
 }

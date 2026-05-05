@@ -1,10 +1,18 @@
-vim.pack.add({
-  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.*') },
+local loaded = false
+
+function load()
+  if loaded then
+    return
+  end
+  loaded = true
+
+  vim.pack.add({
+    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.*') },
     'https://github.com/rafamadriz/friendly-snippets',
     'https://github.com/onsails/lspkind.nvim'
-}, {load = true })
+  }, { confirm = false })
 
-require('blink-cmp').setup{
+  local opts = {
     keymap = {
       preset      = 'none',
       ["<CR>"]    = {
@@ -87,4 +95,11 @@ require('blink-cmp').setup{
       },
     }
   }
-require('blink.cmp').get_lsp_capabilities()
+  require("blink.cmp").setup(opts)
+  require('blink.cmp').get_lsp_capabilities()
+end
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+  once = true,
+  callback = load,
+})

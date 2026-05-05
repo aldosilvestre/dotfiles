@@ -13,6 +13,8 @@ map('n', 'fg', function() require('snacks').picker.grep({ hidden = true }) end, 
 map('n', 'fh', function() require('snacks').picker.help() end, addDescription(opts, 'Find help'))
 map('n', '<leader>u', function() require('snacks').picker.undo() end, addDescription(opts, 'Undo history'))
 map('n', 'gst', function() require('snacks').picker.git_status() end, addDescription(opts, 'Git status'))
+map('n', 'gl',function() require('snacks').lazygit.log_file() end, addDescription(opts, 'Open log current file' ))
+map('n', 'gb', '<CMD>BlameToggle<CR>', addDescription(opts, "Toggle git blame"))
 
 -- File explorer
 map('n', '<leader>nt', function() require('snacks').explorer() end, addDescription(opts, 'Open Neotree'))
@@ -82,7 +84,7 @@ map('n', '<leader>p', function() require('snacks').picker.projects() end, addDes
 
 -- Rename
 -- map('n', '<leader>rn', require("inc_rename").rename , addDescription(opts, 'Lsp variable rename'))
-map("n", "<leader>rn", function() return ":IncRename " .. vim.fn.expand("<cword>") end, { expr = true })
+-- map("n", "<leader>rn", function() return ":IncRename " .. vim.fn.expand("<cword>") end, { expr = true })
 
 -- Legendary
 map({ 'n', 'v' }, '<C-p>', '<CMD>Legendary commands<CR>', addDescription(opts, 'Show Legendary'))

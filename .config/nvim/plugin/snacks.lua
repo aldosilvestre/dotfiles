@@ -73,7 +73,8 @@ require('snacks').setup {
     notifier = {
       enabled = true,
       stages = "fade",
-      top_down = false
+      top_down = false,
+      timeout = 5000
     },
     quickfile = { enabled = true },
     scope = { enabled = true },
